@@ -1,9 +1,25 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans:
+        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-fraunces: "Fraunces", serif;
+
+    --color-b1: #000080;
+    --color-b2: #333399;
+    --color-b3: #6666b3;
+    --color-b4: #9999cc;
+    --color-b5: #cccce6;
+
+    --color-g1: #a67c00;
+    --color-g2: #b89633;
+    --color-g3: #cab066;
+    --color-g4: #dbcb99;
+    --color-g5: #ede5cc;
 }
