@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @extends('layouts.app')
-    @section('title', 'Layanan - Fisio Riswan')
+    <title>@yield('title', 'Fisio Riswan')</title>
 </head>
-@section('content')
-<section>
-    Layanan
-</section>
-@endsection
+<body>
+    @include('components.header_navbar')
+
+    <main>
+        @yield('content')
+    </main>
+
+    @include('components.footer_navbar')
+</body>
 </html>
