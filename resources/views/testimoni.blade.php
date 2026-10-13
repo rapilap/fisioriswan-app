@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,9 @@
     @section('title', 'Testimoni - Fisio Riswan')
 </head>
 @section('content')
-<section>
-    Testimoni
-</section>
+    <section>
+        @include('components.breadcrumb')
+    </section>
 @endsection
+
 </html>
