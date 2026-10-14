@@ -11,7 +11,7 @@
 </head>
 @section('content')
     <section>
-        <div class="w-full h-fit bg-cover bg-center relative px-24">
+        <div class="w-full h-fit bg-cover bg-center relative px-24 pb-10">
             {{-- Section 1 --}}
             @include('components.breadcrumb')
             <h1
@@ -34,7 +34,7 @@
 
         {{-- Section 2 --}}
         <div
-            class="w-full h-auto bg-cover bg-center relative mt-16 px-24 py-4 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]">
+            class="w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]">
             <x-pill>Cara Pesan</x-pill>
             <h1
                 class="text-primary font-fraunces font-semibold

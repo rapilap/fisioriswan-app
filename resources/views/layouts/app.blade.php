@@ -12,7 +12,7 @@
 <body>
     @include('components.header_navbar')
 
-    <main class="flex flex-col pt-8 w-full min-h-screen bg-[#f5f5f5]">
+    <main class="flex flex-col py-20 w-full min-h-screen bg-[#f5f5f5]">
         @yield('content')
     </main>
 
