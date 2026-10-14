@@ -2,7 +2,7 @@
 
 <nav class="bg-white text-[#1b1b18] dark:text-black flex items-center lg:justify-center h-26 flex-col drop-shadow-md">
     {{-- Top --}}
-    <div class="bg-b1 text-white font-normal text-[13px] flex flex-row items-center justify-between py-2 px-8 h-fit w-full transition-opacity opacity-100 duration-750 starting:opacity-0">
+    <div class="bg-b1 text-white font-normal text-[13px] flex flex-row items-center justify-between py-2 px-8 h-fit w-full">
         <div class="flex items-start justify-center gap-4.5">
             <div class="flex items-center justify-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024">
@@ -46,7 +46,7 @@
     </div>
 
     {{-- Bottom --}}
-    <div class="flex items-center justify-between w-full transition-opacity opacity-100 duration-750 lg:grow py-2 px-8 starting:opacity-0">
+    <div class="flex items-center justify-between w-full lg:grow py-2 px-8">
         {{-- Logo --}}
         <a href="{{ route('beranda') }}" class="flex flex-row items-center justify-center gap-2">
             <div class="flex items-center justify-center gap-5 bg-b1 text-white p-2 rounded-md">
@@ -61,7 +61,7 @@
         </a>
 
         {{-- Navigation --}}
-        <div class="flex items-center justify-center gap-5 opacity-100 transition-opacity duration-750 starting:opacity-0">
+        <div class="flex items-center justify-center gap-5">
             <a href="{{ route('beranda') }}" class="{{ request()->routeIs('beranda')
             ? 'text-b1 border-b-2 border-g1'
             : 'text-b4 hover:text-b1' }}"
