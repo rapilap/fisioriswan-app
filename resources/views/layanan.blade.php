@@ -128,6 +128,41 @@
                 </div>
             </div>
         </div>
+
+        {{-- Section 3  --}}
+        <div class="w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3">
+            <x-pill>Layanan Kami</x-pill>
+            <h1
+                class="text-primary font-fraunces font-semibold
+           text-[32px] leading-[1.2]
+           sm:text-[36px]
+           md:text-[40px]
+           lg:text-[45px] lg:leading-[1.1]
+           w-full md:w-[65%] lg:w-[45%]
+           mt-2 mx-2 pb-12 text-center">
+                Pilih pake sesuai kebutuhan pemulihan Anda.
+            </h1>
+
+            <div class="grid grid-cols-1 gap-5
+                    sm:grid-cols-2 lg:grid-cols-3">
+
+                <x-package-card title="Kunjungan Tunggal" price="Rp 199rb" unit="kunjungan" :features="['1x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
+
+                <x-package-card title="Paket Reguler" price="Rp 720rb" unit="4 kunjungan" :features="['4x kunjungan, 45-60 menit', 'Fisioterapis tetap yang sama', 'Evaluasi progres tiap sesi']" />
+
+                <x-package-card title="Paket Intensif" price="Rp 1,35jt" unit="8 kunjungan" :features="['8x kunjungan, 45-60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan']" />
+
+                <x-package-card title="Paket Intensif+" price="Rp 3jt" unit="12 kunjungan" :features="['12x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
+
+                <x-package-card title="Fisioterapi Acara"
+                    description="Pesan Ermaya untuk acara Anda!
+Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda." />
+
+                <x-package-card title="Fisioterapi Wellness"
+                    description="Sering melakukan kegiatan fisik berat? Pesan Ermaya Wellness sebagai fisioterapis pribadi Anda!" />
+
+            </div>
+        </div>
     </section>
 @endsection
 
