@@ -10,7 +10,7 @@
     @section('title', 'Testimoni - Fisio Riswan')
 </head>
 @section('content')
-    <section>
+    <section class="load-in">
         @include('components.breadcrumb')
     </section>
 @endsection
