@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,6 @@ Route::get('/layanan', function () {
     return view('layanan');
 })->name('layanan');
 
-Route::get('/testimoni', function () {
-    return view('testimoni');
-})->name('testimoni');
+Route::get('/testimoni', [
+    TestimonialController::class, 'index'
+])->name('testimoni');
