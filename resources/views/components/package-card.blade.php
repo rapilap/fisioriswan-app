@@ -11,7 +11,7 @@
 <article
     {{ $attributes->class([
         'flex h-[355px] w-[331px] flex-col rounded-xl bg-[var(--color-b1)]
-                                                                             p-7 text-white sm:p-6',
+                                                                                 p-7 text-white sm:p-6',
     ]) }}>
     {{-- Nama paket --}}
     <h3 class="font-fraunces text-lg font-semibold">
