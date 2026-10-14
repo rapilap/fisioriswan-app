@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -22,4 +22,9 @@
     --color-g3: #cab066;
     --color-g4: #dbcb99;
     --color-g5: #ede5cc;
+
+    --color-primary: #1e271f;
+    --color-secondary: #55625a;
+
+    --color-pill: #f3e1d4;
 }
