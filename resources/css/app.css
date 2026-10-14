@@ -28,3 +28,71 @@
 
     --color-pill: #f3e1d4;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+@utility no-scrollbar {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Slider saat digeser mouse: matikan snap & smooth agar mengikuti kursor */
+[data-slider-track].is-dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* Animasi section pertama saat halaman dimuat (murni CSS, tanpa menunggu JS) */
+@keyframes load-in {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.load-in {
+    animation: load-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--load-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .load-in {
+        animation: none;
+    }
+}
+
+/* Animasi muncul saat scroll (hanya aktif jika JS berjalan) */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.7s ease var(--reveal-delay, 0ms),
+        transform 0.7s ease var(--reveal-delay, 0ms),
+        translate 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
