@@ -54,11 +54,11 @@
                 <a href="{{ route('beranda') }}" class="text-white hover:text-b4 transition-all duration-300">
                     Beranda
                 </a>
+                <a href="{{ route('layanan') }}" class="text-white hover:text-b4 transition-all duration-300">
+                    Layanan Kami
+                </a>
                 <a href="{{ route('event') }}" class="text-white hover:text-b4 transition-all duration-300">
                     Event & Kolaborasi
-                </a>
-                <a href="{{ route('layanan') }}" class="text-white hover:text-b4 transition-all duration-300">
-                    Layanan
                 </a>
                 <a href="{{ route('testimoni') }}" class="text-white hover:text-b4 transition-all duration-300">
                     Testimoni
@@ -75,7 +75,7 @@
                     0812381203
                 </span>
                 <span class="text-white">
-                    pulihkan@hayoo.com
+                    ermayaphysio@hayoo.com
                 </span>
                 <span class="text-white">
                     Jl. Jalan dengan Sepatu Rodaku No. 1, Kota Bandung
@@ -86,7 +86,7 @@
 
     <div class="w-full flex flex-col items-start justify-start gap-5 border-t border-b2 mt-6 pt-5">
         <span class="text-white">
-            &copy; 2026 Pulihkan. Seluruh hak cipta dilindungi.
+            &copy; 2026 Ermaya Physio. Seluruh hak cipta dilindungi.
         </span>
     </div>
 </footer>

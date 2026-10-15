@@ -6,7 +6,9 @@
 @if (request()->routeIs('layanan'))
     <span class="mx-2 text-gray-500">Layanan Kami</span>
 @elseif (request()->routeIs('event'))
-    <span class="mx-2 text-gray-500">Event</span>
+    <span class="mx-2 text-gray-500">Event & Kolaborasi</span>
 @elseif (request()->routeIs('testimoni'))
     <span class="mx-2 text-gray-500">Testimoni</span>
+@elseif (request()->routeIs('inputTestimoni'))
+    <span class="mx-2 text-gray-500">Input Testimoni</span>
 @endif
