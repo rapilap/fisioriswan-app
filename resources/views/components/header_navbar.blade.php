@@ -78,16 +78,17 @@
                 Beranda
             </a>
 
-            <a href="{{ route('event') }}"
-                class="{{ request()->routeIs('event') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
-                font-normal text-[13px] transition-colors duration-500>
-                Event
-            </a>
 
             <a href="{{ route('layanan') }}"
                 class="{{ request()->routeIs('layanan') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
                 font-normal text-[13px] transition-colors duration-500>
-                Layanan
+                Layanan Kami
+            </a>
+
+            <a href="{{ route('event') }}"
+                class="{{ request()->routeIs('event') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
+                font-normal text-[13px] transition-colors duration-500>
+                Event & Kolaborasi
             </a>
 
             <a href="{{ route('testimoni') }}"
@@ -99,8 +100,19 @@
 
         {{-- WA Button --}}
         <div>
-            <a href="https://wa.me/62xxxxxxxxxxx?text=halo, chat ini dikirim melalui tombol pada website!%0ANama: [Nama]"
-                target="_blank"
+            @php
+                $message =
+                    "Halo, saya tertarik dengan paket *Isi nama paket Anda!*\n" .
+                    "\nMohon isi data diri di bawah ini dengan benar dan teliti untuk pemesanan: \n" .
+                    "Nama Lengkap: \n" .
+                    "Alamat Lengkap: \n" .
+                    "Tanggal Mulai (Contoh: DD/MM/YYYY): \n" .
+                    "Waktu Mulai (Contoh: HH:MM): \n" .
+                    "\nTerima kasih, saya menunggu konfirmasi dari Anda.";
+                $whatsappUrl = 'https://wa.me/' . config('services.whatsapp.number') . '?text=' . urlencode($message);
+            @endphp
+
+            <a href="{{ $whatsappUrl }}" target="_blank"
                 class="inline-flex items-center gap-2 rounded-3xl bg-b1 px-4 py-2 text-white transition hover:opacity-90">
                 <span class="font-normal text-[13px]">Booking Via</span>
                 <div class="text-[#25D366] flex items-center justify-center gap-1">

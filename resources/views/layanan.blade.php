@@ -10,8 +10,8 @@
     @section('title', 'Layanan - Fisio Riswan')
 </head>
 @section('content')
-    <section class="load-in" style="--load-delay: 100ms">
-        <div class="w-full h-fit bg-cover bg-center relative px-24 pb-10">
+    <section>
+        <div class="load-in w-full h-fit bg-cover bg-center relative px-24 pb-10 " style="--load-delay: 100ms">
             {{-- Section 1 --}}
             @include('components.breadcrumb')
             <h1
@@ -33,8 +33,9 @@
         </div>
 
         {{-- Section 2 --}}
-        <div
-            class="reveal w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]">
+        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]"
+            style="--load-delay: 200ms">
+
             <x-pill>Cara Pesan</x-pill>
             <h1
                 class="text-primary font-fraunces font-semibold
@@ -130,8 +131,9 @@
         </div>
 
         {{-- Section 3  --}}
-        <div
-            class="reveal w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3">
+        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3"
+            style="--load-delay: 300ms">
+
             <x-pill>Layanan Kami</x-pill>
             <h1
                 class="text-primary font-fraunces font-semibold
@@ -144,7 +146,7 @@
                 Pilih pake sesuai kebutuhan pemulihan Anda.
             </h1>
 
-            <div class="grid grid-cols-1 gap-5
+            <div class="reveal grid grid-cols-1 gap-5
                     sm:grid-cols-2 lg:grid-cols-3">
 
                 <x-package-card title="Kunjungan Tunggal" price="Rp 199rb" unit="kunjungan" :features="['1x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
