@@ -51,11 +51,14 @@
                 terbaik.
             </p>
 
-            <div class="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="columns-1 justify-items-center gap-6 sm:columns-2 lg:columns-3">
                 @forelse ($testimonials as $item)
-                    <x-testimonial-card :full-name="$item->fullname" :city="$item->city" :image="$item->image ? asset('storage/' . $item->image) : null" :testimonial="$item->testimonial" />
+                    <div class="reveal mb-5 break-inside-avoid">
+                        <x-testimonial-card :fullname="$item->fullname" :city="$item->city" :image="$item->image" :testimonial="$item->testimonial" />
+                    </div>
                 @empty
-                    <p class="col-span-full text-center text-gray-500">
+                    <p class="col-span-full
+                        text-center text-gray-500">
                         Belum ada testimoni yang tersedia.
                     </p>
                 @endforelse
