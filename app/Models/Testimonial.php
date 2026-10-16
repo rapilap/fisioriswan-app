@@ -11,6 +11,11 @@ class Testimonial extends Model
         'city',
         'image',
         'testimonial',
+        'rating',
         'status',
+    ];
+
+    protected $casts = [
+        'rating' => 'integer',
     ];
 }

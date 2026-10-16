@@ -1,71 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Testimoni - Fisio Riswan')
+@section('main_class', 'py-0')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @extends('layouts.app')
-    @section('title', 'Testimoni - Fisio Riswan')
-</head>
 @section('content')
-    <section>
-        <div class=" w-full h-fit bg-cover bg-center relative px-24 pb-10">
-            {{-- Section 1 --}}
-            @include('components.breadcrumb')
-            <h1
-                class="text-primary font-fraunces font-semibold
-           text-[32px] leading-[1.1]
-           sm:text-[36px]
-           md:text-[40px]
-           lg:text-[45px] lg:leading-[1.1]
-           w-full md:w-[70%] lg:w-[50%]
-           mt-2 mx-2">
-                Apa komentar setelah pasien menjalani fisioterapi di Ermaya Physio?
-            </h1>
-
-            <p class="text-secondary text-lg mt-2 mx-2 w-[75%]">
-                Ulasan seputar layanan fisioterapi bersama tim fisioterapis Ermaya Physio.
-            </p>
+    {{-- 1. Hero --}}
+    <section class="bg-cream px-6 pt-18 pb-22">
+        <div class="mx-auto max-w-6xl">
+            <div class="load-in mb-6">
+                @include('components.breadcrumb')
+            </div>
+            <div class="load-in" style="--load-delay: 100ms">
+                <h1 class="max-w-[700px] font-fraunces text-[34px] font-semibold leading-[1.1] text-primary md:text-[48px]">
+                    Apa Komentar Setelah Pasien Menjalani Fisioterapi?
+                </h1>
+                <p class="mt-5 max-w-[380px] text-[18px] leading-[1.75] text-secondary">
+                    Ulasan seputar layanan fisioterapi bersama tim fisioterapis Pulihkan.
+                </p>
+            </div>
         </div>
+    </section>
 
-        {{-- Section 2 --}}
-        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]"
-            style="--load-delay: 100ms">
-            <x-pill>
-                Testimoni
-            </x-pill>
-            <h1
-                class="text-primary font-fraunces font-semibold
-           text-[32px] leading-[1.2]
-           sm:text-[36px]
-           md:text-[40px]
-           lg:text-[45px] lg:leading-[1.1]
-           w-full md:w-[65%] lg:w-[45%]
-           mt-2 mx-2 text-center">
-                Ini kata pasien!
-            </h1>
-            <p class="flex items-center justify-center text-secondary text-center text-md mt-2 mx-2 w-[50%]">
-                Setiap ulasan pasien menjadi motivasi dan pembelajaran bagi kami untuk terus memberikan layanan yang
-                terbaik.
-            </p>
+    {{-- 2. Daftar testimoni --}}
+    <section class="bg-sage px-6 pt-5 pb-16">
+        <div class="mx-auto max-w-6xl">
+            <div class="reveal text-center">
+                <x-pill>Testimoni</x-pill>
+                <h2 class="mt-2 font-fraunces text-[28px] font-semibold leading-tight text-primary">Ini Kata Pasien!</h2>
+                <p class="mx-auto mt-1.5 max-w-[480px] text-[15px] leading-relaxed text-secondary">
+                    Setiap ulasan pasien menjadi motivasi dan pembelajaran bagi kami untuk terus memberikan layanan
+                    yang terbaik.
+                </p>
+            </div>
 
-            <div class="columns-1 justify-items-center gap-6 sm:columns-2 lg:columns-3">
+            <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @forelse ($testimonials as $item)
-                    <div class="reveal mb-5 break-inside-avoid">
-                        <x-testimonial-card :fullname="$item->fullname" :city="$item->city" :image="$item->image" :testimonial="$item->testimonial" />
-                    </div>
+                    <x-testimonial-card class="reveal" style="--reveal-delay: {{ ($loop->index % 3) * 80 }}ms"
+                        :fullname="$item->fullname" :city="$item->city" :image="$item->image"
+                        :testimonial="$item->testimonial" :rating="$item->rating" />
                 @empty
-                    <p class="col-span-full
-                        text-center text-gray-500">
+                    <p class="col-span-full rounded-[20px] border border-line bg-white px-6 py-16 text-center text-[15px] text-secondary">
                         Belum ada testimoni yang tersedia.
                     </p>
                 @endforelse
+            </div>
 
+            <div class="mt-2">
+                {{ $testimonials->links('pagination.circles') }}
+            </div>
+
+            {{-- CTA --}}
+            <div class="reveal mt-16 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-14 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h2 class="font-fraunces text-[38px] font-semibold leading-[1.15]">Pernah terapi bersama kami?</h2>
+                    <p class="mt-3 max-w-[600px] text-[16px] leading-relaxed text-b5">
+                        Buat ulasan Anda agar dapat membantu meyakinkan pasien lain untuk memilih layanan fisioterapi
+                        Pulihkan.
+                    </p>
+                </div>
+                <a href="{{ route('inputTestimoni') }}"
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-[14px] font-semibold text-white transition hover:bg-g2">
+                    Berikan Ulasan Anda di sini!
+                </a>
             </div>
         </div>
     </section>
 @endsection
-
-</html>

@@ -1,42 +1,35 @@
-@props(['fullname' => 'User', 'city' => '', 'image' => null, 'testimonial' => null])
+@props(['fullname' => 'User', 'city' => '', 'image' => null, 'testimonial' => null, 'rating' => 5])
 
-<article {{ $attributes->class(['flex h-fit w-[331px] flex-col rounded-xl bg-white p-7 sm:p-6 drop-shadow-lg']) }}>
+<article {{ $attributes->class(['flex w-full flex-col rounded-[20px] border border-line bg-white p-7']) }}>
 
-    {{-- Gambar testimoni --}}
-    @if ($image)
-        <img src="{{ asset('storage/' . $image) }}" alt="{{ $fullname }}"
-            class="h-full w-full object-cover rounded-lg mb-4" />
-    @endif
+    {{-- Foto testimoni (opsional) --}}
+    <div class="relative h-[205px] overflow-hidden rounded-[20px] border border-line bg-linear-to-br from-photo-from to-photo-to">
+        <div class="absolute inset-0 flex items-center justify-center text-[#8a9a90]">
+            @include('components.icon', ['name' => 'image', 'class' => 'w-13 h-13', 'stroke' => 1.5])
+        </div>
+        <span class="absolute bottom-4 left-4 text-[12px] font-medium text-[#8a9a90]">Tanpa foto</span>
+        @if ($image)
+            <img src="{{ asset('storage/' . $image) }}" alt="Foto dari {{ $fullname }}" loading="lazy"
+                onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover">
+        @endif
+    </div>
 
     {{-- Rating bintang --}}
-    <div class="flex gap-1 text-lg leading-none text-g1" aria-label="5 dari 5 bintang">
-        @for ($i = 0; $i < 5; $i++)
-            <span aria-hidden="true">★</span>
-        @endfor
-    </div>
+    <x-rating-stars :rating="$rating" class="mt-3" />
 
     {{-- Isi testimoni --}}
-    <p class="mt-2 mb-5 text-md leading-relaxed text-secondary">
+    <p class="mt-2.5 line-clamp-4 min-h-[106px] text-[16px] leading-relaxed text-primary">
         “{{ $testimonial }}”
     </p>
-    <div class="flex items-center gap-3">
 
-        {{-- Foto atau inisial nama --}}
-        <x-pill-icon>
+    {{-- Nama dan kota --}}
+    <div class="mt-9 flex items-center gap-3">
+        <span class="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-pill font-fraunces text-[16px] font-bold text-g1">
             {{ mb_strtoupper(mb_substr(trim($fullname), 0, 1)) }}
-        </x-pill-icon>
-
-
-        {{-- Nama dan kota --}}
+        </span>
         <div class="min-w-0">
-            <h3 class="truncate font-semibold text-gray-900">
-                {{ $fullname }}
-            </h3>
-
-            <p class="text-sm text-gray-500">
-                {{ $city }}
-            </p>
+            <h3 class="truncate text-[14px] font-semibold text-primary">{{ $fullname }}</h3>
+            <p class="truncate text-[13px] text-secondary">{{ $city }}</p>
         </div>
     </div>
-
 </article>

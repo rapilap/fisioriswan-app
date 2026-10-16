@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -10,24 +9,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('testimonials', function (Blueprint $table) {
-            $table->string('fullname');
-            $table->string('city');
-            $table->string('image')->nullable();
-            $table->text('testimonial');
-            $table->string('status')->default('pending');
+            // Testimoni lama otomatis bernilai 5 bintang.
+            $table->unsignedTinyInteger('rating')->default(5)->after('testimonial');
         });
     }
 
     public function down(): void
     {
         Schema::table('testimonials', function (Blueprint $table) {
-            $table->dropColumn([
-                'fullname',
-                'city',
-                'image',
-                'testimonial',
-                'status',
-            ]);
+            $table->dropColumn('rating');
         });
     }
 };
