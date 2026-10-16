@@ -1,4 +1,4 @@
-<footer class="bg-b1 pt-20 pb-10 px-30 overflow-x-hidden text-white text-[14px] flex flex-col">
+<footer class="bg-b1 pt-20 pb-10 px-[max(1.5rem,calc((100%-72rem)/2))] overflow-x-hidden text-white text-[14px] flex flex-col">
     <div class="w-full flex flex-col items-start justify-start gap-5 lg:flex-row lg:justify-between">
         <div class="flex flex-col justify-start gap-5 items-start w-[50%]">
             <div class="flex flex-col items-start justify-start gap-3">

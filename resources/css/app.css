@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -6,7 +7,7 @@
 
 @theme {
     --font-sans:
-        "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Inter", "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --font-fraunces: "Fraunces", serif;
@@ -27,6 +28,16 @@
     --color-secondary: #55625a;
 
     --color-pill: #f3e1d4;
+    --color-danger: #9b2226;
+
+    /* Latar section & placeholder foto (diukur dari desain) */
+    --color-cream: #fbf8f2;
+    --color-sage: #f4f6f1;
+    --color-sage-deep: #e8ede3;
+    --color-line: #d9e0d3;
+    --color-pill-green: #e1e9e0;
+    --color-photo-from: #dce6dd;
+    --color-photo-to: #e5ebe2;
 }
 
 html {
@@ -47,6 +58,42 @@ html {
     scroll-behavior: auto;
     cursor: grabbing;
     user-select: none;
+}
+
+/* Pemilih rating bintang di formulir. Urutan DOM 5→1 dengan row-reverse,
+   sehingga "~" menyorot bintang yang dipilih beserta bintang di kirinya. */
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 0.25rem;
+}
+
+.star-rating input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    color: var(--color-line);
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.star-rating label:hover {
+    transform: scale(1.1);
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: var(--color-g1);
+}
+
+.star-rating input:focus-visible + label {
+    outline: 2px solid var(--color-b1);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Animasi section pertama saat halaman dimuat (murni CSS, tanpa menunggu JS) */

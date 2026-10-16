@@ -1,11 +1,20 @@
-{{-- Foto dengan placeholder: taruh file gambar di public/{{ $src }}
-     Opsi: 'load' => true untuk animasi saat halaman dimuat (section pertama), 'delay' => ms --}}
-<div class="{{ ($load ?? false) ? 'load-in' : 'reveal' }} relative overflow-hidden rounded-3xl bg-b5/40 {{ $class ?? '' }}"
+{{-- Bingkai foto dengan placeholder. Taruh file gambar di public/{{ $src }}
+     Opsi: icon, caption, class (ukuran), radius, iconClass,
+           load => true (animasi saat halaman dimuat), delay => ms, reveal => false --}}
+@php
+    $anim = ($load ?? false) ? 'load-in' : (($reveal ?? true) ? 'reveal' : '');
+@endphp
+<div class="{{ $anim }} relative overflow-hidden {{ $radius ?? 'rounded-3xl' }} border border-line bg-linear-to-br from-photo-from to-photo-to {{ $class ?? '' }}"
+    title="Letakkan foto di public/{{ $src }}"
     @if ($load ?? false) style="--load-delay: {{ $delay ?? 0 }}ms" @endif>
-    <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-b3">
-        @include('components.icon', ['name' => 'image', 'class' => 'w-10 h-10', 'stroke' => 1.5])
-        <span class="text-[12px]">public/{{ $src }}</span>
+    <div class="absolute inset-0 flex items-center justify-center text-g3">
+        @include('components.icon', [
+            'name' => $icon ?? 'image',
+            'class' => $iconClass ?? 'w-16 h-16',
+            'stroke' => 1.5,
+        ])
     </div>
+    <span class="absolute left-4 bottom-4 text-[12px] font-medium text-g3">{{ $caption ?? $alt }}</span>
     <img src="{{ asset($src) }}" alt="{{ $alt }}" loading="lazy" onerror="this.remove()"
-        class="relative w-full h-full object-cover">
+        class="absolute inset-0 w-full h-full object-cover">
 </div>
