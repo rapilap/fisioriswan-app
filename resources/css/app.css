@@ -143,3 +143,22 @@ html {
         transition: none;
     }
 }
+
+/* Scrollbar tipis untuk daftar yang bisa digulir (mis. event mendatang) */
+.thin-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-b4) transparent;
+}
+
+.thin-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+    background: var(--color-b4);
+    border-radius: 999px;
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}

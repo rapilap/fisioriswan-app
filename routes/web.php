@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventAdminController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventHighlightAdminController;
 use App\Http\Controllers\TestimonialAdminController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
@@ -31,9 +34,7 @@ $beranda = function () {
 Route::get('/', $beranda);
 Route::get('/beranda', $beranda)->name('beranda');
 
-Route::get('/event', function () {
-    return view('event');
-})->name('event');
+Route::get('/event', [EventController::class, 'index'])->name('event');
 
 Route::get('/layanan', function () {
     return view('layanan');
@@ -55,4 +56,32 @@ Route::prefix('admin/testimoni')
         Route::get('/pending', 'pending')->name('pending');
         Route::patch('/{testimonial}/approve', 'approve')->name('approve');
         Route::delete('/{testimonial}', 'destroy')->name('destroy');
+    });
+
+// Admin: kelola event mendatang (hasil kolaborasi)
+// TODO: bungkus dengan middleware auth setelah login admin tersedia
+Route::prefix('admin/event')
+    ->name('admin.event.')
+    ->controller(EventAdminController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{event}/edit', 'edit')->name('edit');
+        Route::put('/{event}', 'update')->name('update');
+        Route::delete('/{event}', 'destroy')->name('destroy');
+    });
+
+// Admin: kelola "Sorotan event sebelumnya"
+// TODO: bungkus dengan middleware auth setelah login admin tersedia
+Route::prefix('admin/sorotan')
+    ->name('admin.sorotan.')
+    ->controller(EventHighlightAdminController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{highlight}/edit', 'edit')->name('edit');
+        Route::put('/{highlight}', 'update')->name('update');
+        Route::delete('/{highlight}', 'destroy')->name('destroy');
     });

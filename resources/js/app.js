@@ -92,3 +92,40 @@ document.querySelectorAll('[data-slider]').forEach((slider) => {
     buildDots();
     update();
 });
+
+// Daftar yang hanya menampilkan N item pertama, sisanya digulir di dalam daftar.
+// <div data-scroll-limit="3"> <div data-scroll-list>...item...</div> <p data-scroll-hint>...</p> </div>
+document.querySelectorAll('[data-scroll-limit]').forEach((box) => {
+    const limit = parseInt(box.dataset.scrollLimit, 10);
+    const list = box.querySelector('[data-scroll-list]');
+    const hint = box.querySelector('[data-scroll-hint]');
+    if (!list || !limit) return;
+
+    // Tinggi = jumlah tinggi N item pertama + jarak antar item + padding daftar
+    const fit = () => {
+        const items = [...list.children];
+        if (items.length <= limit) {
+            list.style.maxHeight = '';
+            return;
+        }
+        const style = getComputedStyle(list);
+        const gap = parseFloat(style.rowGap) || 0;
+        const pad = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        const tinggi = items.slice(0, limit).reduce((sum, el) => sum + el.offsetHeight, 0);
+        list.style.maxHeight = `${Math.ceil(tinggi + gap * (limit - 1) + pad)}px`;
+    };
+
+    // Petunjuk "gulir" hilang setelah pengunjung sampai di dasar daftar
+    const updateHint = () => {
+        if (!hint) return;
+        const habis = list.scrollTop + list.clientHeight >= list.scrollHeight - 4;
+        hint.classList.toggle('opacity-0', habis);
+    };
+
+    fit();
+    updateHint();
+    list.addEventListener('scroll', updateHint, { passive: true });
+    window.addEventListener('resize', () => { fit(); updateHint(); });
+    // Font web bisa mengubah tinggi kartu setelah dimuat
+    document.fonts?.ready.then(() => { fit(); updateHint(); });
+});

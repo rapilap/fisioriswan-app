@@ -1,8 +1,11 @@
 {{-- Navbar khusus admin. Dipakai oleh layouts/admin.blade.php --}}
 @php
+    // 'match' = pola route yang menandai menu aktif (default: route itu sendiri)
     $menu = [
         ['label' => 'Daftar Testimoni', 'route' => 'admin.testimoni.index'],
         ['label' => 'Testimoni Pending', 'route' => 'admin.testimoni.pending'],
+        ['label' => 'Event', 'route' => 'admin.event.index', 'match' => 'admin.event.*'],
+        ['label' => 'Sorotan Event', 'route' => 'admin.sorotan.index', 'match' => 'admin.sorotan.*'],
     ];
 @endphp
 
@@ -17,9 +20,9 @@
         </a>
 
         {{-- Menu --}}
-        <nav aria-label="Menu admin" class="flex items-center gap-12 lg:ml-44">
+        <nav aria-label="Menu admin" class="flex flex-wrap items-center gap-x-8 gap-y-2 lg:ml-16 xl:gap-x-10">
             @foreach ($menu as $item)
-                @php $aktif = request()->routeIs($item['route']); @endphp
+                @php $aktif = request()->routeIs($item['match'] ?? $item['route']); @endphp
                 <a href="{{ route($item['route']) }}" @if ($aktif) aria-current="page" @endif
                     class="border-b-2 pb-0.5 text-[15px] font-medium transition-colors
                     {{ $aktif ? 'border-g1 text-b1' : 'border-transparent text-b4 hover:text-b1' }}">
