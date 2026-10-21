@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\EventAdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventHighlightAdminController;
@@ -46,11 +47,27 @@ Route::post('/testimoni', [TestimonialController::class, 'store'])
     ->middleware('throttle:5,1') // batasi 5 kiriman per menit per pengunjung
     ->name('testimoni.store');
 
-// Admin: kelola testimoni
+// Admin
+Route::get('/admin/login', [
+    AdminAuthController::class,
+    'showLogin',
+])->name('admin.login');
+
+Route::post('/admin/login', [
+    AdminAuthController::class,
+    'login',
+])->middleware('throttle:5,1')->name('admin.login.submit');
+
+Route::post('/admin/logout', [
+    AdminAuthController::class,
+    'logout',
+])->middleware('auth')->name('admin.logout');
+
 // TODO: bungkus dengan middleware auth setelah login admin tersedia
 Route::prefix('admin/testimoni')
     ->name('admin.testimoni.')
     ->controller(TestimonialAdminController::class)
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/pending', 'pending')->name('pending');
@@ -63,6 +80,7 @@ Route::prefix('admin/testimoni')
 Route::prefix('admin/event')
     ->name('admin.event.')
     ->controller(EventAdminController::class)
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -77,6 +95,7 @@ Route::prefix('admin/event')
 Route::prefix('admin/sorotan')
     ->name('admin.sorotan.')
     ->controller(EventHighlightAdminController::class)
+    ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');

@@ -33,9 +33,13 @@
 
         {{-- Sign out --}}
         {{-- TODO: ganti dengan form POST logout saat autentikasi admin sudah ada --}}
-        <a href="{{ route('beranda') }}"
-            class="ml-auto inline-flex items-center rounded-full bg-b1 px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90">
-            Sign Out
-        </a>
+        <form action="{{ route('admin.logout') }}" method="POST"
+            class="ml-auto inline-flex items-center rounded-full bg-b1 px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer">
+            @csrf
+            <button type="submit" class="cursor-pointer">
+
+                Sign Out
+            </button>
+        </form>
     </div>
 </header>
