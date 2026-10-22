@@ -11,11 +11,12 @@
 </head>
 @section('content')
     <section>
-        <div class="load-in w-full h-fit bg-cover bg-center relative px-24 pb-10 " style="--load-delay: 100ms">
+        <div class="bg-(--bg-primary) load-in w-full h-fit bg-cover bg-center relative px-24 pb-10 "
+            style="--load-delay: 100ms">
             {{-- Section 1 --}}
             @include('components.breadcrumb')
             <h1
-                class="text-primary font-fraunces font-semibold
+                class="text-(--text-title) font-fraunces font-semibold
            text-[32px] leading-[1.1]
            sm:text-[36px]
            md:text-[40px]
@@ -25,7 +26,7 @@
                 Perawatan kesehatan yang mendekat ke rumah Anda.
             </h1>
 
-            <p class="text-secondary text-lg mt-2 mx-2 w-[75%]">
+            <p class="text-(--text-paragraph) text-lg mt-2 mx-2 w-[75%]">
                 Pulihkan berdiri untuk memastikan setiap orang bisa mendapat perawatan
                 fisioterapi yang nyaman dan praktis — tanpa antrean panjang, tanpa harus
                 ke klinik, dan tanpa proses yang rumit.
@@ -33,11 +34,11 @@
         </div>
 
         {{-- Section 2 --}}
-        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-[#FBF8F2]"
+        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-(--bg-secondary)"
             style="--load-delay: 200ms">
             <x-pill>Cara Pesan</x-pill>
             <h1
-                class="text-primary font-fraunces font-semibold
+                class="text-(--text-primary) font-fraunces font-semibold
            text-[32px] leading-[1.2]
            sm:text-[36px]
            md:text-[40px]
@@ -49,7 +50,7 @@
             {{-- Card --}}
             <div class="w-full h-55 flex flex-col items-start justify-start gap-5 mt-10 lg:flex-row lg:gap-10">
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-white p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -58,13 +59,13 @@
                                 stroke="#B89633" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </x-pill-icon>
-                    <span class="text-primary font-fraunces text-xl font-semibold">Konsultasi</span>
-                    <p class="text-secondary text-lg">
+                    <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Konsultasi</span>
+                    <p class="text-(--text-secondary) text-lg">
                         Lakukan konsultasi penyakit dengan Kami melalui chat WhatsApp.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-white p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -83,13 +84,13 @@
                         </svg>
 
                     </x-pill-icon>
-                    <span class="text-primary font-fraunces text-xl font-semibold">Konfirmasi Waktu</span>
-                    <p class="text-secondary text-lg">
+                    <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Konfirmasi Waktu</span>
+                    <p class="text-(--text-secondary) text-lg">
                         Konfirmasi jadwal kunjungan dengan Kami.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-white p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -99,13 +100,13 @@
                         </svg>
 
                     </x-pill-icon>
-                    <span class="text-primary font-fraunces text-xl font-semibold">Pembayaran</span>
-                    <p class="text-secondary text-lg">
+                    <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Pembayaran</span>
+                    <p class="text-(--text-secondary) text-lg">
                         Lakukan pembayaran secara digital melalui QRIS atau transfer bank.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-white p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -121,8 +122,8 @@
                         </svg>
 
                     </x-pill-icon>
-                    <span class="text-primary font-fraunces text-xl font-semibold">Sesi Terapi</span>
-                    <p class="text-secondary text-lg">
+                    <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Sesi Terapi</span>
+                    <p class="text-(--text-secondary) text-lg">
                         Tunggu Kami dan Kami berikan pengalaman terbaik dari layanan terapi Kami!
                     </p>
                 </div>
@@ -134,14 +135,14 @@
             style="--load-delay: 300ms">
             <x-pill>Layanan Kami</x-pill>
             <h1
-                class="text-primary font-fraunces font-semibold
+                class="text-(--text-primary) font-fraunces font-semibold
            text-[32px] leading-[1.2]
            sm:text-[36px]
            md:text-[40px]
            lg:text-[45px] lg:leading-[1.1]
            w-full md:w-[65%] lg:w-[45%]
            mt-2 mx-2 pb-12 text-center">
-                Pilih pake sesuai kebutuhan pemulihan Anda.
+                Pilih paket sesuai kebutuhan pemulihan Anda.
             </h1>
 
             <div class="reveal grid grid-cols-1 gap-5

@@ -5,6 +5,32 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+@custom-variant dark (&:where(.dark, .dark));
+
+:root {
+    color-scheme: light;
+
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #fbf8f2;
+    --bg-card: #ffffff;
+
+    --text-primary: #121212;
+    --text-title: #1e271f;
+    --text-paragraph: #55625a;
+}
+
+.dark {
+    color-scheme: dark;
+
+    --bg-primary: #121212;
+    --bg-secondary: #101010;
+    --bg-card: #1e1e1e;
+
+    --text-primary: #f5f5f5;
+    --text-title: #ffffff;
+    --text-paragraph: #b5c0b7;
+}
+
 @theme {
     --font-sans:
         "Inter", "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
@@ -77,7 +103,9 @@ html {
 .star-rating label {
     cursor: pointer;
     color: var(--color-line);
-    transition: color 0.15s ease, transform 0.15s ease;
+    transition:
+        color 0.15s ease,
+        transform 0.15s ease;
 }
 
 .star-rating label:hover {
