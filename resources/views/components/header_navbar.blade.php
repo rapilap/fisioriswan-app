@@ -1,6 +1,6 @@
 {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
-<nav class="bg-white text-[#1b1b18] dark:text-black flex items-center lg:justify-center h-26 flex-col drop-shadow-md">
+<nav class="bg-(--bg-primary) text-(--text-primary) flex items-center lg:justify-center h-26 flex-col drop-shadow-md">
     {{-- Top --}}
     <div
         class="bg-b1 text-white font-normal text-[13px] flex flex-row items-center justify-between py-2 px-[max(1.5rem,calc((100%-72rem)/2))] h-fit w-full">
@@ -53,8 +53,7 @@
     </div>
 
     {{-- Bottom --}}
-    <div
-        class="flex items-center justify-between w-full lg:grow py-2 px-[max(1.5rem,calc((100%-72rem)/2))]">
+    <div class="flex items-center justify-between w-full lg:grow py-2 px-[max(1.5rem,calc((100%-72rem)/2))]">
         {{-- Logo --}}
         <a href="{{ route('beranda') }}" class="flex flex-row items-center justify-center gap-2">
             <div class="flex items-center justify-center gap-5 bg-b1 text-white p-2 rounded-md">
@@ -70,8 +69,7 @@
         </a>
 
         {{-- Navigation --}}
-        <div
-            class="flex items-center justify-center gap-5">
+        <div class="flex items-center justify-center gap-5">
             <a href="{{ route('beranda') }}"
                 class="{{ request()->routeIs('beranda') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
                 font-normal text-[13px] transition-colors duration-500>
@@ -127,6 +125,11 @@
                     <span class="font-normal text-[13px]">WhatsApp</span>
                 </div>
             </a>
+
+            <button type="button" data-theme-toggle aria-label="Ganti tema">
+                <span class="dark:hidden">🌙 Dark Mode</span>
+                <span class="hidden dark:inline">☀️ Light Mode</span>
+            </button>
         </div>
     </div>
 </nav>

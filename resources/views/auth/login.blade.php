@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+<body class="load-in min-h-screen bg-gray-100 flex items-center justify-center px-4 scrollbar-none">
 
     <main class="w-full max-w-xl h-100 rounded-2xl bg-white shadow-lg flex flex-row">
         <div class="w-full bg-b1 rounded-2xl text-white p-6">
