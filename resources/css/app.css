@@ -13,10 +13,15 @@
     --bg-primary: #f5f5f5;
     --bg-secondary: #fbf8f2;
     --bg-card: #ffffff;
+    --bg-point: #000080;
 
     --text-primary: #121212;
     --text-title: #1e271f;
     --text-paragraph: #55625a;
+    --text-navselect: var(--bg-point);
+    --text-navunhover: #9999cc;
+    --text-highlight: var(--bg-point);
+    --text-button: var(--bg-point);
 }
 
 .dark {
@@ -25,10 +30,15 @@
     --bg-primary: #121212;
     --bg-secondary: #101010;
     --bg-card: #1e1e1e;
+    --bg-point: #a67c00;
 
     --text-primary: #f5f5f5;
     --text-title: #ffffff;
     --text-paragraph: #b5c0b7;
+    --text-navselect: var(--bg-point);
+    --text-navunhover: #ede5cc;
+    --text-highlight: var(--bg-point);
+    --text-button: var(--text-primary);
 }
 
 @theme {
