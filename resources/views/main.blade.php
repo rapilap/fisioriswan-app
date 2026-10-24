@@ -154,15 +154,15 @@
                 {{-- TODO: sesuaikan angka statistik dengan data asli --}}
                 <div class="mt-11 flex flex-wrap gap-x-10 gap-y-4">
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-b1">500+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">500+</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Pasien dilayani</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-b1">1.000+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">1.000+</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Sesi terapi</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-b1">4.9/5</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">4.9/5</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Rating pasien</p>
                     </div>
                 </div>
@@ -277,11 +277,11 @@
                 @foreach ($langkah as $item)
                     <li class="reveal flex gap-4" style="--reveal-delay: {{ $loop->index * 100 }}ms">
                         <span
-                            class="shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-b1 text-[14px] font-semibold text-white">
+                            class="shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-(--bg-point) text-[14px] font-semibold text-white">
                             {{ $loop->iteration }}
                         </span>
                         <div>
-                            <p class="text-[16px] font-semibold text-b1">{{ $item['judul'] }}</p>
+                            <p class="text-[16px] font-semibold text-(--text-highlight)">{{ $item['judul'] }}</p>
                             <p class="mt-1 text-[14px] leading-relaxed text-secondary">{{ $item['teks'] }}</p>
                         </div>
                     </li>
@@ -354,7 +354,7 @@
 
                         <a href="{{ $waLink }}" target="_blank"
                             class="mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition
-                            {{ $populer ? 'mt-auto bg-g1 text-white hover:bg-g2' : 'mt-auto border border-line text-b1 hover:border-b1 hover:bg-b1 hover:text-white' }}">
+                            {{ $populer ? 'mt-auto bg-g1 text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-b1 hover:text-white' }}">
                             {{ $item['harga'] ? 'Pesan Sekarang' : 'Hubungi Kami' }}
                         </a>
                     </article>

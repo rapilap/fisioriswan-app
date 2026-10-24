@@ -32,8 +32,7 @@ $beranda = function () {
     return view('main', compact('testimoni'));
 };
 
-Route::get('/', $beranda);
-Route::get('/beranda', $beranda)->name('beranda');
+Route::get('/', $beranda)->name('beranda');
 
 Route::get('/event', [EventController::class, 'index'])->name('event');
 

@@ -71,26 +71,26 @@
         {{-- Navigation --}}
         <div class="flex items-center justify-center gap-5">
             <a href="{{ route('beranda') }}"
-                class="{{ request()->routeIs('beranda') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
+                class="{{ request()->routeIs('beranda') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
                 font-normal text-[13px] transition-colors duration-500>
                 Beranda
             </a>
 
 
             <a href="{{ route('layanan') }}"
-                class="{{ request()->routeIs('layanan') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
+                class="{{ request()->routeIs('layanan') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
                 font-normal text-[13px] transition-colors duration-500>
                 Layanan Kami
             </a>
 
             <a href="{{ route('event') }}"
-                class="{{ request()->routeIs('event') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
+                class="{{ request()->routeIs('event') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
                 font-normal text-[13px] transition-colors duration-500>
                 Event & Kolaborasi
             </a>
 
             <a href="{{ route('testimoni') }}"
-                class="{{ request()->routeIs('testimoni', 'inputTestimoni') ? 'text-b1 border-b-2 border-g1' : 'text-b4 hover:text-b1' }}"
+                class="{{ request()->routeIs('testimoni', 'inputTestimoni') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
                 font-normal text-[13px] transition-colors duration-500>
                 Testimoni
             </a>
