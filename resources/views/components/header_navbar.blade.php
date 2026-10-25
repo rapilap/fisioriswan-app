@@ -1,9 +1,9 @@
 {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
-<nav class="bg-(--bg-primary) text-(--text-primary) flex items-center lg:justify-center h-26 flex-col drop-shadow-md">
+<nav class="relative z-50 w-full bg-(--bg-primary) text-(--text-primary) flex flex-col drop-shadow-md">
     {{-- Top --}}
     <div
-        class="bg-b1 text-white font-normal text-[13px] flex flex-row items-center justify-between py-2 px-[max(1.5rem,calc((100%-72rem)/2))] h-fit w-full">
+        class="hidden lg:flex bg-b1 text-white font-normal text-[13px] flex-row items-center justify-between py-2 px-[max(1.5rem,calc((100%-72rem)/2))] h-fit w-full">
         <div class="flex items-start justify-center gap-4.5">
             <div class="flex items-center justify-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024">
@@ -32,7 +32,7 @@
 
         <div class="flex items-center justify-center gap-4.5">
             <div class="flex flex-row items-center justify-center gap-4.5">
-                <a href="https://www.instagram.com/telkomindonesia/" target="_blank">
+                <a href="https://www.instagram.com/telkomindonesia/" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 1024 1024">
                         <path d="M0 0h1024v1024H0z" fill="none" />
                         <path fill="currentColor"
@@ -40,7 +40,7 @@
                     </svg>
                 </a>
 
-                <a href="https://www.facebook.com/TelkomIndonesia/" target="_blank">
+                <a href="https://www.facebook.com/TelkomIndonesia/" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path fill="currentColor" fill-rule="evenodd"
@@ -53,7 +53,8 @@
     </div>
 
     {{-- Bottom --}}
-    <div class="flex items-center justify-between w-full lg:grow py-2 px-[max(1.5rem,calc((100%-72rem)/2))]">
+    <div
+        class="flex items-center justify-between gap-3 w-full py-3 px-4 sm:px-6 lg:grow lg:py-2 lg:px-[max(1.5rem,calc((100%-72rem)/2))]">
         {{-- Logo --}}
         <a href="{{ route('beranda') }}" class="flex flex-row items-center justify-center gap-2">
             <div class="flex items-center justify-center gap-5 bg-b1 text-white p-2 rounded-md">
@@ -69,35 +70,31 @@
         </a>
 
         {{-- Navigation --}}
-        <div class="flex items-center justify-center gap-5">
+        <div class="hidden lg:flex items-center justify-center gap-5">
             <a href="{{ route('beranda') }}"
-                class="{{ request()->routeIs('beranda') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
-                font-normal text-[13px] transition-colors duration-500>
+                class="{{ request()->routeIs('beranda') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }} font-normal text-[13px] transition-colors duration-500">
                 Beranda
             </a>
 
 
             <a href="{{ route('layanan') }}"
-                class="{{ request()->routeIs('layanan') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
-                font-normal text-[13px] transition-colors duration-500>
+                class="{{ request()->routeIs('layanan') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }} font-normal text-[13px] transition-colors duration-500">
                 Layanan Kami
             </a>
 
             <a href="{{ route('event') }}"
-                class="{{ request()->routeIs('event') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
-                font-normal text-[13px] transition-colors duration-500>
+                class="{{ request()->routeIs('event') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }} font-normal text-[13px] transition-colors duration-500">
                 Event & Kolaborasi
             </a>
 
             <a href="{{ route('testimoni') }}"
-                class="{{ request()->routeIs('testimoni', 'inputTestimoni') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}"
-                font-normal text-[13px] transition-colors duration-500>
+                class="{{ request()->routeIs('testimoni', 'inputTestimoni') ? 'text-(--text-navselect) border-b-2 border-g1' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }} font-normal text-[13px] transition-colors duration-500">
                 Testimoni
             </a>
         </div>
 
-        {{-- WA Button --}}
-        <div>
+        {{-- WA Button and desktop theme toggle --}}
+        <div class="hidden lg:flex items-center gap-4">
             @php
                 $message =
                     "Halo, saya tertarik dengan paket *Isi nama paket Anda!*\n" .
@@ -126,10 +123,173 @@
                 </div>
             </a>
 
-            <button type="button" data-theme-toggle aria-label="Ganti tema">
-                <span class="dark:hidden">🌙 Dark Mode</span>
-                <span class="hidden dark:inline">☀️ Light Mode</span>
+            <button type="button" data-theme-toggle id="desktop-theme-toggle" aria-label="Aktifkan dark mode"
+                title="Ganti tema"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line/50 transition hover:bg-(--bg-card) focus:outline-none focus-visible:ring-2 focus-visible:ring-g1">
+                <svg id="desktop-theme-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z" />
+                </svg>
+                <svg id="desktop-theme-sun" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                </svg>
+            </button>
+        </div>
+
+        {{-- Mobile menu toggle --}}
+        <button type="button" id="mobile-menu-toggle"
+            class="inline-flex lg:hidden items-center justify-center rounded-lg border border-line/50 p-2.5 transition hover:bg-(--bg-card) focus:outline-none focus-visible:ring-2 focus-visible:ring-g1"
+            aria-controls="mobile-navigation" aria-expanded="false" aria-label="Buka menu navigasi">
+            <svg id="mobile-menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="mobile-menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="m18 6-12 12M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    {{-- Mobile navigation panel --}}
+    <div id="mobile-navigation"
+        class="hidden lg:hidden w-full border-t border-line/50 bg-(--bg-primary) px-4 pb-5 pt-3 sm:px-6" hidden>
+        <div class="flex flex-col gap-1">
+            <a href="{{ route('beranda') }}"
+                class="rounded-lg px-3 py-3 text-sm transition {{ request()->routeIs('beranda') ? 'bg-(--bg-card) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:bg-(--bg-card) hover:text-(--text-navselect)' }}">Beranda</a>
+            <a href="{{ route('layanan') }}"
+                class="rounded-lg px-3 py-3 text-sm transition {{ request()->routeIs('layanan') ? 'bg-(--bg-card) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:bg-(--bg-card) hover:text-(--text-navselect)' }}">Layanan
+                Kami</a>
+            <a href="{{ route('event') }}"
+                class="rounded-lg px-3 py-3 text-sm transition {{ request()->routeIs('event') ? 'bg-(--bg-card) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:bg-(--bg-card) hover:text-(--text-navselect)' }}">Event
+                &amp; Kolaborasi</a>
+            <a href="{{ route('testimoni') }}"
+                class="rounded-lg px-3 py-3 text-sm transition {{ request()->routeIs('testimoni', 'inputTestimoni') ? 'bg-(--bg-card) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:bg-(--bg-card) hover:text-(--text-navselect)' }}">Testimoni</a>
+        </div>
+
+        @php
+            $mobileMessage =
+                "Halo, saya tertarik dengan paket *Isi nama paket Anda!*\n" .
+                "\nMohon isi data diri di bawah ini dengan benar dan teliti untuk pemesanan: \n" .
+                "Nama Lengkap: \n" .
+                "Alamat Lengkap: \n" .
+                "Tanggal Mulai (Contoh: DD/MM/YYYY): \n" .
+                "Waktu Mulai (Contoh: HH:MM): \n" .
+                "\nTerima kasih, saya menunggu konfirmasi dari Anda.";
+            $mobileWhatsappUrl =
+                'https://wa.me/' . config('services.whatsapp.number') . '?text=' . urlencode($mobileMessage);
+        @endphp
+
+        <div class="mt-4 flex flex-col gap-3 border-t border-line/50 pt-4">
+            <a href="{{ $mobileWhatsappUrl }}" target="_blank" rel="noopener noreferrer"
+                class="inline-flex w-full items-center justify-center gap-2 rounded-3xl bg-b1 px-4 py-3 text-white transition hover:opacity-90">
+                <span class="text-sm">Booking Via</span>
+                <span class="flex items-center gap-1 text-[#25D366]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"
+                        aria-hidden="true">
+                        <path
+                            d="M8.886 7.17c.183.005.386.015.579.443c.128.285.343.81.519 1.238c.137.333.249.607.277.663c.064.128.104.275.02.448l-.028.058a1.4 1.4 0 0 1-.23.37l-.143.17c-.085.104-.17.206-.242.278c-.129.128-.262.266-.114.522s.668 1.098 1.435 1.777a6.6 6.6 0 0 0 1.903 1.2q.105.045.17.076c.257.128.41.108.558-.064c.149-.173.643-.749.817-1.005c.168-.256.34-.216.578-.128c.238.089 1.504.71 1.761.837l.143.07c.179.085.3.144.352.23c.064.109.064.62-.148 1.222c-.218.6-1.267 1.176-1.742 1.22l-.135.016c-.436.052-.988.12-2.956-.655c-2.426-.954-4.027-3.32-4.35-3.799l-.053-.076l-.006-.008c-.147-.197-1.048-1.402-1.048-2.646c0-1.19.587-1.81.854-2.092l.047-.05a.95.95 0 0 1 .687-.32c.173 0 .347 0 .495.005" />
+                        <path fill-rule="evenodd"
+                            d="M2.184 21.331a.4.4 0 0 0 .487.494l4.607-1.204a10 10 0 0 0 4.76 1.207h.004c5.486 0 9.958-4.446 9.958-9.912a9.83 9.83 0 0 0-2.914-7.011A9.92 9.92 0 0 0 12.042 2c-5.486 0-9.958 4.446-9.958 9.911c0 1.739.458 3.447 1.33 4.954zm2.677-4.068a1.5 1.5 0 0 0-.148-1.15a8.4 8.4 0 0 1-1.129-4.202c0-4.63 3.793-8.411 8.458-8.411c2.27 0 4.388.877 5.986 2.468a8.33 8.33 0 0 1 2.472 5.948c0 4.63-3.793 8.412-8.458 8.412h-.005a8.5 8.5 0 0 1-4.044-1.026a1.5 1.5 0 0 0-1.094-.132l-2.762.721z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    WhatsApp
+                </span>
+            </a>
+
+            <button type="button" id="mobile-theme-toggle" aria-label="Aktifkan dark mode" title="Ganti tema"
+                class="flex w-full items-center justify-center rounded-lg border border-line/50 px-4 py-3 transition hover:bg-(--bg-card)">
+                <svg id="mobile-theme-moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z" />
+                </svg>
+                <svg id="mobile-theme-sun" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
+                </svg>
             </button>
         </div>
     </div>
+
+    <script>
+        (() => {
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-navigation');
+            const openIcon = document.getElementById('mobile-menu-open-icon');
+            const closeIcon = document.getElementById('mobile-menu-close-icon');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            const desktopThemeToggle = document.getElementById('desktop-theme-toggle');
+            const themeButtons = [desktopThemeToggle, mobileThemeToggle].filter(Boolean);
+            const themeIcons = [
+                document.getElementById('desktop-theme-moon'),
+                document.getElementById('desktop-theme-sun'),
+                document.getElementById('mobile-theme-moon'),
+                document.getElementById('mobile-theme-sun'),
+            ];
+
+            const syncThemeIcons = () => {
+                const isDark = document.documentElement.classList.contains('dark');
+
+                document.getElementById('desktop-theme-moon')?.classList.toggle('hidden', isDark);
+                document.getElementById('desktop-theme-sun')?.classList.toggle('hidden', !isDark);
+                document.getElementById('mobile-theme-moon')?.classList.toggle('hidden', isDark);
+                document.getElementById('mobile-theme-sun')?.classList.toggle('hidden', !isDark);
+
+                themeButtons.forEach((button) => {
+                    button.setAttribute('aria-label', isDark ? 'Aktifkan light mode' :
+                        'Aktifkan dark mode');
+                    button.setAttribute('title', isDark ? 'Beralih ke light mode' : 'Beralih ke dark mode');
+                });
+            };
+
+            const themeObserver = new MutationObserver(syncThemeIcons);
+            themeObserver.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['class'],
+            });
+            syncThemeIcons();
+
+            if (!toggle || !menu) return;
+
+            const setMenuOpen = (isOpen) => {
+                menu.hidden = !isOpen;
+                menu.classList.toggle('hidden', !isOpen);
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+                openIcon?.classList.toggle('hidden', isOpen);
+                closeIcon?.classList.toggle('hidden', !isOpen);
+            };
+
+            toggle.addEventListener('click', () => {
+                setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
+            });
+
+            // Reuse the existing theme-toggle handler so the mobile control works
+            // even if app.js attaches its listener to the desktop button only.
+            mobileThemeToggle?.addEventListener('click', () => desktopThemeToggle?.click());
+
+            menu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setMenuOpen(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) setMenuOpen(false);
+            });
+        })();
+    </script>
 </nav>
