@@ -22,6 +22,8 @@
     --text-navunhover: #9999cc;
     --text-highlight: var(--bg-point);
     --text-button: var(--bg-point);
+
+    --border-line: #DCD8CF;
 }
 
 .dark {
@@ -39,6 +41,8 @@
     --text-navunhover: #ede5cc;
     --text-highlight: var(--bg-point);
     --text-button: var(--text-primary);
+
+    --border-line: #3a3a36;
 }
 
 @theme {

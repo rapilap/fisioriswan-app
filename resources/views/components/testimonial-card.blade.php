@@ -1,6 +1,7 @@
 @props(['fullname' => 'User', 'city' => '', 'image' => null, 'testimonial' => null, 'rating' => 5])
 
-<article {{ $attributes->class(['flex w-full flex-col rounded-[20px] border border-line bg-(--bg-card) p-7']) }}>
+<article
+    {{ $attributes->class(['flex w-full flex-col rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7']) }}>
 
     {{-- Foto testimoni (opsional) --}}
     <div

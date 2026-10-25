@@ -235,7 +235,7 @@
 
             <div class="mt-14 flex flex-wrap justify-center gap-6">
                 @foreach ($kondisi as $item)
-                    <div class="reveal group flex w-full flex-col rounded-2xl border border-line/50 bg-(--bg-card) p-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+                    <div class="reveal group flex w-full flex-col rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
                         style="--reveal-delay: {{ $loop->index * 60 }}ms">
                         <span
                             class="flex h-10 w-10 items-center justify-center rounded-xl bg-pill text-g1 transition group-hover:bg-g1 group-hover:text-white">

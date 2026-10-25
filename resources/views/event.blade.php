@@ -111,7 +111,7 @@
                         class="thin-scroll -m-1.5 flex max-h-190 flex-col gap-5 overflow-y-auto overscroll-contain p-1.5 pr-3 focus-visible:outline-2 focus-visible:outline-b1">
                         @foreach ($events as $event)
                             <article
-                                class="flex shrink-0 gap-5.5 rounded-2xl border border-line bg-(--bg-card) p-7 transition duration-300 hover:shadow-md">
+                                class="flex shrink-0 gap-5.5 rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:shadow-md">
                                 {{-- Event beberapa hari: lencana menampilkan rentang, mis. "21–23" / "OKT" --}}
                                 <div
                                     class="shrink-0 flex h-18.5 w-18.5 flex-col items-center justify-center rounded-xl bg-b1 text-white">

@@ -50,7 +50,7 @@
             {{-- Card --}}
             <div class="w-full h-55 flex flex-col items-start justify-start gap-5 mt-10 lg:flex-row lg:gap-10">
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -65,7 +65,7 @@
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-g5 border-2">
+                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
