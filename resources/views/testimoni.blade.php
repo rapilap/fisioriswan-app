@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-prmary) px-6 pt-18 pb-22">
+    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
         <div class="mx-auto max-w-6xl">
             <div class="load-in mb-6">
                 @include('components.breadcrumb')

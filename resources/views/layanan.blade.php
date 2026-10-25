@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('title', 'Testimoni - Fisio Riswan')
+@section('main_class', 'py-0')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @extends('layouts.app')
-    @section('title', 'Layanan - Fisio Riswan')
-</head>
 @section('content')
-    <section>
-        <div class="bg-(--bg-primary) load-in w-full h-fit bg-cover bg-center relative px-24 pb-10 "
-            style="--load-delay: 100ms">
+    <section class="bg-(--bg-primary) px-4 sm:px-6 pt-12 sm:pt-16 lg:pt-18 pb-16 sm:pb-20 lg:pb-22">
+        <div class="mx-auto max-w-6xl load-in w-full h-fit bg-cover bg-center relative" style="--load-delay: 100ms">
             {{-- Section 1 --}}
             @include('components.breadcrumb')
             <h1
@@ -22,11 +14,11 @@
            md:text-[40px]
            lg:text-[45px] lg:leading-[1.1]
            w-full md:w-[70%] lg:w-[50%]
-           mt-2 mx-2">
+           mt-2">
                 Perawatan kesehatan yang mendekat ke rumah Anda.
             </h1>
 
-            <p class="text-(--text-paragraph) text-lg mt-2 mx-2 w-[75%]">
+            <p class="text-(--text-paragraph) text-base sm:text-lg mt-3 w-full sm:w-[90%] md:w-[75%] max-w-3xl">
                 Pulihkan berdiri untuk memastikan setiap orang bisa mendapat perawatan
                 fisioterapi yang nyaman dan praktis — tanpa antrean panjang, tanpa harus
                 ke klinik, dan tanpa proses yang rumit.
@@ -34,23 +26,23 @@
         </div>
 
         {{-- Section 2 --}}
-        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3 bg-(--bg-secondary)"
+        <div class="load-in w-full h-auto bg-cover bg-center relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex flex-col items-center justify-center gap-3 bg-(--bg-secondary)"
             style="--load-delay: 200ms">
             <x-pill>Cara Pesan</x-pill>
             <h1
                 class="text-(--text-primary) font-fraunces font-semibold
-           text-[32px] leading-[1.2]
-           sm:text-[36px]
-           md:text-[40px]
+           text-[28px] leading-[1.2]
+           sm:text-[32px]
+           md:text-[38px]
            lg:text-[45px] lg:leading-[1.1]
-           w-full md:w-[65%] lg:w-[45%]
-           mt-2 mx-2 text-center">
+           w-full md:w-[75%] xl:w-[55%]
+           mt-2 text-center">
                 Bagaimana cara pesan layanan Kami?
             </h1>
             {{-- Card --}}
-            <div class="w-full h-55 flex flex-col items-start justify-start gap-5 mt-10 lg:flex-row lg:gap-10">
+            <div class="grid w-full grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5 mt-6 sm:mt-8">
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
+                    class="w-full min-w-0 flex flex-col items-start justify-start gap-2 bg-(--bg-card) p-5 sm:p-6 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -60,12 +52,12 @@
                         </svg>
                     </x-pill-icon>
                     <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Konsultasi</span>
-                    <p class="text-(--text-secondary) text-lg">
+                    <p class="text-(--text-secondary) text-base sm:text-lg">
                         Lakukan konsultasi penyakit dengan Kami melalui chat WhatsApp.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
+                    class="w-full min-w-0 flex flex-col items-start justify-start gap-2 bg-(--bg-card) p-5 sm:p-6 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -85,12 +77,12 @@
 
                     </x-pill-icon>
                     <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Konfirmasi Waktu</span>
-                    <p class="text-(--text-secondary) text-lg">
+                    <p class="text-(--text-secondary) text-base sm:text-lg">
                         Konfirmasi jadwal kunjungan dengan Kami.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
+                    class="w-full min-w-0 flex flex-col items-start justify-start gap-2 bg-(--bg-card) p-5 sm:p-6 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -101,12 +93,12 @@
 
                     </x-pill-icon>
                     <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Pembayaran</span>
-                    <p class="text-(--text-secondary) text-lg">
+                    <p class="text-(--text-secondary) text-base sm:text-lg">
                         Lakukan pembayaran secara digital melalui QRIS atau transfer bank.
                     </p>
                 </div>
                 <div
-                    class="w-full h-full flex flex-col items-start justify-start gap-2 lg:w-[30%] bg-(--bg-card) p-5 rounded-2xl border-(--border-line) border-2">
+                    class="w-full min-w-0 flex flex-col items-start justify-start gap-2 bg-(--bg-card) p-5 sm:p-6 rounded-2xl border-(--border-line) border-2">
                     <x-pill-icon>
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +115,7 @@
 
                     </x-pill-icon>
                     <span class="text-(--text-primary) font-fraunces text-xl font-semibold">Sesi Terapi</span>
-                    <p class="text-(--text-secondary) text-lg">
+                    <p class="text-(--text-secondary) text-base sm:text-lg">
                         Tunggu Kami dan Kami berikan pengalaman terbaik dari layanan terapi Kami!
                     </p>
                 </div>
@@ -131,22 +123,23 @@
         </div>
 
         {{-- Section 3  --}}
-        <div class="load-in w-full h-auto bg-cover bg-center relative py-10 px-24 flex flex-col items-center justify-center gap-3"
+        <div class="load-in w-full h-auto bg-cover bg-center relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 xl:px-24 flex flex-col items-center justify-center gap-3"
             style="--load-delay: 300ms">
             <x-pill>Layanan Kami</x-pill>
             <h1
                 class="text-(--text-primary) font-fraunces font-semibold
-           text-[32px] leading-[1.2]
-           sm:text-[36px]
-           md:text-[40px]
+           text-[28px] leading-[1.2]
+           sm:text-[32px]
+           md:text-[38px]
            lg:text-[45px] lg:leading-[1.1]
-           w-full md:w-[65%] lg:w-[45%]
-           mt-2 mx-2 pb-12 text-center">
+           w-full md:w-[75%] xl:w-[55%]
+           mt-2 pb-8 sm:pb-12 text-center">
                 Pilih paket sesuai kebutuhan pemulihan Anda.
             </h1>
 
-            <div class="reveal grid grid-cols-1 gap-5
-                    sm:grid-cols-2 lg:grid-cols-3">
+            <div
+                class="reveal grid w-full max-w-6xl grid-cols-1 gap-4 sm:gap-5
+                    sm:grid-cols-2 lg:grid-cols-3 items-center justify-center">
 
                 <x-package-card title="Kunjungan Tunggal" price="Rp 199rb" unit="kunjungan" :features="['1x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
 
@@ -167,5 +160,3 @@ Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda." />
         </div>
     </section>
 @endsection
-
-</html>

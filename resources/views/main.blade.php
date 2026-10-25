@@ -200,12 +200,12 @@
                 <ul class="mt-8 flex flex-col gap-7">
                     @foreach ([['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Tanpa perjalanan dan antrean, cukup tunggu terapis datang membawa peralatan lengkap.'], ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 07.00–21.00.'], ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis berlisensi yang menyusun program sesuai kondisi dan target pemulihan Anda.']] as $poin)
                         <li class="flex gap-4">
-                            <span class="shrink-0 flex h-10 w-10 items-center justify-center rounded-xl bg-pill text-g1">
+                            <x-pill-icon>
                                 @include('components.icon', [
                                     'name' => $poin['icon'],
                                     'class' => 'w-5 h-5',
                                 ])
-                            </span>
+                            </x-pill-icon>
                             <div>
                                 <p class="text-[16px] font-semibold text-(--text-primary)">{{ $poin['judul'] }}</p>
                                 <p class="mt-1 text-[14px] leading-relaxed text-(--text-paragraph)">{{ $poin['teks'] }}</p>
@@ -221,9 +221,9 @@
     <section class="bg-(--bg-primary) px-6 py-30">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-150 text-center">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Layanan Kami
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[40px] leading-[1.15]">
                     Terapi yang disesuaikan dengan kondisi Anda
                 </h2>
@@ -237,10 +237,9 @@
                 @foreach ($kondisi as $item)
                     <div class="reveal group flex w-full flex-col rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
                         style="--reveal-delay: {{ $loop->index * 60 }}ms">
-                        <span
-                            class="flex h-10 w-10 items-center justify-center rounded-xl bg-pill text-g1 transition group-hover:bg-g1 group-hover:text-white">
+                        <x-pill-icon class="transition group-hover:bg-g1 group-hover:text-white">
                             @include('components.icon', ['name' => $item['icon'], 'class' => 'w-5 h-5'])
-                        </span>
+                        </x-pill-icon>
                         <h3 class="mt-5 font-fraunces text-[20px] font-semibold leading-tight text-(--text-primary)">
                             {{ $item['judul'] }}</h3>
                         <p class="mt-2 text-[14px] leading-relaxed text-(--text-paragraph)">{{ $item['teks'] }}</p>
@@ -262,9 +261,9 @@
     <section class="bg-(--bg-secondary) px-6 pt-21 pb-15">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <div class="reveal">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Cara Pemesanan
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[40px] leading-[1.15]">
                     Tiga langkah menuju sesi pertama Anda
                 </h2>
@@ -282,7 +281,7 @@
                         </span>
                         <div>
                             <p class="text-[16px] font-semibold text-(--text-highlight)">{{ $item['judul'] }}</p>
-                            <p class="mt-1 text-[14px] leading-relaxed text-secondary">{{ $item['teks'] }}</p>
+                            <p class="mt-1 text-[14px] leading-relaxed text-(--text-paragraph)">{{ $item['teks'] }}</p>
                         </div>
                     </li>
                 @endforeach
@@ -294,9 +293,9 @@
     <section id="paket" class="scroll-mt-28 bg-(--bg-secondary) px-6 pt-30 pb-23" data-slider>
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-135 text-center">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Paket Layanan
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[40px] leading-[1.15]">
                     Pilih paket sesuai kebutuhan pemulihan
                 </h2>
@@ -308,7 +307,7 @@
                 @foreach ($paket as $item)
                     @php $populer = $item['populer']; @endphp
                     <article data-slide
-                        class="snap-start shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)] flex flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl
+                        class="snap-start shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)] flex flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl gap-5
                         {{ $populer ? 'bg-b1 text-white' : 'bg-(--bg-card) text-(--text-primary)' }}">
                         @if ($populer)
                             <span
@@ -326,7 +325,7 @@
                                 <span
                                     class="font-fraunces text-[30px] font-semibold leading-none {{ $populer ? 'text-white' : 'text-(--text-primary)' }}">{{ $item['harga'] }}</span>
                                 <span
-                                    class="text-[13px] {{ $populer ? 'text-b5' : 'text-secondary' }}">{{ $item['satuan'] }}</span>
+                                    class="text-[13px] {{ $populer ? 'text-b5' : 'text-(--text-paragraph)' }}">{{ $item['satuan'] }}</span>
                             </p>
                             <ul class="mt-5 flex flex-col gap-3 text-[14px]">
                                 @foreach ($item['fitur'] as $fitur)
@@ -343,13 +342,14 @@
                                 @endforeach
                             </ul>
                         @else
-                            <span class="mt-4 flex h-10 w-10 items-center justify-center rounded-xl bg-pill text-g1">
+                            {{-- <span class="mt-4 flex h-10 w-10 items-center justify-center rounded-xl bg-pill text-g1">
                                 @include('components.icon', [
                                     'name' => $item['icon'],
                                     'class' => 'w-5 h-5',
                                 ])
-                            </span>
-                            <p class="mt-4 text-[14px] leading-relaxed text-secondary">{{ $item['deskripsi'] }}</p>
+                            </span> --}}
+                            <p class="mt-4 text-[14px] leading-relaxed text-(--text-paragraph)">{{ $item['deskripsi'] }}
+                            </p>
                         @endif
 
                         <a href="{{ $waLink }}" target="_blank"
@@ -369,9 +369,9 @@
     <section class="bg-(--bg-primary) px-6 pt-24 pb-15" data-slider>
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-150 text-center">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Testimoni
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[40px] leading-[1.15]">
                     Pengalaman yang mereka rasakan
                 </h2>

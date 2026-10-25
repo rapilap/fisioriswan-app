@@ -97,9 +97,9 @@
     <section class="bg-(--bg-secondary) px-6 py-22">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mb-12">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Akan berlangsung
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[42px] leading-[1.1]">Event mendatang
                 </h2>
             </div>
@@ -182,9 +182,9 @@
     <section class="bg-(--bg-primary) px-6 py-22">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div class="reveal">
-                <span class="inline-block rounded-full bg-pill px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Kolaborasi
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[42px] leading-[1.1]">
                     Bermitra dengan Pulihkan untuk acara Anda
                 </h2>
@@ -223,10 +223,9 @@
     <section class="bg-(--bg-secondary) px-6 pt-22">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mb-12">
-                <span
-                    class="inline-block rounded-full bg-pill-green px-3 py-2 text-[12px] leading-3.25 font-semibold text-g2">
+                <x-pill>
                     Dokumentasi
-                </span>
+                </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[42px] leading-[1.1]">
                     Sorotan event sebelumnya
                 </h2>

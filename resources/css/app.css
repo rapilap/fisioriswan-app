@@ -23,7 +23,9 @@
     --text-highlight: var(--bg-point);
     --text-button: var(--bg-point);
 
-    --border-line: #DCD8CF;
+    --border-line: #dcd8cf;
+
+    --button-hover: #f5f5f5;
 }
 
 .dark {
@@ -43,6 +45,8 @@
     --text-button: var(--text-primary);
 
     --border-line: #3a3a36;
+
+    --button-hover: #000080;
 }
 
 @theme {
