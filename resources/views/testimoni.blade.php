@@ -15,7 +15,7 @@
                     Apa Komentar Setelah Pasien Menjalani Fisioterapi?
                 </h1>
                 <p class="mt-5 max-w-95 text-[18px] leading-[1.75] text-(--text-paragraph)">
-                    Ulasan seputar layanan fisioterapi bersama tim fisioterapis Pulihkan.
+                    Ulasan seputar layanan fisioterapi bersama tim fisioterapis Ermaya.
                 </p>
             </div>
         </div>
@@ -57,7 +57,7 @@
                     <h2 class="font-fraunces text-[38px] font-semibold leading-[1.15]">Pernah terapi bersama kami?</h2>
                     <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-b5">
                         Buat ulasan Anda agar dapat membantu meyakinkan pasien lain untuk memilih layanan fisioterapi
-                        Pulihkan.
+                        Ermaya.
                     </p>
                 </div>
                 <a href="{{ route('inputTestimoni') }}"

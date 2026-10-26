@@ -16,7 +16,7 @@
             <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-b1 text-white">
                 @include('components.icon', ['name' => 'home', 'class' => 'w-[18px] h-[18px]'])
             </span>
-            <span class="font-fraunces text-[32px] font-bold leading-none text-primary">Pulihkan</span>
+            <span class="font-fraunces text-[32px] font-bold leading-none text-primary">Ermaya</span>
         </a>
 
         {{-- Menu --}}
@@ -33,6 +33,7 @@
 
         {{-- Sign out --}}
         {{-- TODO: ganti dengan form POST logout saat autentikasi admin sudah ada --}}
+
         <form action="{{ route('admin.logout') }}" method="POST"
             class="ml-auto inline-flex items-center rounded-full bg-b1 px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer">
             @csrf

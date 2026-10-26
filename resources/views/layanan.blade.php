@@ -19,7 +19,7 @@
             </h1>
 
             <p class="text-(--text-paragraph) text-base sm:text-lg mt-3 w-full sm:w-[90%] md:w-[75%] max-w-3xl">
-                Pulihkan berdiri untuk memastikan setiap orang bisa mendapat perawatan
+                Ermaya berdiri untuk memastikan setiap orang bisa mendapat perawatan
                 fisioterapi yang nyaman dan praktis — tanpa antrean panjang, tanpa harus
                 ke klinik, dan tanpa proses yang rumit.
             </p>

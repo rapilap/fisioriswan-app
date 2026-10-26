@@ -4,7 +4,7 @@
 
 @php
     $waKolaborasi =
-        'https://wa.me/62xxxxxxxxxxx?text=halo, saya ingin mengajukan kolaborasi event dengan Pulihkan!%0ANama: [Nama]%0AInstansi: [Instansi]';
+        'https://wa.me/62xxxxxxxxxxx?text=halo, saya ingin mengajukan kolaborasi event dengan Ermaya!%0ANama: [Nama]%0AInstansi: [Instansi]';
 
     // Data asli dikirim EventController dari database (admin: menu Event). Contoh ini hanya tampil sebelum migrate.
     // Format: tanggal (angka), bulan (singkatan), judul, waktu, lokasi, deskripsi, link (tombol Daftar Sekarang)
@@ -16,7 +16,7 @@
             'waktu' => '09.00 – 12.00 WIB',
             'lokasi' => 'Balai Warga Kemang, Jakarta Selatan',
             'deskripsi' =>
-                'Skrining gratis dan konsultasi singkat bersama fisioterapis Pulihkan untuk warga usia 50 tahun ke atas.',
+                'Skrining gratis dan konsultasi singkat bersama fisioterapis Ermaya untuk warga usia 50 tahun ke atas.',
             'link' => '#',
         ],
         [
@@ -74,7 +74,7 @@
                         Menghadirkan fisioterapi di setiap acara Anda
                     </h1>
                     <p class="mt-5 max-w-170 text-[18px] leading-[1.75] text-(--text-paragraph)">
-                        Dari edukasi kesehatan komunitas hingga pendampingan medis di event olahraga — tim Pulihkan
+                        Dari edukasi kesehatan komunitas hingga pendampingan medis di event olahraga — tim Ermaya
                         siap berkolaborasi dengan instansi, klinik, dan penyelenggara acara.
                     </p>
                 </div>
@@ -82,7 +82,7 @@
                 {{-- Letakkan foto di public/images/event/hero.jpg --}}
                 @include('components.beranda-foto', [
                     'src' => 'images/event/hero.jpg',
-                    'alt' => 'Tim fisioterapi Pulihkan di sebuah acara',
+                    'alt' => 'Tim fisioterapi Ermaya di sebuah acara',
                     'caption' => 'Tim fisioterapi di sebuah acara',
                     'icon' => 'users',
                     'class' => 'aspect-[4/5] w-full',
@@ -186,7 +186,7 @@
                     Kolaborasi
                 </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[42px] leading-[1.1]">
-                    Bermitra dengan Pulihkan untuk acara Anda
+                    Bermitra dengan Ermaya untuk acara Anda
                 </h2>
                 <p class="mt-4 text-[16px] leading-relaxed text-(--text-paragraph)">
                     Kami bekerja sama dengan perusahaan, komunitas, klinik, dan penyelenggara olahraga untuk
@@ -211,7 +211,7 @@
             {{-- Letakkan foto di public/images/event/kolaborasi.jpg --}}
             @include('components.beranda-foto', [
                 'src' => 'images/event/kolaborasi.jpg',
-                'alt' => 'Tim Pulihkan di lokasi event',
+                'alt' => 'Tim Ermaya di lokasi event',
                 'caption' => 'Tim di lokasi event',
                 'icon' => 'users',
                 'class' => 'aspect-[4/5] w-full',

@@ -84,7 +84,7 @@
             'icon' => 'calendar',
             'populer' => false,
             'deskripsi' =>
-                'Pesan Pulihkan untuk acara Anda! Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda.',
+                'Pesan Ermaya untuk acara Anda! Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda.',
         ],
         [
             'nama' => 'Fisioterapi Wellness',
@@ -92,7 +92,7 @@
             'icon' => 'heart',
             'populer' => false,
             'deskripsi' =>
-                'Sering melakukan kegiatan fisik berat? Pesan Pulihkan Wellness sebagai fisioterapis pribadi Anda!',
+                'Sering melakukan kegiatan fisik berat? Pesan Ermaya Wellness sebagai fisioterapis pribadi Anda!',
         ],
     ];
 
@@ -138,7 +138,7 @@
                     Terapi kesehatan, tanpa harus meninggalkan rumah.
                 </h1>
                 <p class="mt-7 max-w-135 text-[18px] leading-[1.75] text-(--text-paragraph)">
-                    Pulihkan menghadirkan fisioterapis berpengalaman langsung ke rumah Anda. Pemulihan lebih nyaman,
+                    Ermaya menghadirkan fisioterapis berpengalaman langsung ke rumah Anda. Pemulihan lebih nyaman,
                     tanpa antre, dan tanpa perjalanan yang melelahkan.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-3">
@@ -171,8 +171,8 @@
             {{-- Letakkan foto di public/images/beranda/hero.jpg --}}
             @include('components.beranda-foto', [
                 'src' => 'images/beranda/hero.jpg',
-                'alt' => 'Fisioterapis Pulihkan sedang menangani pasien di rumah',
-                'caption' => 'Fisioterapis Pulihkan di rumah pasien',
+                'alt' => 'Fisioterapis Ermaya sedang menangani pasien di rumah',
+                'caption' => 'Fisioterapis Ermaya di rumah pasien',
                 'icon' => 'heart',
                 'class' => 'aspect-[4/5] w-full',
                 'load' => true,
