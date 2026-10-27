@@ -75,7 +75,6 @@
     --color-danger: #9b2226;
 
     /* Latar section & placeholder foto (diukur dari desain) */
-    --color-cream: #fbf8f2;
     --color-sage: #f4f6f1;
     --color-sage-deep: #e8ede3;
     --color-line: #d9e0d3;
@@ -207,4 +206,148 @@ html {
 
 .thin-scroll::-webkit-scrollbar-track {
     background: transparent;
+}
+
+/* ---------- Efek khusus mode gelap ----------
+   Bayangan hitam tidak terlihat di latar gelap, jadi hover kartu memakai cahaya emas
+   (--bg-point di mode gelap), dan warna navy yang menyatu dengan latar diganti emas. */
+.dark :is(.hover\:shadow-md, .hover\:shadow-lg):hover {
+    border-color: color-mix(in srgb, var(--bg-point) 55%, transparent);
+    box-shadow:
+        0 12px 32px -10px color-mix(in srgb, var(--bg-point) 45%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--bg-point) 30%, transparent);
+}
+
+.dark .hover\:border-b1:hover {
+    border-color: var(--bg-point);
+}
+
+.dark .hover\:text-b1:hover {
+    color: var(--bg-point);
+}
+
+.dark .hover\:bg-b1:hover {
+    background-color: var(--bg-point);
+    box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--bg-point) 60%, transparent);
+}
+
+.dark .group:hover .group-hover\:bg-g1 {
+    box-shadow: 0 0 18px color-mix(in srgb, var(--bg-point) 55%, transparent);
+}
+
+/* Muncul saat scroll di mode gelap: sedikit kabur lalu menajam, seperti cahaya yang menyala */
+.dark.js .reveal {
+    filter: blur(6px);
+    transition:
+        opacity 0.7s ease var(--reveal-delay, 0ms),
+        transform 0.7s ease var(--reveal-delay, 0ms),
+        filter 0.7s ease var(--reveal-delay, 0ms),
+        translate 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.dark.js .reveal.is-visible {
+    filter: none;
+}
+
+/* Section pertama saat dimuat di mode gelap: ikut menajam */
+.dark .load-in {
+    animation-name: load-in-dark;
+}
+
+@keyframes load-in-dark {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+        filter: none;
+    }
+}
+
+/* Perpindahan terang ⇄ gelap berjalan halus (kelas dipasang sebentar oleh theme.js) */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+    transition:
+        background-color 0.45s ease,
+        color 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dark.js .reveal {
+        filter: none;
+        transition: none;
+    }
+
+    .dark .load-in {
+        animation: none;
+    }
+
+    .theme-switching,
+    .theme-switching * {
+        transition: none !important;
+    }
+}
+
+/* ---------- Kartu paket (Beranda & Layanan) ----------
+   Mode gelap: kartu punya garis emas tipis yang menyala saat di-hover (lebih terang + cahaya),
+   kartu "populer"/navy diberi gradasi emas-navy dan cahaya yang berdenyut pelan. */
+.dark .paket-card {
+    border: 1px solid color-mix(in srgb, var(--bg-point) 25%, transparent);
+    transition:
+        opacity 0.7s ease var(--reveal-delay, 0ms),
+        transform 0.7s ease var(--reveal-delay, 0ms),
+        filter 0.7s ease var(--reveal-delay, 0ms),
+        translate 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.dark .paket-card:hover {
+    filter: brightness(1.15);
+    border-color: var(--bg-point);
+    box-shadow:
+        0 16px 40px -10px color-mix(in srgb, var(--bg-point) 55%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--bg-point) 50%, transparent);
+}
+
+.dark .paket-populer {
+    background-image: linear-gradient(
+        150deg,
+        color-mix(in srgb, var(--bg-point) 38%, #000080) 0%,
+        #000080 55%,
+        #00004d 100%
+    );
+    border-color: color-mix(in srgb, var(--bg-point) 55%, transparent);
+    animation: glow-pulse 3.6s ease-in-out infinite;
+}
+
+.dark .paket-populer:hover {
+    animation: none;
+}
+
+@keyframes glow-pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 color-mix(in srgb, var(--bg-point) 0%, transparent);
+    }
+
+    50% {
+        box-shadow: 0 0 28px 2px color-mix(in srgb, var(--bg-point) 38%, transparent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dark .paket-populer {
+        animation: none;
+    }
 }

@@ -74,8 +74,8 @@
                         Menghadirkan fisioterapi di setiap acara Anda
                     </h1>
                     <p class="mt-5 max-w-170 text-[18px] leading-[1.75] text-(--text-paragraph)">
-                        Dari edukasi kesehatan komunitas hingga pendampingan medis di event olahraga — tim Pulihkan
-                        siap berkolaborasi dengan instansi, klinik, dan penyelenggara acara.
+                        tim Ermaya Physio siap berkolaborasi dengan instansi, dan penyelenggara acara untuk
+                        menghadirkan layanan fisioterapi dan edukasi kesehatan langsung di lokasi acara.
                     </p>
                 </div>
 
@@ -186,14 +186,18 @@
                     Kolaborasi
                 </x-pill>
                 <h2 class="mt-5 font-fraunces font-semibold text-(--text-primary) text-[42px] leading-[1.1]">
-                    Bermitra dengan Pulihkan untuk acara Anda
+                    Bermitra dengan Ermaya Physio untuk acara Anda
                 </h2>
                 <p class="mt-4 text-[16px] leading-relaxed text-(--text-paragraph)">
-                    Kami bekerja sama dengan perusahaan, komunitas, klinik, dan penyelenggara olahraga untuk
+                    Kami bekerja sama dengan perusahaan, komunitas, dan penyelenggara olahraga untuk
                     menghadirkan layanan fisioterapi dan edukasi kesehatan langsung di lokasi acara.
                 </p>
                 <ul class="mt-5 flex flex-col gap-4 text-[16px] text-(--text-paragraph)">
-                    @foreach (['Pendampingan medis di event olahraga & komunitas', 'Talkshow & webinar edukasi kesehatan untuk karyawan', 'Skrining kesehatan gratis untuk komunitas & RT/RW'] as $poin)
+                    @foreach ([
+                        'Pendampingan medis di event olahraga & komunitas',
+                        'Talkshow, Seminar dan Webinar untuk edukasi kesehatan',
+                        'Skrining kesehatan gratis untuk komunitas',
+                    ] as $poin)
                         <li class="flex items-center gap-3.5">
                             <span class="shrink-0 text-b1">
                                 @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])

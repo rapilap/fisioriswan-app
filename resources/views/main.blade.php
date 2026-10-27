@@ -6,30 +6,76 @@
     $waLink = 'https://wa.me/62xxxxxxxxxxx?text=halo, chat ini dikirim melalui tombol pada website!%0ANama: [Nama]';
 
     $kondisi = [
+        // Format item: "Istilah medis/Arti dalam Indonesia" (bagian setelah "/" boleh dikosongkan)
         [
             'icon' => 'zap',
-            'judul' => 'Nyeri & Neurologi',
-            'teks' => 'Nyeri punggung dan leher, saraf kejepit, hingga pemulihan pasca stroke dengan program bertahap.',
+            'judul' => 'Gangguan Saraf',
+            'items' => [
+                'Radiculopati/Iritasi Akar Saraf',
+                'HNP/Saraf Kejepit Punggung',
+                'Multiple Sclerosis',
+                'Stroke',
+                'Parkinson',
+                'Neuropati/Kerusakan Saraf',
+                'Bells Palsy/Kelumpuhan Otot Wajah',
+                'Cubital Tunnel Syndrome/Saraf Kejepit Siku',
+                'Carpal Tunnel Syndrome/Saraf Kejepit Pergelangan Tangan',
+                'Guyon Tunnel Syndrome/Saraf Kejepit Jari Manis',
+                'Sciatica/Iritasi Saraf Sciatic',
+                'Tarsal Tunnel Syndrome/Saraf Kejepit Pergelangan Kaki',
+            ],
         ],
         [
             'icon' => 'activity',
-            'judul' => 'Otot, Tulang & Sendi',
-            'teks' => 'Keluhan sendi, otot kaku, osteoartritis, dan pemulihan setelah patah tulang.',
+            'judul' => 'Gangguan Otot dan Tulang',
+            'items' => [
+                'Myalgia/Nyeri Otot',
+                'Muscle Spasm/Kram Otot',
+                'Muscle Tightness/Tegang Otot',
+                'Acute Inflammation/Peradangan Akut',
+                'Chronic Inflammation/Peradangan Kronik',
+                'Scoliosis',
+                'Low Back Pain Myogenic/Sakit Otot Pinggang',
+            ],
         ],
         [
-            'icon' => 'users',
-            'judul' => 'Anak & Lansia',
-            'teks' => 'Pendampingan tumbuh kembang anak serta menjaga mobilitas dan keseimbangan lansia.',
+            'icon' => 'smile',
+            'judul' => 'Pediatri',
+            'items' => [
+                'Delay Development/Keterlambatan Perkembangan',
+                'Cerebral Palsy/Kelumpuhan Otak',
+            ],
         ],
         [
-            'icon' => 'shield',
+            'icon' => 'user',
+            'judul' => 'Geriatric',
+            'items' => [
+                'Osteoarthritis/Radang Sendi',
+                'Osteoporosis/Pengeroposan Tulang',
+                'Spondylosis/Penuaan Tulang Belakang',
+            ],
+        ],
+        [
+            'icon' => 'clipboard',
             'judul' => 'Pasca Operasi',
-            'teks' => 'Mengembalikan kekuatan dan rentang gerak setelah operasi lutut, panggul, atau bahu.',
+            'items' => [
+                'Post Op Fraktur/Pasca Operasi Patah Tulang',
+                'Post Op Shoulder/Pasca Operasi Bahu',
+                'Post Op Elbow/Pasca Operasi Siku',
+                'Post Op Wrist/Pasca Operasi Pergelangan Tangan',
+                'Post Op Knee/Pasca Operasi Lutut',
+                'Post Op Ankle/Pasca Operasi Pergelangan Kaki',
+            ],
         ],
         [
             'icon' => 'target',
             'judul' => 'Cedera Olahraga',
-            'teks' => 'Penanganan keseleo, cedera ligamen, dan program kembali berolahraga dengan aman.',
+            'items' => [
+                'Strain/Cedera Otot',
+                'Sprain/Cedera Ligament',
+                'Tendon Injury/Cedera Tendon',
+                'Meniscus Injury/Cedera Meniscus',
+            ],
         ],
     ];
 
@@ -52,28 +98,28 @@
     $paket = [
         [
             'nama' => 'Kunjungan Tunggal',
-            'harga' => 'Rp 199rb',
+            'harga' => 'Rp 450rb',
             'satuan' => '/kunjungan',
             'populer' => false,
             'fitur' => ['1x kunjungan 45–60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal'],
         ],
         [
             'nama' => 'Kunjungan Reguler',
-            'harga' => 'Rp 720rb',
+            'harga' => 'Rp 1,2jt',
             'satuan' => '/4x kunjungan',
             'populer' => true,
             'fitur' => ['4x kunjungan 45–60 menit', 'Fisioterapis yang sama', 'Evaluasi dari sesi sebelumnya'],
         ],
         [
             'nama' => 'Paket Intensif',
-            'harga' => 'Rp 1,35jt',
+            'harga' => 'Rp 3jt',
             'satuan' => '/8x kunjungan',
             'populer' => false,
             'fitur' => ['8x kunjungan 45–60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan'],
         ],
         [
             'nama' => 'Paket Intensif+',
-            'harga' => 'Rp 3jt',
+            'harga' => 'Rp 4,2jt',
             'satuan' => '/12x kunjungan',
             'populer' => false,
             'fitur' => ['12x kunjungan 45–60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan'],
@@ -138,8 +184,8 @@
                     Terapi kesehatan, tanpa harus meninggalkan rumah.
                 </h1>
                 <p class="mt-7 max-w-135 text-[18px] leading-[1.75] text-(--text-paragraph)">
-                    Pulihkan menghadirkan fisioterapis berpengalaman langsung ke rumah Anda. Pemulihan lebih nyaman,
-                    tanpa antre, dan tanpa perjalanan yang melelahkan.
+                    Ermaya Physio menghadirkan Fisioterapis berpengalaman langsung ke rumah Anda.
+                    Pemulihan lebih nyaman, tanpa antre, dan tanpa perjalanan yang melelahkan.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-3">
                     <a href="{{ $waLink }}" target="_blank"
@@ -198,7 +244,11 @@
                     Perawatan di klinik sering merepotkan yang justru butuh istirahat.
                 </h2>
                 <ul class="mt-8 flex flex-col gap-7">
-                    @foreach ([['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Tanpa perjalanan dan antrean, cukup tunggu terapis datang membawa peralatan lengkap.'], ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 07.00–21.00.'], ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis berlisensi yang menyusun program sesuai kondisi dan target pemulihan Anda.']] as $poin)
+                    @foreach ([
+                        ['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Perawatan di klinik sering merepotkan untuk yang butuh istirahat, cukup tunggu terapis datang membawa peralatan lengkap.'],
+                        ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 09.00 – 18.00.'],
+                        ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis yang menyusun khusus program rehabilitasi sesuai kondisi dan target anda.'],
+                    ] as $poin)
                         <li class="flex gap-4">
                             <x-pill-icon>
                                 @include('components.icon', [
@@ -233,24 +283,31 @@
                 </p>
             </div>
 
-            <div class="mt-14 flex flex-wrap justify-center gap-6">
+            {{-- Semua kartu sama tinggi; daftar yang panjang digulir di dalam kartu --}}
+            <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 @foreach ($kondisi as $item)
-                    <div class="reveal group flex w-full flex-col rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:-translate-y-1 hover:shadow-lg md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
-                        style="--reveal-delay: {{ $loop->index * 60 }}ms">
-                        <x-pill-icon class="transition group-hover:bg-g1 group-hover:text-white">
+                    <div class="reveal group flex h-100 flex-col rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:shadow-lg"
+                        style="--reveal-delay: {{ ($loop->index % 3) * 60 }}ms">
+                        <x-pill-icon class="shrink-0 transition group-hover:bg-g1 group-hover:text-white">
                             @include('components.icon', ['name' => $item['icon'], 'class' => 'w-5 h-5'])
                         </x-pill-icon>
-                        <h3 class="mt-5 font-fraunces text-[20px] font-semibold leading-tight text-(--text-primary)">
-                            {{ $item['judul'] }}</h3>
-                        <p class="mt-2 text-[14px] leading-relaxed text-(--text-paragraph)">{{ $item['teks'] }}</p>
-                        <a href="{{ route('layanan') }}"
-                            class="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-(--text-primary) transition-all hover:gap-2.5">
-                            Pelajari lebih lanjut
-                            @include('components.icon', [
-                                'name' => 'arrow-right',
-                                'class' => 'w-3.5 h-3.5',
-                            ])
-                        </a>
+                        <h3 class="mt-5 shrink-0 font-fraunces text-[20px] font-semibold leading-tight text-(--text-primary)">{{ $item['judul'] }}</h3>
+
+                        <ul tabindex="0" aria-label="Daftar kondisi: {{ $item['judul'] }}"
+                            class="thin-scroll -mr-3 mt-4 flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain pr-3 focus-visible:outline-2 focus-visible:outline-b1">
+                            @foreach ($item['items'] as $kondisiItem)
+                                @php [$istilah, $arti] = array_pad(explode('/', $kondisiItem, 2), 2, null); @endphp
+                                <li class="flex gap-2.5 text-[14px] leading-snug">
+                                    <span class="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-g2" aria-hidden="true"></span>
+                                    <span>
+                                        <span class="font-medium text-(--text-primary)">{{ trim($istilah) }}</span>
+                                        @if ($arti)
+                                            <span class="mt-0.5 block text-[13px] text-(--text-paragraph)">{{ trim($arti) }}</span>
+                                        @endif
+                                    </span>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endforeach
             </div>
@@ -306,9 +363,9 @@
                 data-slider-track>
                 @foreach ($paket as $item)
                     @php $populer = $item['populer']; @endphp
-                    <article data-slide
-                        class="snap-start shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)] flex flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl gap-5
-                        {{ $populer ? 'bg-b1 text-white' : 'bg-(--bg-card) text-(--text-primary)' }}">
+                    <article data-slide style="--reveal-delay: {{ $loop->index * 90 }}ms"
+                        class="reveal paket-card snap-start shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)] flex flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl gap-5
+                        {{ $populer ? 'paket-populer bg-b1 text-white' : 'bg-(--bg-card) text-(--text-primary)' }}">
                         @if ($populer)
                             <span
                                 class="mb-3 w-fit rounded-full bg-white/15 px-3 py-1.5 text-[12px] leading-none font-semibold text-white">

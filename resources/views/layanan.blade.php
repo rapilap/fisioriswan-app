@@ -19,9 +19,9 @@
             </h1>
 
             <p class="text-(--text-paragraph) text-base sm:text-lg mt-3 w-full sm:w-[90%] md:w-[75%] max-w-3xl">
-                Pulihkan berdiri untuk memastikan setiap orang bisa mendapat perawatan
-                fisioterapi yang nyaman dan praktis — tanpa antrean panjang, tanpa harus
-                ke klinik, dan tanpa proses yang rumit.
+                Ermaya Physio memastikan setiap orang bisa mendapat
+                perawatan fisioterapi yang nyaman dan praktis - tanpa
+                antrean panjang, tanpa harus ke klinik, dan tanpa proses yang rumit
             </p>
         </div>
 
@@ -141,13 +141,13 @@
                 class="reveal grid w-full max-w-6xl grid-cols-1 gap-4 sm:gap-5
                     sm:grid-cols-2 lg:grid-cols-3 items-center justify-center">
 
-                <x-package-card title="Kunjungan Tunggal" price="Rp 199rb" unit="kunjungan" :features="['1x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
+                <x-package-card title="Kunjungan Tunggal" price="Rp 450rb" unit="kunjungan" :features="['1x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
 
-                <x-package-card title="Paket Reguler" price="Rp 720rb" unit="4 kunjungan" :features="['4x kunjungan, 45-60 menit', 'Fisioterapis tetap yang sama', 'Evaluasi progres tiap sesi']" />
+                <x-package-card title="Paket Reguler" price="Rp 1,2jt" unit="4 kunjungan" :features="['4x kunjungan, 45-60 menit', 'Fisioterapis tetap yang sama', 'Evaluasi progres tiap sesi']" />
 
-                <x-package-card title="Paket Intensif" price="Rp 1,35jt" unit="8 kunjungan" :features="['8x kunjungan, 45-60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan']" />
+                <x-package-card title="Paket Intensif" price="Rp 3jt" unit="8 kunjungan" :features="['8x kunjungan, 45-60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan']" />
 
-                <x-package-card title="Paket Intensif+" price="Rp 3jt" unit="12 kunjungan" :features="['12x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
+                <x-package-card title="Paket Intensif+" price="Rp 4,2jt" unit="12 kunjungan" :features="['12x kunjungan, 45-60 menit', 'Infrared / Ultrasound / TENS', 'Bebas pilih tanggal']" />
 
                 <x-package-card title="Fisioterapi Acara"
                     description="Pesan Ermaya untuk acara Anda!

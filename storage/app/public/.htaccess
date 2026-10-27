@@ -1,0 +1,9 @@
+# Folder upload (foto testimoni & sorotan event). Hanya untuk file gambar:
+# jika ada file skrip yang lolos ter-upload, server Apache tidak akan menjalankannya.
+<FilesMatch "\.(php\d?|phtml|phar|pl|py|cgi|sh|asp|aspx|jsp|html?|svg)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes -ExecCGI
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
