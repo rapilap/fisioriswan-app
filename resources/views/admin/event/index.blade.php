@@ -18,17 +18,15 @@
 
     {{-- Tab --}}
     <nav aria-label="Filter event" class="mt-8 flex flex-wrap gap-2">
-        @foreach ([
-            ['kunci' => 'mendatang', 'label' => 'Akan datang', 'jumlah' => $jumlahMendatang],
-            ['kunci' => 'lewat', 'label' => 'Sudah lewat', 'jumlah' => $jumlahLewat],
-        ] as $tab)
+        @foreach ([['kunci' => 'mendatang', 'label' => 'Akan datang', 'jumlah' => $jumlahMendatang], ['kunci' => 'lewat', 'label' => 'Sudah lewat', 'jumlah' => $jumlahLewat]] as $tab)
             @php $aktif = $tampil === $tab['kunci']; @endphp
             <a href="{{ route('admin.event.index', $tab['kunci'] === 'lewat' ? ['tampil' => 'lewat'] : []) }}"
                 @if ($aktif) aria-current="page" @endif
                 class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[14px] font-semibold transition
                 {{ $aktif ? 'border-b1 bg-b1 text-white' : 'border-line bg-white text-secondary hover:border-b1 hover:text-b1' }}">
                 {{ $tab['label'] }}
-                <span class="rounded-full px-2 py-0.5 text-[12px] leading-none {{ $aktif ? 'bg-white/20' : 'bg-sage-deep' }}">{{ $tab['jumlah'] }}</span>
+                <span
+                    class="rounded-full px-2 py-0.5 text-[12px] leading-none {{ $aktif ? 'bg-white/20' : 'bg-sage-deep' }}">{{ $tab['jumlah'] }}</span>
             </a>
         @endforeach
     </nav>
@@ -38,7 +36,8 @@
 
         {{-- Penjelasan batas 3 event di website --}}
         @if ($tampil === 'mendatang' && $jumlahMendatang > 3)
-            <div class="mb-5 flex items-start gap-3 rounded-xl border border-line bg-white px-5 py-3.5 text-[14px] leading-relaxed text-secondary">
+            <div
+                class="mb-5 flex items-start gap-3 rounded-xl border border-line bg-white px-5 py-3.5 text-[14px] leading-relaxed text-secondary">
                 <span class="mt-0.5 shrink-0 text-b2">@include('components.icon', ['name' => 'info', 'class' => 'w-4 h-4'])</span>
                 <p>
                     Halaman Event menampilkan <strong class="text-primary">3 event teratas</strong> sekaligus.
@@ -69,59 +68,88 @@
             <div class="flex flex-col gap-4">
                 @foreach ($events as $event)
                     @php
-                        $lewat = ! $event->isUpcoming();
+                        $lewat = !$event->isUpcoming();
                         $urutan = $events->firstItem() + $loop->index; // urutan di antara event yang akan datang
                     @endphp
-                    <article class="flex flex-col gap-5 rounded-[20px] border border-line bg-white p-6 sm:flex-row sm:items-start">
+                    <article
+                        class="flex flex-col gap-5 rounded-[20px] border border-(--border-line) bg-(--bg-card) p-6 sm:flex-row sm:items-start">
                         {{-- Tanggal --}}
                         <div
-                            class="flex h-[74px] w-[74px] shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-secondary' : 'bg-b1' }}">
-                            <span class="{{ mb_strlen($event->tanggalAngka()) > 2 ? 'text-[18px]' : 'text-[24px]' }} font-bold leading-none">{{ $event->tanggalAngka() }}</span>
+                            class="flex h-18.5 w-18.5 shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-(--bg-secondary)' : 'bg-b1' }}">
+                            <span
+                                class="{{ mb_strlen($event->tanggalAngka()) > 2 ? 'text-[18px]' : 'text-[24px]' }} font-bold leading-none">{{ $event->tanggalAngka() }}</span>
                             <span class="mt-1.5 text-[12px] leading-none">{{ $event->bulanSingkat() }}</span>
                         </div>
 
                         {{-- Isi --}}
                         <div class="min-w-0 flex-1">
                             <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                                <h2 class="font-fraunces text-[22px] font-semibold leading-tight text-primary">{{ $event->title }}</h2>
+                                <h2 class="font-fraunces text-[22px] font-semibold leading-tight text-(--text-primary)">
+                                    {{ $event->title }}</h2>
                                 @if ($lewat)
-                                    <span class="rounded-full bg-sage-deep px-2.5 py-1 text-[12px] font-semibold leading-none text-secondary">Tidak tampil di website</span>
+                                    <span
+                                        class="rounded-full bg-sage-deep px-2.5 py-1 text-[12px] font-semibold leading-none text-secondary">Tidak
+                                        tampil di website</span>
                                 @elseif ($urutan > 3)
-                                    <span class="rounded-full bg-pill px-2.5 py-1 text-[12px] font-semibold leading-none text-g1">Tampil setelah digulir</span>
+                                    <span
+                                        class="rounded-full bg-pill px-2.5 py-1 text-[12px] font-semibold leading-none text-g1">Tampil
+                                        setelah digulir</span>
                                 @else
-                                    <span class="rounded-full bg-pill-green px-2.5 py-1 text-[12px] font-semibold leading-none text-b1">Tampil di website</span>
+                                    <span
+                                        class="rounded-full bg-pill-green px-2.5 py-1 text-[12px] font-semibold leading-none text-b1">Tampil
+                                        di website</span>
                                 @endif
                             </div>
 
-                            <div class="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-secondary">
+                            <div class="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-(--text-paragraph)">
                                 <span class="inline-flex items-center gap-1.5">
-                                    @include('components.icon', ['name' => 'calendar', 'class' => 'w-3.5 h-3.5'])
+                                    @include('components.icon', [
+                                        'name' => 'calendar',
+                                        'class' => 'w-3.5 h-3.5',
+                                    ])
                                     {{ $event->rentangDenganDurasi() ?? $event->tanggalLengkap() }}
                                 </span>
                                 <span class="inline-flex items-center gap-1.5">
-                                    @include('components.icon', ['name' => 'clock', 'class' => 'w-3.5 h-3.5'])
+                                    @include('components.icon', [
+                                        'name' => 'clock',
+                                        'class' => 'w-3.5 h-3.5',
+                                    ])
                                     {{ $event->waktuLabel() }}
                                 </span>
                                 <span class="inline-flex items-center gap-1.5">
-                                    @include('components.icon', ['name' => 'map-pin', 'class' => 'w-3.5 h-3.5'])
+                                    @include('components.icon', [
+                                        'name' => 'map-pin',
+                                        'class' => 'w-3.5 h-3.5',
+                                    ])
                                     {{ $event->location }}
                                 </span>
                             </div>
 
-                            <p class="mt-2.5 line-clamp-2 max-w-[680px] text-[15px] leading-relaxed text-secondary">{{ $event->description }}</p>
+                            <p class="mt-2.5 line-clamp-2 max-w-170 text-[15px] leading-relaxed text-(--text-paragraph)">
+                                {{ $event->description }}</p>
 
                             {{-- Link tombol pendaftaran --}}
                             <div class="mt-3">
                                 @if ($event->registration_url)
                                     <a href="{{ $event->registration_url }}" target="_blank" rel="noopener noreferrer"
                                         class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-line bg-sage px-3 py-1.5 text-[13px] font-medium text-b1 transition hover:border-b1">
-                                        @include('components.icon', ['name' => 'link', 'class' => 'w-3.5 h-3.5 shrink-0'])
+                                        @include('components.icon', [
+                                            'name' => 'link',
+                                            'class' => 'w-3.5 h-3.5 shrink-0',
+                                        ])
                                         <span class="truncate">{{ $event->linkRingkas() }}</span>
-                                        @include('components.icon', ['name' => 'external', 'class' => 'w-3 h-3 shrink-0 opacity-60'])
+                                        @include('components.icon', [
+                                            'name' => 'external',
+                                            'class' => 'w-3 h-3 shrink-0 opacity-60',
+                                        ])
                                     </a>
                                 @else
-                                    <span class="inline-flex items-center gap-1.5 rounded-full bg-g5 px-3 py-1.5 text-[13px] font-medium text-g1">
-                                        @include('components.icon', ['name' => 'alert', 'class' => 'w-3.5 h-3.5'])
+                                    <span
+                                        class="inline-flex items-center gap-1.5 rounded-full bg-g5 px-3 py-1.5 text-[13px] font-medium text-g1">
+                                        @include('components.icon', [
+                                            'name' => 'alert',
+                                            'class' => 'w-3.5 h-3.5',
+                                        ])
                                         Belum ada link, tombol “Daftar Sekarang” tidak tampil
                                     </span>
                                 @endif
@@ -131,12 +159,12 @@
                         {{-- Aksi --}}
                         <div class="flex shrink-0 gap-2 sm:flex-col">
                             <a href="{{ route('admin.event.edit', $event) }}"
-                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-b1 px-4 text-[14px] font-semibold text-b1 transition hover:bg-b1 hover:text-white sm:flex-none">
+                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) px-4 text-[14px] font-semibold text-(--bg-point) transition hover:bg-b1 hover:text-white sm:flex-none">
                                 @include('components.icon', ['name' => 'pencil', 'class' => 'w-4 h-4'])
                                 Edit
                             </a>
-                            <form method="POST" action="{{ route('admin.event.destroy', $event) }}" class="flex-1 sm:flex-none"
-                                onsubmit="return confirm(@js('Hapus event “' . $event->title . '”? Tindakan ini tidak bisa dibatalkan.'))">
+                            <form method="POST" action="{{ route('admin.event.destroy', $event) }}"
+                                class="flex-1 sm:flex-none" onsubmit="return confirm(@js('Hapus event “' . $event->title . '”? Tindakan ini tidak bisa dibatalkan.'))">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
