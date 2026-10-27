@@ -14,6 +14,7 @@
     --bg-secondary: #fbf8f2;
     --bg-card: #ffffff;
     --bg-point: #000080;
+    --bg-shadow: #e8ede3;
 
     --text-primary: #121212;
     --text-title: #1e271f;
@@ -35,6 +36,7 @@
     --bg-secondary: #101010;
     --bg-card: #1e1e1e;
     --bg-point: #a67c00;
+    --bg-shadow: #20221f;
 
     --text-primary: #f5f5f5;
     --text-title: #ffffff;
@@ -228,7 +230,8 @@ html {
 
 .dark .hover\:bg-b1:hover {
     background-color: var(--bg-point);
-    box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--bg-point) 60%, transparent);
+    box-shadow: 0 6px 20px -6px
+        color-mix(in srgb, var(--bg-point) 60%, transparent);
 }
 
 .dark .group:hover .group-hover\:bg-g1 {
@@ -342,7 +345,8 @@ html {
     }
 
     50% {
-        box-shadow: 0 0 28px 2px color-mix(in srgb, var(--bg-point) 38%, transparent);
+        box-shadow: 0 0 28px 2px
+            color-mix(in srgb, var(--bg-point) 38%, transparent);
     }
 }
 

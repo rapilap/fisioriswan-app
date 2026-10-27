@@ -9,10 +9,10 @@
     <title>@yield('title', 'Admin - Pulihkan')</title>
 </head>
 
-<body class="bg-sage font-sans text-primary">
+<body class="bg-(--bg-primary) font-sans text-(--text-primary)">
     <x-admin-navbar />
 
-    <main class="mx-auto min-h-screen w-full max-w-6xl px-6 py-10">
+    <main class="load-in mx-auto min-h-screen w-full max-w-6xl py-10 px-6 lg:px-6">
         @yield('content')
     </main>
 </body>

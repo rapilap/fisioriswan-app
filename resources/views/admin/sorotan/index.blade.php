@@ -18,7 +18,7 @@
         @if ($highlights->isEmpty())
             <div class="rounded-[20px] border border-line bg-white px-6 py-20 text-center">
                 <p class="font-fraunces text-[24px] font-semibold text-primary">Belum ada sorotan event</p>
-                <p class="mx-auto mt-2 max-w-[420px] text-[14px] leading-relaxed text-secondary">
+                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-secondary">
                     Unggah foto kegiatan event sebelumnya agar pengunjung bisa melihat hasil kolaborasi Pulihkan.
                 </p>
                 <a href="{{ route('admin.sorotan.create') }}"
@@ -29,29 +29,38 @@
             </div>
         @else
             @if ($highlights->total() > 6)
-                <div class="mb-5 flex items-start gap-3 rounded-xl border border-line bg-white px-5 py-3.5 text-[14px] leading-relaxed text-secondary">
+                <div
+                    class="mb-5 flex items-start gap-3 rounded-xl border border-(--border-line) bg-(--bg-card) px-5 py-3.5 text-[14px] leading-relaxed text-(--text-paragraph)">
                     <span class="mt-0.5 shrink-0 text-b2">@include('components.icon', ['name' => 'info', 'class' => 'w-4 h-4'])</span>
-                    <p>Halaman Event menampilkan <strong class="text-primary">6 sorotan terbaru</strong>. Yang lebih lama tetap tersimpan di sini.</p>
+                    <p>Halaman Event menampilkan <strong class="text-primary">6 sorotan terbaru</strong>. Yang lebih lama
+                        tetap tersimpan di sini.</p>
                 </div>
             @endif
 
             <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($highlights as $item)
-                    <article class="flex flex-col rounded-[20px] border border-line bg-white p-5">
-                        <div class="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-linear-to-br from-photo-from to-photo-to">
+                    <article class="flex flex-col rounded-[20px] border border-(--border-line) bg-(--bg-crad) p-5">
+                        <div
+                            class="relative aspect-4/3 overflow-hidden rounded-2xl border border-(--border-line) bg-linear-to-br from-photo-from to-photo-to">
                             <div class="absolute inset-0 flex items-center justify-center text-g3">
-                                @include('components.icon', ['name' => 'image', 'class' => 'w-12 h-12', 'stroke' => 1.5])
+                                @include('components.icon', [
+                                    'name' => 'image',
+                                    'class' => 'w-12 h-12',
+                                    'stroke' => 1.5,
+                                ])
                             </div>
                             <img src="{{ asset($item->imagePath()) }}" alt="{{ $item->title }}" loading="lazy"
                                 onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover">
                         </div>
 
-                        <h2 class="mt-4 text-[16px] font-semibold leading-snug text-primary">{{ $item->title }}</h2>
-                        <p class="mt-1 line-clamp-2 flex-1 text-[14px] leading-relaxed text-secondary">{{ $item->description }}</p>
+                        <h2 class="mt-4 text-[16px] font-semibold leading-snug text-(--text-primary)">{{ $item->title }}
+                        </h2>
+                        <p class="mt-1 line-clamp-2 flex-1 text-[14px] leading-relaxed text-(--text-paragraph)">
+                            {{ $item->description }}</p>
 
                         <div class="mt-5 flex gap-3">
                             <a href="{{ route('admin.sorotan.edit', $item) }}"
-                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-b1 text-[14px] font-semibold text-b1 transition hover:bg-b1 hover:text-white">
+                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) text-[14px] font-semibold text-(--bg-point) transition hover:bg-(--bg-point) hover:text-white">
                                 @include('components.icon', ['name' => 'pencil', 'class' => 'w-4 h-4'])
                                 Edit
                             </a>

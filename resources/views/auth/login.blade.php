@@ -64,7 +64,7 @@
                     <input id="email" type="email" name="email" value="{{ old('email') }}"
                         autocomplete="username" required autofocus
                         class="w-full px-2 py-1 border-b border-gray-200 
-                           outline-none focus:border-gray-400 text-sm"
+                           outline-none focus:border-gray-400 text-sm text-black"
                         placeholder="Email">
                 </div>
 
@@ -82,7 +82,7 @@
 
                     <input id="password" type="password" name="password" autocomplete="current-password" required
                         class="w-full px-2 py-1 border-b border-gray-200 
-                           outline-none focus:border-gray-400 text-sm"
+                           outline-none focus:border-gray-400 text-sm text-black"
                         placeholder="Password">
                 </div>
 

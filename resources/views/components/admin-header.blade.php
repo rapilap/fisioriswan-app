@@ -3,12 +3,12 @@
 
 <div class="flex flex-wrap items-end justify-between gap-4">
     <div class="min-w-0">
-        <h1 class="font-fraunces text-[32px] font-semibold leading-tight text-primary">{{ $title }}</h1>
+        <h1 class="font-fraunces text-[32px] font-semibold leading-tight text-(--text-primary)">{{ $title }}</h1>
         @if ($subtitle)
-            <p class="mt-1.5 max-w-[640px] text-[15px] leading-relaxed text-secondary">{{ $subtitle }}</p>
+            <p class="mt-1.5 max-w-160 text-[15px] leading-relaxed text-(--text-paragraph)">{{ $subtitle }}</p>
         @endif
     </div>
-    @if (! $slot->isEmpty())
+    @if (!$slot->isEmpty())
         <div class="flex shrink-0 flex-wrap items-center gap-3">{{ $slot }}</div>
     @endif
 </div>

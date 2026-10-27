@@ -29,20 +29,23 @@
             </p>
         </div>
     @else
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-0.5">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-3">
             @foreach ($testimonials as $item)
-                <article class="flex flex-col rounded-[20px] border border-line bg-white p-7">
+                <article class="flex flex-col rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7">
                     {{-- Foto testimoni (opsional) --}}
                     <div
                         class="relative aspect-[326/205] overflow-hidden rounded-[20px] border border-line bg-linear-to-br from-photo-from to-photo-to">
                         <div class="absolute inset-0 flex items-center justify-center text-[#8a9a90]">
-                            @include('components.icon', ['name' => 'image', 'class' => 'w-13 h-13', 'stroke' => 1.5])
+                            @include('components.icon', [
+                                'name' => 'image',
+                                'class' => 'w-13 h-13',
+                                'stroke' => 1.5,
+                            ])
                         </div>
                         <span class="absolute bottom-4 left-4 text-[12px] font-medium text-[#8a9a90]">Tanpa foto</span>
                         @if ($item->image)
                             <img src="{{ asset('storage/' . $item->image) }}" alt="Foto dari {{ $item->fullname }}"
-                                loading="lazy" onerror="this.remove()"
-                                class="absolute inset-0 h-full w-full object-cover">
+                                loading="lazy" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover">
                         @endif
                     </div>
 
@@ -50,7 +53,7 @@
                     <x-rating-stars :rating="$item->rating" class="mt-5" />
 
                     {{-- Isi testimoni --}}
-                    <p class="mt-3 line-clamp-4 min-h-[104px] text-[16px] leading-relaxed text-primary">
+                    <p class="mt-3 line-clamp-4 min-h-[104px] text-[16px] leading-relaxed text-(--text-primary)">
                         “{{ $item->testimonial }}”
                     </p>
 
@@ -61,8 +64,8 @@
                             {{ mb_strtoupper(mb_substr(trim($item->fullname), 0, 1)) }}
                         </span>
                         <div class="min-w-0">
-                            <p class="truncate text-[14px] font-semibold text-primary">{{ $item->fullname }}</p>
-                            <p class="truncate text-[13px] text-secondary">{{ $item->city }}</p>
+                            <p class="truncate text-[14px] font-semibold text-(--text-primary)">{{ $item->fullname }}</p>
+                            <p class="truncate text-[13px] text-(--text-paragraph)">{{ $item->city }}</p>
                         </div>
                     </div>
 
