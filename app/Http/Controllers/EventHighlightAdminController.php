@@ -72,7 +72,9 @@ class EventHighlightAdminController extends Controller
         return $request->validate([
             'title' => ['required', 'string', 'max:120'],
             'description' => ['required', 'string', 'max:200'],
-            'image' => [$creating ? 'required' : 'nullable', 'file', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            // 'image' + 'mimes' memeriksa isi file (bukan hanya nama/ekstensi), jadi file
+            // berbahaya yang diberi nama .jpg tetap ditolak.
+            'image' => [$creating ? 'required' : 'nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
         ], [
             'title.required' => 'Judul sorotan wajib diisi.',
             'title.max' => 'Judul maksimal 120 karakter.',

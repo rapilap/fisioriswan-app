@@ -46,7 +46,8 @@ class TestimonialController extends Controller
             'city' => ['required', Rule::in(config('testimonial.cities'))],
             'rating' => ['required', 'integer', 'between:1,5'],
             'testimonial' => ['required', 'string', 'min:10', 'max:1000'],
-            'image' => ['nullable', 'image', 'max:5120'], // maks. 5 MB; semua format foto umum (JPG, PNG, WEBP, GIF, BMP)
+            // Maks. 5 MB; format foto umum. Isi file diperiksa, dan SVG (bisa berisi skrip) ditolak.
+            'image' => ['nullable', 'file', 'image', 'mimes:jpg,jpeg,png,webp,gif,bmp', 'max:5120'],
         ], [
             'rating.required' => 'Silakan beri rating bintang.',
             'rating.between' => 'Rating harus antara 1 sampai 5 bintang.',
@@ -59,6 +60,7 @@ class TestimonialController extends Controller
             'testimonial.min' => 'Testimoni minimal 10 karakter.',
             'testimonial.max' => 'Testimoni maksimal 1000 karakter.',
             'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Foto harus berformat JPG, PNG, WEBP, GIF, atau BMP.',
             'image.max' => 'Ukuran foto maksimal 5 MB.',
             'image.uploaded' => 'Foto gagal diunggah. Pastikan ukurannya tidak lebih dari 5 MB.',
         ]);

@@ -62,7 +62,7 @@ Route::post('/admin/logout', [
     'logout',
 ])->middleware('auth')->name('admin.logout');
 
-// TODO: bungkus dengan middleware auth setelah login admin tersedia
+// Admin: kelola testimoni
 Route::prefix('admin/testimoni')
     ->name('admin.testimoni.')
     ->controller(TestimonialAdminController::class)
@@ -75,7 +75,6 @@ Route::prefix('admin/testimoni')
     });
 
 // Admin: kelola event mendatang (hasil kolaborasi)
-// TODO: bungkus dengan middleware auth setelah login admin tersedia
 Route::prefix('admin/event')
     ->name('admin.event.')
     ->controller(EventAdminController::class)
@@ -90,7 +89,6 @@ Route::prefix('admin/event')
     });
 
 // Admin: kelola "Sorotan event sebelumnya"
-// TODO: bungkus dengan middleware auth setelah login admin tersedia
 Route::prefix('admin/sorotan')
     ->name('admin.sorotan.')
     ->controller(EventHighlightAdminController::class)
