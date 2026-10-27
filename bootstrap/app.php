@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\EnsureAdmin;
+use App\Http\Middleware\SecurityHeaders;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -18,6 +19,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->redirectGuestsTo('/admin/login');
+
+        $middleware->web(append: [SecurityHeaders::class]);
+
+        // Hanya terima request untuk domain di APP_URL (mencegah serangan Host header).
+        // Otomatis tidak aktif saat APP_ENV=local.
+        $middleware->trustHosts();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

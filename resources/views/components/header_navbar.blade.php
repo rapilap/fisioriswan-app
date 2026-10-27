@@ -1,4 +1,3 @@
-{{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
 <nav class="relative z-50 w-full bg-(--bg-primary) text-(--text-primary) flex flex-col drop-shadow-md">
     {{-- Top --}}
