@@ -4,7 +4,7 @@
 
 @php
     $waKolaborasi =
-        'https://wa.me/62xxxxxxxxxxx?text=halo, saya ingin mengajukan kolaborasi event dengan Pulihkan!%0ANama: [Nama]%0AInstansi: [Instansi]';
+        'https://wa.me/62xxxxxxxxxxx?text=halo, saya ingin mengajukan kolaborasi event dengan Ermaya!%0ANama: [Nama]%0AInstansi: [Instansi]';
 
     // Data asli dikirim EventController dari database (admin: menu Event). Contoh ini hanya tampil sebelum migrate.
     // Format: tanggal (angka), bulan (singkatan), judul, waktu, lokasi, deskripsi, link (tombol Daftar Sekarang)
@@ -16,7 +16,7 @@
             'waktu' => '09.00 – 12.00 WIB',
             'lokasi' => 'Balai Warga Kemang, Jakarta Selatan',
             'deskripsi' =>
-                'Skrining gratis dan konsultasi singkat bersama fisioterapis Pulihkan untuk warga usia 50 tahun ke atas.',
+                'Skrining gratis dan konsultasi singkat bersama fisioterapis Ermaya untuk warga usia 50 tahun ke atas.',
             'link' => '#',
         ],
         [
@@ -82,7 +82,7 @@
                 {{-- Letakkan foto di public/images/event/hero.jpg --}}
                 @include('components.beranda-foto', [
                     'src' => 'images/event/hero.jpg',
-                    'alt' => 'Tim fisioterapi Pulihkan di sebuah acara',
+                    'alt' => 'Tim fisioterapi Ermaya di sebuah acara',
                     'caption' => 'Tim fisioterapi di sebuah acara',
                     'icon' => 'users',
                     'class' => 'aspect-[4/5] w-full',
@@ -193,11 +193,7 @@
                     menghadirkan layanan fisioterapi dan edukasi kesehatan langsung di lokasi acara.
                 </p>
                 <ul class="mt-5 flex flex-col gap-4 text-[16px] text-(--text-paragraph)">
-                    @foreach ([
-                        'Pendampingan medis di event olahraga & komunitas',
-                        'Talkshow, Seminar dan Webinar untuk edukasi kesehatan',
-                        'Skrining kesehatan gratis untuk komunitas',
-                    ] as $poin)
+                    @foreach (['Pendampingan medis di event olahraga & komunitas', 'Talkshow, Seminar dan Webinar untuk edukasi kesehatan', 'Skrining kesehatan gratis untuk komunitas'] as $poin)
                         <li class="flex items-center gap-3.5">
                             <span class="shrink-0 text-b1">
                                 @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])
@@ -215,7 +211,7 @@
             {{-- Letakkan foto di public/images/event/kolaborasi.jpg --}}
             @include('components.beranda-foto', [
                 'src' => 'images/event/kolaborasi.jpg',
-                'alt' => 'Tim Pulihkan di lokasi event',
+                'alt' => 'Tim Ermaya di lokasi event',
                 'caption' => 'Tim di lokasi event',
                 'icon' => 'users',
                 'class' => 'aspect-[4/5] w-full',

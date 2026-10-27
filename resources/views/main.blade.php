@@ -41,10 +41,7 @@
         [
             'icon' => 'smile',
             'judul' => 'Pediatri',
-            'items' => [
-                'Delay Development/Keterlambatan Perkembangan',
-                'Cerebral Palsy/Kelumpuhan Otak',
-            ],
+            'items' => ['Delay Development/Keterlambatan Perkembangan', 'Cerebral Palsy/Kelumpuhan Otak'],
         ],
         [
             'icon' => 'user',
@@ -130,7 +127,7 @@
             'icon' => 'calendar',
             'populer' => false,
             'deskripsi' =>
-                'Pesan Pulihkan untuk acara Anda! Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda.',
+                'Pesan Ermaya untuk acara Anda! Kami akan berikan pelayanan sesuai dengan kebutuhan acara Anda.',
         ],
         [
             'nama' => 'Fisioterapi Wellness',
@@ -138,7 +135,7 @@
             'icon' => 'heart',
             'populer' => false,
             'deskripsi' =>
-                'Sering melakukan kegiatan fisik berat? Pesan Pulihkan Wellness sebagai fisioterapis pribadi Anda!',
+                'Sering melakukan kegiatan fisik berat? Pesan Ermaya Wellness sebagai fisioterapis pribadi Anda!',
         ],
     ];
 
@@ -217,8 +214,8 @@
             {{-- Letakkan foto di public/images/beranda/hero.jpg --}}
             @include('components.beranda-foto', [
                 'src' => 'images/beranda/hero.jpg',
-                'alt' => 'Fisioterapis Pulihkan sedang menangani pasien di rumah',
-                'caption' => 'Fisioterapis Pulihkan di rumah pasien',
+                'alt' => 'Fisioterapis Ermaya sedang menangani pasien di rumah',
+                'caption' => 'Fisioterapis Ermaya di rumah pasien',
                 'icon' => 'heart',
                 'class' => 'aspect-[4/5] w-full',
                 'load' => true,
@@ -244,11 +241,7 @@
                     Perawatan di klinik sering merepotkan yang justru butuh istirahat.
                 </h2>
                 <ul class="mt-8 flex flex-col gap-7">
-                    @foreach ([
-                        ['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Perawatan di klinik sering merepotkan untuk yang butuh istirahat, cukup tunggu terapis datang membawa peralatan lengkap.'],
-                        ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 09.00 – 18.00.'],
-                        ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis yang menyusun khusus program rehabilitasi sesuai kondisi dan target anda.'],
-                    ] as $poin)
+                    @foreach ([['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Perawatan di klinik sering merepotkan untuk yang butuh istirahat, cukup tunggu terapis datang membawa peralatan lengkap.'], ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 09.00 – 18.00.'], ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis yang menyusun khusus program rehabilitasi sesuai kondisi dan target anda.']] as $poin)
                         <li class="flex gap-4">
                             <x-pill-icon>
                                 @include('components.icon', [
@@ -291,7 +284,9 @@
                         <x-pill-icon class="shrink-0 transition group-hover:bg-g1 group-hover:text-white">
                             @include('components.icon', ['name' => $item['icon'], 'class' => 'w-5 h-5'])
                         </x-pill-icon>
-                        <h3 class="mt-5 shrink-0 font-fraunces text-[20px] font-semibold leading-tight text-(--text-primary)">{{ $item['judul'] }}</h3>
+                        <h3
+                            class="mt-5 shrink-0 font-fraunces text-[20px] font-semibold leading-tight text-(--text-primary)">
+                            {{ $item['judul'] }}</h3>
 
                         <ul tabindex="0" aria-label="Daftar kondisi: {{ $item['judul'] }}"
                             class="thin-scroll -mr-3 mt-4 flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain pr-3 focus-visible:outline-2 focus-visible:outline-b1">
@@ -302,7 +297,8 @@
                                     <span>
                                         <span class="font-medium text-(--text-primary)">{{ trim($istilah) }}</span>
                                         @if ($arti)
-                                            <span class="mt-0.5 block text-[13px] text-(--text-paragraph)">{{ trim($arti) }}</span>
+                                            <span
+                                                class="mt-0.5 block text-[13px] text-(--text-paragraph)">{{ trim($arti) }}</span>
                                         @endif
                                     </span>
                                 </li>

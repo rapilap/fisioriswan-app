@@ -16,7 +16,7 @@
             <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-b1 text-white">
                 @include('components.icon', ['name' => 'home', 'class' => 'w-[18px] h-[18px]'])
             </span>
-            <span class="font-fraunces text-[32px] font-bold leading-none text-primary">Pulihkan</span>
+            <span class="font-fraunces text-[32px] font-bold leading-none text-primary">Ermaya</span>
         </a>
 
         {{-- Menu --}}
