@@ -13,7 +13,10 @@
     @include('components.header_navbar')
 
     <main class="flex flex-col w-full min-h-screen bg-(--bg-primary) @yield('main_class', 'py-20')">
+        @include('sweetalert2::index')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @yield('content')
+        @stack('scripts')
     </main>
 
     @include('components.footer_navbar')
