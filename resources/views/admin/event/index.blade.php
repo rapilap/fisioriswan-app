@@ -51,7 +51,7 @@
                 <p class="font-fraunces text-[24px] font-semibold text-primary">
                     {{ $tampil === 'lewat' ? 'Belum ada event yang sudah lewat' : 'Belum ada event yang akan datang' }}
                 </p>
-                <p class="mx-auto mt-2 max-w-[420px] text-[14px] leading-relaxed text-secondary">
+                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-secondary">
                     {{ $tampil === 'lewat'
                         ? 'Event yang tanggalnya sudah lewat akan berpindah ke sini secara otomatis.'
                         : 'Tambahkan event hasil kolaborasi agar pengunjung bisa langsung mendaftar lewat halaman Event.' }}
@@ -75,7 +75,7 @@
                         class="flex flex-col gap-5 rounded-[20px] border border-(--border-line) bg-(--bg-card) p-6 sm:flex-row sm:items-start">
                         {{-- Tanggal --}}
                         <div
-                            class="flex h-18.5 w-18.5 shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-(--bg-secondary)' : 'bg-b1' }}">
+                            class="flex h-18.5 w-18.5 shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-(--bg-date)' : 'bg-b1' }}">
                             <span
                                 class="{{ mb_strlen($event->tanggalAngka()) > 2 ? 'text-[18px]' : 'text-[24px]' }} font-bold leading-none">{{ $event->tanggalAngka() }}</span>
                             <span class="mt-1.5 text-[12px] leading-none">{{ $event->bulanSingkat() }}</span>
