@@ -26,7 +26,7 @@
         {{-- Formulir --}}
         <form method="POST" novalidate
             action="{{ $edit ? route('admin.event.update', $event) : route('admin.event.store') }}"
-            class="rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7">
+            class="rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7 event-submit-form">
             @csrf
             @if ($edit)
                 @method('PUT')
@@ -237,111 +237,142 @@
         </aside>
     </div>
 
-    <script>
-        (() => {
-            const el = (id) => document.getElementById(id);
-            const bulan = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AGU', 'SEP', 'OKT', 'NOV', 'DES'];
-            const bulanPanjang = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
-                'September', 'Oktober', 'November', 'Desember'
-            ];
-            const MAKS_HARI = {{ \App\Models\Event::MAKS_HARI }};
-            const f = {
-                judul: el('title'),
-                tanggal: el('event_date'),
-                hari: el('days'),
-                mulai: el('start_time'),
-                selesai: el('end_time'),
-                lokasi: el('location'),
-                deskripsi: el('description'),
-                link: el('registration_url'),
-            };
-            const pv = {
-                hari: el('pv-hari'),
-                bulan: el('pv-bulan'),
-                judul: el('pv-judul'),
-                waktu: el('pv-waktu'),
-                lokasi: el('pv-lokasi'),
-                deskripsi: el('pv-deskripsi'),
-                tombol: el('pv-tombol'),
-                rentang: el('pv-rentang'),
-                rentangBaris: el('pv-rentang-baris'),
-            };
-            const keluaran = el('tanggal_selesai');
-
-            // Tanggal mulai + jumlah hari → tanggal selesai (UTC agar tidak bergeser oleh zona waktu)
-            const tanggalSelesai = (mulai, jumlah) => {
-                const d = new Date(Date.UTC(Number(mulai[1]), Number(mulai[2]) - 1, Number(mulai[3])));
-                d.setUTCDate(d.getUTCDate() + jumlah - 1);
-                return {
-                    h: d.getUTCDate(),
-                    b: d.getUTCMonth(),
-                    t: d.getUTCFullYear()
+    @push('scripts')
+        <script>
+            (() => {
+                const el = (id) => document.getElementById(id);
+                const bulan = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AGU', 'SEP', 'OKT', 'NOV', 'DES'];
+                const bulanPanjang = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                    'September', 'Oktober', 'November', 'Desember'
+                ];
+                const MAKS_HARI = {{ \App\Models\Event::MAKS_HARI }};
+                const f = {
+                    judul: el('title'),
+                    tanggal: el('event_date'),
+                    hari: el('days'),
+                    mulai: el('start_time'),
+                    selesai: el('end_time'),
+                    lokasi: el('location'),
+                    deskripsi: el('description'),
+                    link: el('registration_url'),
                 };
-            };
-            const dua = (n) => String(n).padStart(2, '0');
-            const lengkap = (x) => `${x.h} ${bulanPanjang[x.b]} ${x.t}`;
+                const pv = {
+                    hari: el('pv-hari'),
+                    bulan: el('pv-bulan'),
+                    judul: el('pv-judul'),
+                    waktu: el('pv-waktu'),
+                    lokasi: el('pv-lokasi'),
+                    deskripsi: el('pv-deskripsi'),
+                    tombol: el('pv-tombol'),
+                    rentang: el('pv-rentang'),
+                    rentangBaris: el('pv-rentang-baris'),
+                };
+                const keluaran = el('tanggal_selesai');
 
-            // Isi kolom ditampilkan; kalau kosong tampilkan contoh dengan warna pudar
-            const isi = (node, nilai, contoh) => {
-                node.textContent = nilai || contoh;
-                node.classList.toggle('opacity-50', !nilai);
-            };
-
-            const render = () => {
-                isi(pv.judul, f.judul.value.trim(), 'Judul event Anda');
-                isi(pv.lokasi, f.lokasi.value.trim(), 'Lokasi event');
-                isi(pv.deskripsi, f.deskripsi.value.trim(), 'Deskripsi singkat event akan tampil di sini.');
-
-                const tgl = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f.tanggal.value);
-                const jumlah = Math.min(MAKS_HARI, Math.max(1, parseInt(f.hari.value, 10) || 1));
-                const banyak = jumlah > 1;
-
-                if (!tgl) {
-                    pv.hari.textContent = '--';
-                    pv.bulan.textContent = '---';
-                    pv.rentangBaris.hidden = true;
-                    keluaran.textContent = '—';
-                } else {
-                    const awal = {
-                        h: Number(tgl[3]),
-                        b: Number(tgl[2]) - 1,
-                        t: Number(tgl[1])
+                // Tanggal mulai + jumlah hari → tanggal selesai (UTC agar tidak bergeser oleh zona waktu)
+                const tanggalSelesai = (mulai, jumlah) => {
+                    const d = new Date(Date.UTC(Number(mulai[1]), Number(mulai[2]) - 1, Number(mulai[3])));
+                    d.setUTCDate(d.getUTCDate() + jumlah - 1);
+                    return {
+                        h: d.getUTCDate(),
+                        b: d.getUTCMonth(),
+                        t: d.getUTCFullYear()
                     };
-                    const akhir = tanggalSelesai(tgl, jumlah);
-                    const sebulan = awal.b === akhir.b && awal.t === akhir.t;
+                };
+                const dua = (n) => String(n).padStart(2, '0');
+                const lengkap = (x) => `${x.h} ${bulanPanjang[x.b]} ${x.t}`;
 
-                    // Lencana: "21" / "21–23" / "30–02", bulan "OKT" / "OKT–NOV"
-                    pv.hari.textContent = banyak ? `${dua(awal.h)}–${dua(akhir.h)}` : dua(awal.h);
-                    pv.hari.classList.toggle('text-[22px]', !banyak);
-                    pv.hari.classList.toggle('text-[16px]', banyak);
-                    pv.bulan.textContent = banyak && !sebulan ? `${bulan[awal.b]}–${bulan[akhir.b]}` : bulan[awal
-                        .b];
+                // Isi kolom ditampilkan; kalau kosong tampilkan contoh dengan warna pudar
+                const isi = (node, nilai, contoh) => {
+                    node.textContent = nilai || contoh;
+                    node.classList.toggle('opacity-50', !nilai);
+                };
 
-                    // Teks rentang: "21 – 23 Oktober 2026 · 3 hari"
-                    let teks = lengkap(awal);
-                    if (banyak) {
-                        if (sebulan) teks = `${awal.h} – ${lengkap(akhir)}`;
-                        else if (awal.t === akhir.t) teks = `${awal.h} ${bulanPanjang[awal.b]} – ${lengkap(akhir)}`;
-                        else teks = `${lengkap(awal)} – ${lengkap(akhir)}`;
+                const render = () => {
+                    isi(pv.judul, f.judul.value.trim(), 'Judul event Anda');
+                    isi(pv.lokasi, f.lokasi.value.trim(), 'Lokasi event');
+                    isi(pv.deskripsi, f.deskripsi.value.trim(), 'Deskripsi singkat event akan tampil di sini.');
+
+                    const tgl = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f.tanggal.value);
+                    const jumlah = Math.min(MAKS_HARI, Math.max(1, parseInt(f.hari.value, 10) || 1));
+                    const banyak = jumlah > 1;
+
+                    if (!tgl) {
+                        pv.hari.textContent = '--';
+                        pv.bulan.textContent = '---';
+                        pv.rentangBaris.hidden = true;
+                        keluaran.textContent = '—';
+                    } else {
+                        const awal = {
+                            h: Number(tgl[3]),
+                            b: Number(tgl[2]) - 1,
+                            t: Number(tgl[1])
+                        };
+                        const akhir = tanggalSelesai(tgl, jumlah);
+                        const sebulan = awal.b === akhir.b && awal.t === akhir.t;
+
+                        // Lencana: "21" / "21–23" / "30–02", bulan "OKT" / "OKT–NOV"
+                        pv.hari.textContent = banyak ? `${dua(awal.h)}–${dua(akhir.h)}` : dua(awal.h);
+                        pv.hari.classList.toggle('text-[22px]', !banyak);
+                        pv.hari.classList.toggle('text-[16px]', banyak);
+                        pv.bulan.textContent = banyak && !sebulan ? `${bulan[awal.b]}–${bulan[akhir.b]}` : bulan[awal
+                            .b];
+
+                        // Teks rentang: "21 – 23 Oktober 2026 · 3 hari"
+                        let teks = lengkap(awal);
+                        if (banyak) {
+                            if (sebulan) teks = `${awal.h} – ${lengkap(akhir)}`;
+                            else if (awal.t === akhir.t) teks = `${awal.h} ${bulanPanjang[awal.b]} – ${lengkap(akhir)}`;
+                            else teks = `${lengkap(awal)} – ${lengkap(akhir)}`;
+                        }
+                        pv.rentang.textContent = `${teks} · ${jumlah} hari`;
+                        pv.rentangBaris.hidden = !banyak;
+                        keluaran.textContent = lengkap(akhir);
                     }
-                    pv.rentang.textContent = `${teks} · ${jumlah} hari`;
-                    pv.rentangBaris.hidden = !banyak;
-                    keluaran.textContent = lengkap(akhir);
-                }
 
-                const titik = (jam) => jam.replace(':', '.');
-                const waktu = f.mulai.value ?
-                    titik(f.mulai.value) + (f.selesai.value ? ' – ' + titik(f.selesai.value) : '') + ' WIB' +
-                    (banyak ? ' setiap hari' : '') :
-                    '';
-                isi(pv.waktu, waktu, 'Jam event');
+                    const titik = (jam) => jam.replace(':', '.');
+                    const waktu = f.mulai.value ?
+                        titik(f.mulai.value) + (f.selesai.value ? ' – ' + titik(f.selesai.value) : '') + ' WIB' +
+                        (banyak ? ' setiap hari' : '') :
+                        '';
+                    isi(pv.waktu, waktu, 'Jam event');
 
-                pv.tombol.hidden = !f.link.value.trim();
-                el('hitung').textContent = f.deskripsi.value.length;
-            };
+                    pv.tombol.hidden = !f.link.value.trim();
+                    el('hitung').textContent = f.deskripsi.value.length;
+                };
 
-            Object.values(f).forEach((node) => node.addEventListener('input', render));
-            render();
-        })();
-    </script>
+                Object.values(f).forEach((node) => node.addEventListener('input', render));
+                render();
+            })();
+
+            const styles = getComputedStyle(document.documentElement);
+
+            const colorB1 = styles.getPropertyValue('--color-b1').trim();
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.querySelector('.event-submit-form');
+
+                if (!form) return;
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Apakah kamu yakin?',
+                        text: 'Pastikan data event sudah benar sebelum disimpan.',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: colorB1,
+                        cancelButtonColor: '#6b7280',
+                        confirmButtonText: 'Ya, simpan!',
+                        cancelButtonText: 'Periksa kembali'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        </script>
+    @endpush
 @endsection

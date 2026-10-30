@@ -26,7 +26,7 @@
     <div class="mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_400px]">
         <form method="POST" enctype="multipart/form-data" novalidate
             action="{{ $edit ? route('admin.sorotan.update', $highlight) : route('admin.sorotan.store') }}"
-            class="rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7">
+            class="rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7 highlight-submit-form">
             @csrf
             @if ($edit)
                 @method('PUT')
@@ -147,57 +147,88 @@
         </aside>
     </div>
 
-    <script>
-        (() => {
-            const el = (id) => document.getElementById(id);
-            const input = el('image');
-            const judul = el('title');
-            const ket = el('description');
-            const batas = 5 * 1024 * 1024;
-            const tipe = ['image/jpeg', 'image/png', 'image/webp'];
-            let urlSementara = null;
+    @push('scripts')
+        <script>
+            (() => {
+                const el = (id) => document.getElementById(id);
+                const input = el('image');
+                const judul = el('title');
+                const ket = el('description');
+                const batas = 5 * 1024 * 1024;
+                const tipe = ['image/jpeg', 'image/png', 'image/webp'];
+                let urlSementara = null;
 
-            const tampilFoto = (src) => {
-                ['foto-preview', 'pv-foto'].forEach((id) => {
-                    el(id).src = src;
-                    el(id).hidden = false;
+                const tampilFoto = (src) => {
+                    ['foto-preview', 'pv-foto'].forEach((id) => {
+                        el(id).src = src;
+                        el(id).hidden = false;
+                    });
+                    el('foto-kosong').classList.add('hidden');
+                };
+
+                const isi = (node, nilai, contoh) => {
+                    node.textContent = nilai || contoh;
+                    node.classList.toggle('opacity-50', !nilai);
+                };
+
+                input.addEventListener('change', () => {
+                    const file = input.files[0];
+                    const pesan = el('foto-error');
+                    if (!file) return;
+
+                    if (file.size > batas || !tipe.includes(file.type)) {
+                        input.value = '';
+                        pesan.textContent = file.size > batas ?
+                            'Ukuran foto maksimal 5 MB.' :
+                            'Foto harus berformat JPG, PNG, atau WEBP.';
+                        pesan.hidden = false;
+                        return;
+                    }
+
+                    pesan.hidden = true;
+                    if (urlSementara) URL.revokeObjectURL(urlSementara);
+                    urlSementara = URL.createObjectURL(file);
+                    tampilFoto(urlSementara);
                 });
-                el('foto-kosong').classList.add('hidden');
-            };
 
-            const isi = (node, nilai, contoh) => {
-                node.textContent = nilai || contoh;
-                node.classList.toggle('opacity-50', !nilai);
-            };
+                const render = () => {
+                    isi(el('pv-judul'), judul.value.trim(), 'Judul sorotan');
+                    isi(el('pv-keterangan'), ket.value.trim(), 'Keterangan singkat kegiatan.');
+                    el('hitung').textContent = ket.value.length;
+                };
+                judul.addEventListener('input', render);
+                ket.addEventListener('input', render);
+                render();
+            })();
 
-            input.addEventListener('change', () => {
-                const file = input.files[0];
-                const pesan = el('foto-error');
-                if (!file) return;
+            const styles = getComputedStyle(document.documentElement);
 
-                if (file.size > batas || !tipe.includes(file.type)) {
-                    input.value = '';
-                    pesan.textContent = file.size > batas ?
-                        'Ukuran foto maksimal 5 MB.' :
-                        'Foto harus berformat JPG, PNG, atau WEBP.';
-                    pesan.hidden = false;
-                    return;
-                }
+            const colorB1 = styles.getPropertyValue('--color-b1').trim();
 
-                pesan.hidden = true;
-                if (urlSementara) URL.revokeObjectURL(urlSementara);
-                urlSementara = URL.createObjectURL(file);
-                tampilFoto(urlSementara);
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.querySelector('.highlight-submit-form');
+
+                if (!form) return;
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Apakah kamu yakin?',
+                        text: 'Pastikan data event sudah benar sebelum disimpan.',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: colorB1,
+                        cancelButtonColor: '#6b7280',
+                        confirmButtonText: 'Ya, simpan!',
+                        cancelButtonText: 'Periksa kembali'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
             });
-
-            const render = () => {
-                isi(el('pv-judul'), judul.value.trim(), 'Judul sorotan');
-                isi(el('pv-keterangan'), ket.value.trim(), 'Keterangan singkat kegiatan.');
-                el('hitung').textContent = ket.value.length;
-            };
-            judul.addEventListener('input', render);
-            ket.addEventListener('input', render);
-            render();
-        })();
-    </script>
+        </script>
+    @endpush
 @endsection

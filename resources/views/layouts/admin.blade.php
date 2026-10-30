@@ -13,7 +13,10 @@
     <x-admin-navbar />
 
     <main class="load-in mx-auto min-h-screen w-full max-w-6xl py-10 px-6 lg:px-6">
+        @include('sweetalert2::index')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @yield('content')
+        @stack('scripts')
     </main>
 </body>
 

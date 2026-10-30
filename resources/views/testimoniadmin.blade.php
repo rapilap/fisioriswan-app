@@ -4,7 +4,7 @@
     - $mode = 'pending'   → Testimoni Pending (menunggu ditinjau admin)
 --}}
 @extends('layouts.admin')
-@section('title', ($mode === 'pending' ? 'Testimoni Pending' : 'Daftar Testimoni') . ' - Admin Pulihkan')
+@section('title', ($mode === 'pending' ? 'Testimoni Pending' : 'Daftar Testimoni') . ' - Admin Ermaya')
 
 @section('content')
     <h1 class="sr-only">{{ $mode === 'pending' ? 'Testimoni Pending' : 'Daftar Testimoni' }}</h1>
@@ -34,7 +34,7 @@
                 <article class="flex flex-col rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7">
                     {{-- Foto testimoni (opsional) --}}
                     <div
-                        class="relative aspect-[326/205] overflow-hidden rounded-[20px] border border-line bg-linear-to-br from-photo-from to-photo-to">
+                        class="relative aspect-326/205 overflow-hidden rounded-[20px] border border-line bg-linear-to-br from-photo-from to-photo-to">
                         <div class="absolute inset-0 flex items-center justify-center text-[#8a9a90]">
                             @include('components.icon', [
                                 'name' => 'image',
@@ -53,14 +53,14 @@
                     <x-rating-stars :rating="$item->rating" class="mt-5" />
 
                     {{-- Isi testimoni --}}
-                    <p class="mt-3 line-clamp-4 min-h-[104px] text-[16px] leading-relaxed text-(--text-primary)">
+                    <p class="mt-3 line-clamp-4 min-h-26 text-[16px] leading-relaxed text-(--text-primary)">
                         “{{ $item->testimonial }}”
                     </p>
 
                     {{-- Pengirim --}}
                     <div class="mt-5 flex items-center gap-3">
                         <span
-                            class="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full bg-pill font-fraunces text-[16px] font-bold text-g1">
+                            class="flex h-10.5 w-10.5 shrink-0 items-center justify-center rounded-full bg-pill font-fraunces text-[16px] font-bold text-g1">
                             {{ mb_strtoupper(mb_substr(trim($item->fullname), 0, 1)) }}
                         </span>
                         <div class="min-w-0">
