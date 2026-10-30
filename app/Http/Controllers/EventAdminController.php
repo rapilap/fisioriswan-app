@@ -78,7 +78,7 @@ class EventAdminController extends Controller
             // Event baru tidak boleh di masa lalu; saat mengedit, event lama tetap boleh disimpan.
             'event_date' => ['required', 'date_format:Y-m-d', ...($creating ? ["after_or_equal:{$hariIni}"] : [])],
             'start_time' => ['required', 'date_format:H:i'],
-            'end_time' => ['nullable', 'date_format:H:i', 'after:start_time'],
+            'end_time' => ['nullable', 'date_format:H:i', ...((int) $request->input('days', 1) === 1 ? ['after:start_time'] : [])],
             'location' => ['required', 'string', 'max:150'],
             'description' => ['required', 'string', 'max:500'],
             // Hanya http/https: menolak "javascript:" dan skema berbahaya lain.
