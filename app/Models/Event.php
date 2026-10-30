@@ -6,6 +6,7 @@ use App\Support\EventFormat;
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Whoops\Handler\HandlerInterface;
 
 class Event extends Model
 {
@@ -37,8 +38,18 @@ class Event extends Model
      */
     public function scopeUpcoming(Builder $query): Builder
     {
+        $now = now(self::TIMEZONE);
+        $today = $now->toDateString();
+        $time = $now->format('H:i');
+
         return $query
-            ->whereRaw('COALESCE(end_date, event_date) >= ?', [now(self::TIMEZONE)->toDateString()])
+            ->where(function ($q) use ($today, $time) {
+                $q->whereRaw('COALESCE(end_date, event_date) > ?', [$today])
+                    ->orWhere(function ($q) use ($today, $time) {
+                        $q->whereRaw('COALESCE(end_date, event_date) = ?', [$today])
+                            ->whereRaw("COALESCE(end_time, '23:59') > ?", [$time]);
+                    });
+            })
             ->orderBy('event_date')
             ->orderBy('start_time');
     }
@@ -46,15 +57,43 @@ class Event extends Model
     /** Event yang seluruh harinya sudah lewat, terbaru dulu. */
     public function scopePast(Builder $query): Builder
     {
+        $now = now(self::TIMEZONE);
+        $today = $now->toDateString();
+        $time = $now->format('H:i');
+
         return $query
-            ->whereRaw('COALESCE(end_date, event_date) < ?', [now(self::TIMEZONE)->toDateString()])
+            ->where(function ($q) use ($today, $time) {
+                $q->whereRaw('COALESCE(end_date, event_date) < ?', [$today])
+                    ->orWhere(function ($q) use ($today, $time) {
+                        $q->whereRaw('COALESCE(end_date, event_date) = ?', [$today])
+                            ->whereRaw("COALESCE(end_time, '23:59') <= ?", [$time]);
+                    });
+            })
             ->orderByDesc('event_date')
             ->orderByDesc('start_time');
     }
 
     public function isUpcoming(): bool
     {
-        return $this->tanggalAkhir()->toDateString() >= now(self::TIMEZONE)->toDateString();
+        $now = now(self::TIMEZONE);
+
+        $tanggalAkhir = $this->tanggalAkhir()->toDateString();
+        $hariIni = $now->toDateString();
+
+        if ($tanggalAkhir > $hariIni) {
+            return true;
+        };
+
+        if ($tanggalAkhir < $hariIni) {
+            return false;
+        }
+
+        if (!$this->end_time) {
+            return $now->format('H:i') < '23.59';
+        }
+
+        return $now->format('H:i') < $this->end_time;
+        // return $this->tanggalAkhir()->toDateString() >= now(self::TIMEZONE)->toDateString();
     }
 
     /** Hari terakhir event (sama dengan hari pertama untuk event satu hari). */
