@@ -215,7 +215,7 @@
 
                     Swal.fire({
                         title: 'Apakah kamu yakin?',
-                        text: 'Pastikan data event sudah benar sebelum disimpan.',
+                        text: 'Pastikan data sorotan sudah benar sebelum disimpan.',
                         icon: 'question',
                         showCancelButton: true,
                         confirmButtonColor: colorB1,

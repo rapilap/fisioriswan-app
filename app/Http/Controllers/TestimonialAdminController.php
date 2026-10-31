@@ -30,6 +30,13 @@ class TestimonialAdminController extends Controller
         return back()->with('status', "Testimoni dari {$testimonial->fullname} sekarang ditampilkan di beranda.");
     }
 
+    public function deport (Testimonial $testimonial): RedirectResponse
+    {
+        $testimonial->update(['status' => 'pending']);
+
+        return back()->with('status', "Testimoni dari {$testimonial->fullname} dikembalikan ke pending.");
+    }
+
     public function destroy(Testimonial $testimonial): RedirectResponse
     {
         if ($testimonial->image) {

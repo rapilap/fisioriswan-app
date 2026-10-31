@@ -71,6 +71,7 @@ Route::prefix('admin/testimoni')
         Route::get('/', 'index')->name('index');
         Route::get('/pending', 'pending')->name('pending');
         Route::patch('/{testimonial}/approve', 'approve')->name('approve');
+        Route::patch('/{testimonial}/deport', 'deport')->name('deport');
         Route::delete('/{testimonial}', 'destroy')->name('destroy');
     });
 

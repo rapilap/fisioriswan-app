@@ -46,14 +46,14 @@
 
             @if (session('status'))
                 <div role="status"
-                    class="mx-auto mt-4 flex max-w-160 items-start gap-2.5 rounded-xl border border-line bg-white px-5 py-3 text-[15px] font-medium text-(--text-primary)">
+                    class="mx-auto mt-4 flex max-w-160 items-start gap-2.5 rounded-xl border border-line bg-white px-5 py-3 text-[15px] font-medium text-black">
                     <span class="mt-0.5 shrink-0 text-g1">@include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])</span>
                     {{ session('status') }}
                 </div>
             @endif
 
             <form method="POST" action="{{ route('testimoni.store') }}" enctype="multipart/form-data" novalidate
-                class="reveal mt-4 rounded-xl border border-b3 bg-(--bg-primary) px-8 py-5">
+                class="reveal mt-4 rounded-xl border border-b3 bg-(--bg-primary) px-8 py-5 testimoni-submit-form">
                 @csrf
 
                 {{-- Jebakan spam: kolom ini disembunyikan dari pengguna asli --}}
@@ -131,7 +131,7 @@
                     <label for="testimonial" class="block text-[16px] text-(--text-primary)">Testimoni Anda*</label>
                     <textarea id="testimonial" name="testimonial" required maxlength="1000"
                         placeholder="Ceritakan pengalaman Anda menggunakan layanan kami..."
-                        class="mt-1.5 h-[292px] w-full resize-y rounded border bg-(--bg-secondary) px-2 py-1.5 text-[16px] text-(--text-primary) placeholder:text-[#b7b9b5] focus:border-b1 focus:outline-none {{ $border('testimonial') }}">{{ old('testimonial') }}</textarea>
+                        class="mt-1.5 h-73 w-full resize-y rounded border bg-(--bg-secondary) px-2 py-1.5 text-[16px] text-(--text-primary) placeholder:text-[#b7b9b5] focus:border-b1 focus:outline-none {{ $border('testimonial') }}">{{ old('testimonial') }}</textarea>
                     @error('testimonial')
                         <p class="mt-1 text-[13px] text-danger">{{ $message }}</p>
                     @enderror
@@ -139,12 +139,12 @@
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-5">
                     <button type="submit"
-                        class="inline-flex h-[38px] cursor-pointer items-center gap-2.5 rounded-lg bg-b1 px-4 text-[16px] text-white transition hover:opacity-90">
+                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg bg-b1 px-4 text-[16px] text-white transition hover:opacity-90">
                         @include('components.icon', ['name' => 'send', 'class' => 'w-4 h-4'])
                         Kirim Testimoni
                     </button>
                     <button type="reset"
-                        class="inline-flex h-[38px] cursor-pointer items-center gap-2.5 rounded-lg border border-b1 bg-white px-4 text-[16px] text-b1 transition hover:bg-b5">
+                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg border border-b1 bg-white px-4 text-[16px] text-b1 transition hover:bg-b5">
                         @include('components.icon', ['name' => 'rotate-cw', 'class' => 'w-4 h-4'])
                         Reset
                     </button>
@@ -154,21 +154,52 @@
     </section>
 
     {{-- Cek ukuran foto di browser sebelum dikirim (server tetap memvalidasi) --}}
-    <script>
-        (() => {
-            const input = document.getElementById('image');
-            const pesan = document.getElementById('image-error');
-            const batas = 5 * 1024 * 1024;
-            input.addEventListener('change', () => {
-                const file = input.files[0];
-                if (file && file.size > batas) {
-                    input.value = '';
-                    pesan.textContent = 'Ukuran foto maksimal 5 MB.';
-                    pesan.hidden = false;
-                } else {
-                    pesan.hidden = true;
-                }
+    @push('scripts')
+        <script>
+            (() => {
+                const input = document.getElementById('image');
+                const pesan = document.getElementById('image-error');
+                const batas = 5 * 1024 * 1024;
+                input.addEventListener('change', () => {
+                    const file = input.files[0];
+                    if (file && file.size > batas) {
+                        input.value = '';
+                        pesan.textContent = 'Ukuran foto maksimal 5 MB.';
+                        pesan.hidden = false;
+                    } else {
+                        pesan.hidden = true;
+                    }
+                });
+            })();
+
+            const styles = getComputedStyle(document.documentElement);
+
+            const colorB1 = styles.getPropertyValue('--color-b1').trim();
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const form = document.querySelector('.testimoni-submit-form');
+
+                if (!form) return;
+
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Apakah kamu yakin?',
+                        text: 'Periksa kembali komentar Anda.',
+                        icon: 'question',
+                        showCancelButton: true,
+                        confirmButtonColor: colorB1,
+                        cancelButtonColor: '#6b7280',
+                        confirmButtonText: 'Ya, simpan!',
+                        cancelButtonText: 'Periksa kembali'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
             });
-        })();
-    </script>
+        </script>
+    @endpush
 @endsection

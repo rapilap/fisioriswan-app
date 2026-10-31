@@ -71,6 +71,18 @@
 
                     {{-- Aksi --}}
                     <div class="mt-5 flex gap-5">
+                        @if ($mode === 'published')
+                            <form method="POST" action="{{ route('admin.testimoni.deport', $item) }}"
+                                class="flex-1 testimoni-deport-admin" {{-- onsubmit="return confirm(@js('Apakah Anda yakin testimoni ' . $item->fullname . ' akan dikembalikan?'))" --}}>
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit"
+                                    class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-danger text-[14px] font-semibold text-white transition hover:opacity-90">
+                                    Kembalikan
+                                </button>
+                            </form>
+                        @endif
+
                         @if ($mode === 'pending')
                             <form method="POST" action="{{ route('admin.testimoni.approve', $item) }}" class="flex-1">
                                 @csrf
@@ -81,20 +93,18 @@
                                     Tampilkan
                                 </button>
                             </form>
-                        @endif
 
-                        <form method="POST" action="{{ route('admin.testimoni.destroy', $item) }}" class="flex-1"
-                            onsubmit="return confirm(@js('Hapus testimoni dari ' . $item->fullname . '? Tindakan ini tidak bisa dibatalkan.'))">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-danger text-[14px] font-semibold text-white transition hover:opacity-90">
-                                @if ($mode === 'pending')
+                            <form method="POST" action="{{ route('admin.testimoni.destroy', $item) }}"
+                                class="flex-1 testimoni-delete-admin" {{-- onsubmit="return confirm(@js('Hapus testimoni dari ' . $item->fullname . '? Tindakan ini tidak bisa dibatalkan.'))" --}}>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-danger text-[14px] font-semibold text-white transition hover:opacity-90">
                                     @include('components.icon', ['name' => 'x', 'class' => 'w-4 h-4'])
-                                @endif
-                                Hapus
-                            </button>
-                        </form>
+                                    Hapus
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </article>
             @endforeach
@@ -102,4 +112,42 @@
 
         {{ $testimonials->links('pagination.circles') }}
     @endif
+
+    @push('scripts')
+        <script>
+            document.addEventListener('submit', function(e) {
+                const form = e.target;
+
+                if (!form.matches('.testimoni-delete-admin, .testimoni-deport-admin')) {
+                    return;
+                }
+
+                e.preventDefault();
+
+                const isDelete = form.classList.contains('testimoni-delete-admin')
+
+                const styles = getComputedStyle(document.documentElement);
+                const colorB1 = styles.getPropertyValue('--color-b1').trim();
+                const danger = styles.getPropertyValue('--color-danger').trim();
+
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: isDelete ? 'Data ini akan dihapus dari database.' :
+                        'Data ini akan dikembalikan ke status pending.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: danger,
+                    cancelButtonColor: '#6b7280',
+                    confirmButtonText: isDelete ? 'Ya, hapus!' : 'Ya, kembalikan!',
+                    cancelButtonText: 'Batalkan',
+                    reverseButton: true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        </script>
+    @endpush
+
 @endsection
