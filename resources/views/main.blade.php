@@ -3,7 +3,6 @@
 @section('main_class', 'py-0')
 
 @php
-    $waLink = 'https://wa.me/62xxxxxxxxxxx?text=halo, chat ini dikirim melalui tombol pada website!%0ANama: [Nama]';
 
     $kondisi = [
         // Format item: "Istilah medis/Arti dalam Indonesia" (bagian setelah "/" boleh dikosongkan)
@@ -122,7 +121,7 @@
             'fitur' => ['12x kunjungan 45–60 menit', 'Rencana pemulihan personal', 'Prioritas penjadwalan'],
         ],
         [
-            'nama' => 'Fisioterapi Acara',
+            'nama' => 'Fisioterapi Event',
             'harga' => null,
             'icon' => 'calendar',
             'populer' => false,
@@ -170,6 +169,17 @@
                 'Contoh testimoni. Jadwalnya fleksibel dan terapis selalu mengevaluasi kemajuan dari sesi sebelumnya.',
         ],
     ];
+
+    $message =
+        "Halo, saya tertarik dengan paket *Isi nama paket Anda!*\n" .
+        "\nMohon isi data diri di bawah ini dengan benar dan teliti untuk pemesanan: \n" .
+        "Nama Lengkap: \n" .
+        "Alamat Lengkap: \n" .
+        "Tanggal Mulai (Contoh: DD/MM/YYYY): \n" .
+        "Waktu Mulai (Contoh: HH:MM): \n" .
+        "\nTerima kasih, saya menunggu konfirmasi dari Anda.";
+
+    $whatsappUrlNonPack = 'https://wa.me/' . config('services.whatsapp.number') . '?text=' . urlencode($message);
 @endphp
 
 @section('content')
@@ -185,7 +195,7 @@
                     Pemulihan lebih nyaman, tanpa antre, dan tanpa perjalanan yang melelahkan.
                 </p>
                 <div class="mt-10 flex flex-wrap gap-3">
-                    <a href="{{ $waLink }}" target="_blank"
+                    <a href="{{ $whatsappUrlNonPack }}" target="_blank"
                         class="inline-flex items-center gap-2 rounded-full bg-b1 px-7 py-4 text-[15px] font-semibold text-white transition hover:opacity-90">
                         Pesan via WhatsApp
                     </a>
@@ -238,7 +248,7 @@
 
             <div class="reveal">
                 <h2 class="font-fraunces font-semibold text-(--text-primary) text-[40px] leading-[1.15]">
-                    Perawatan di klinik sering merepotkan yang justru butuh istirahat.
+                    Perawatan di klinik sering merepotkan untuk yang butuh istirahat.
                 </h2>
                 <ul class="mt-8 flex flex-col gap-7">
                     @foreach ([['icon' => 'home', 'judul' => 'Terapi di rumah Anda', 'teks' => 'Perawatan di klinik sering merepotkan untuk yang butuh istirahat, cukup tunggu terapis datang membawa peralatan lengkap.'], ['icon' => 'clock', 'judul' => 'Jadwal fleksibel', 'teks' => 'Pilih hari dan jam kunjungan yang paling nyaman, setiap hari pukul 09.00 – 18.00.'], ['icon' => 'user-check', 'judul' => 'Terapis berpengalaman', 'teks' => 'Fisioterapis yang menyusun khusus program rehabilitasi sesuai kondisi dan target anda.']] as $poin)
@@ -405,7 +415,20 @@
                             </p>
                         @endif
 
-                        <a href="{{ $waLink }}" target="_blank"
+                        @php
+                            $message =
+                                "Halo, saya tertarik dengan paket *{$item['nama']}*\n" .
+                                "\nMohon isi data diri di bawah ini dengan benar dan teliti untuk pemesanan: \n" .
+                                "Nama Lengkap: \n" .
+                                "Alamat Lengkap: \n" .
+                                "Tanggal Mulai (Contoh: DD/MM/YYYY): \n" .
+                                "Waktu Mulai (Contoh: HH:MM): \n" .
+                                "\nTerima kasih, saya menunggu konfirmasi dari Anda.";
+                            $whatsappUrl =
+                                'https://wa.me/' . config('services.whatsapp.number') . '?text=' . urlencode($message);
+                        @endphp
+
+                        <a href="{{ $whatsappUrl }}" target="_blank"
                             class="mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition
                             {{ $populer ? 'mt-auto bg-g1 text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-b1 hover:text-white' }}">
                             {{ $item['harga'] ? 'Pesan Sekarang' : 'Hubungi Kami' }}
@@ -463,7 +486,7 @@
                     <p class="mt-2 text-[16px] text-b5">Konsultasikan kebutuhan terapi Anda sekarang, gratis tanpa komitmen.
                     </p>
                 </div>
-                <a href="{{ $waLink }}" target="_blank"
+                <a href="{{ $whatsappUrlNonPack }}" target="_blank"
                     class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
                     Pesan Sekarang
                 </a>

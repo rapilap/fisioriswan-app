@@ -195,7 +195,7 @@
                 <ul class="mt-5 flex flex-col gap-4 text-[16px] text-(--text-paragraph)">
                     @foreach (['Pendampingan medis di event olahraga & komunitas', 'Talkshow, Seminar dan Webinar untuk edukasi kesehatan', 'Skrining kesehatan gratis untuk komunitas'] as $poin)
                         <li class="flex items-center gap-3.5">
-                            <span class="shrink-0 text-b1">
+                            <span class="shrink-0 text-(--bg-point)">
                                 @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])
                             </span>
                             {{ $poin }}
