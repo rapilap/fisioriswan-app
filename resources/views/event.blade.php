@@ -3,9 +3,6 @@
 @section('main_class', 'py-0')
 
 @php
-    $waKolaborasi =
-        'https://wa.me/62xxxxxxxxxxx?text=halo, saya ingin mengajukan kolaborasi event dengan Ermaya!%0ANama: [Nama]%0AInstansi: [Instansi]';
-
     // Data asli dikirim EventController dari database (admin: menu Event). Contoh ini hanya tampil sebelum migrate.
     // Format: tanggal (angka), bulan (singkatan), judul, waktu, lokasi, deskripsi, link (tombol Daftar Sekarang)
     $events = $events ?? [
@@ -58,6 +55,19 @@
             'foto' => 'images/event/sorotan-3.jpg',
         ],
     ];
+
+    $message =
+        "Halo, kami ingin mengajukan *Kolaborasi!*\n" .
+        "\nMohon isi data di bawah ini dengan benar dan teliti untuk pengajuan kolaborasi: \n" .
+        "Nama Instansi: \n" .
+        "Alamat Lengkap Instansi: \n" .
+        "\nTanggal *Mulai* (Contoh: DD/MM/YYYY): \n" .
+        "Waktu *Mulai* (Contoh: HH:MM): \n" .
+        "\nTanggal *Selesai* (Contoh: DD/MM/YYYY): \n" .
+        "Waktu *Selesai* (Contoh: HH:MM): \n" .
+        "\nTerima kasih, kami menunggu konfirmasi dari Anda.";
+
+    $whatsappUrl = 'https://wa.me/' . config('services.whatsapp.number') . '?text=' . urlencode($message);
 @endphp
 
 @section('content')
@@ -202,7 +212,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <a href="{{ $waKolaborasi }}" target="_blank"
+                <a href="{{ $whatsappUrl }}" target="_blank"
                     class="mt-8 inline-flex items-center rounded-full bg-g1 px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
                     Ajukan Kolaborasi
                 </a>
@@ -262,7 +272,7 @@
                 <p class="mt-3 text-[16px] text-b5">
                     Ceritakan kebutuhan acara Anda, tim kami akan menyesuaikan bentuk kerja sama yang tepat.
                 </p>
-                <a href="{{ $waKolaborasi }}" target="_blank"
+                <a href="{{ $whatsappUrl }}" target="_blank"
                     class="mt-8 inline-flex items-center rounded-full bg-g1 px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
                     Hubungi Tim Kemitraan
                 </a>
