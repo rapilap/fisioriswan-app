@@ -22,6 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(append: [SecurityHeaders::class]);
 
+        $middleware->trustProxies(at: "*");
+
         // Hanya terima request untuk domain di APP_URL (mencegah serangan Host header).
         // Otomatis tidak aktif saat APP_ENV=local.
         $middleware->trustHosts();
