@@ -3,18 +3,14 @@
 @section('main_class', 'py-0')
 
 @section('content')
-    <section class="bg-(--bg-primary) px-6 py-22">
+    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
         <div class="mx-auto max-w-6xl load-in w-full h-fit bg-cover bg-center relative" style="--load-delay: 100ms">
             {{-- Section 1 --}}
-            @include('components.breadcrumb')
-            <h1
-                class="text-(--text-title) font-fraunces font-semibold
-           text-[32px] leading-[1.1]
-           sm:text-[36px]
-           md:text-[40px]
-           lg:text-[45px] lg:leading-[1.1]
-           w-full md:w-[70%] lg:w-[50%]
-           mt-2">
+            <div class="load-in mb-6">
+                @include('components.breadcrumb')
+            </div>
+
+            <h1 class="font-fraunces font-semibold text-(--text-primary) text-[48px] leading-[1.1] sm:max-w-120">
                 Perawatan kesehatan yang mendekat ke rumah Anda.
             </h1>
 

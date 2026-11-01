@@ -184,13 +184,13 @@
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-primary) px-6 pt-16 pb-6">
+    <section class="bg-(--bg-primary) px-6">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div class="load-in">
-                <h1 class="font-fraunces font-semibold text-(--text-primary) text-[60px] leading-[1.1]">
+                <h1 class="font-fraunces font-semibold text-(--text-primary) text-[48px] leading-[1.1] max-w-120">
                     Terapi kesehatan, tanpa harus meninggalkan rumah.
                 </h1>
-                <p class="mt-7 max-w-135 text-[18px] leading-[1.75] text-(--text-paragraph)">
+                <p class="mt-7 max-w-135 text-[9px] leading-[1.75] text-(--text-paragraph) lg:text-[18px]">
                     Ermaya Physio menghadirkan Fisioterapis berpengalaman langsung ke rumah Anda.
                     Pemulihan lebih nyaman, tanpa antre, dan tanpa perjalanan yang melelahkan.
                 </p>
@@ -482,12 +482,16 @@
             <div
                 class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
                 <div>
-                    <h2 class="font-fraunces text-[38px] font-semibold leading-[1.15]">Siap memulai pemulihan Anda?</h2>
-                    <p class="mt-2 text-[16px] text-b5">Konsultasikan kebutuhan terapi Anda sekarang, gratis tanpa komitmen.
+                    <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
+
+                        Siap memulai pemulihan Anda?
+                    </h2>
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
+                        Konsultasikan kebutuhan terapi Anda sekarang, gratis tanpa komitmen.
                     </p>
                 </div>
                 <a href="{{ $whatsappUrlNonPack }}" target="_blank"
-                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
                     Pesan Sekarang
                 </a>
             </div>
