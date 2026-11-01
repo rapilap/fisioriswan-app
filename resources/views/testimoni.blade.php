@@ -10,8 +10,7 @@
                 @include('components.breadcrumb')
             </div>
             <div class="load-in" style="--load-delay: 100ms">
-                <h1
-                    class="max-w-175 font-fraunces text-[34px] font-semibold leading-[1.1] text-(--text-primary) md:text-[48px]">
+                <h1 class="font-fraunces font-semibold text-(--text-primary) text-[48px] leading-[1.1] sm:max-w-120">
                     Apa Komentar Setelah Pasien Menjalani Fisioterapi?
                 </h1>
                 <p class="mt-5 max-w-95 text-[18px] leading-[1.75] text-(--text-paragraph)">
@@ -54,9 +53,9 @@
             <div
                 class="reveal mt-16 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-14 text-white md:flex-row md:items-center md:justify-between">
                 <div>
-                    <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">Pernah terapi bersama
-                        kami?</h2>
-                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-b5">
+                    <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
+                        Pernah terapi bersama kami?</h2>
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
                         Buat ulasan Anda agar dapat membantu meyakinkan pasien lain untuk memilih layanan fisioterapi
                         Ermaya.
                     </p>
