@@ -11,7 +11,7 @@
     $border = fn(string $name) => $errors->has($name) ? 'border-danger' : 'border-line';
 @endphp
 
-@section('title', $judulHalaman . ' - Admin Pulihkan')
+@section('title', $judulHalaman . ' - Admin Ermaya')
 
 @section('content')
     <a href="{{ route('admin.sorotan.index') }}"

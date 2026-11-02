@@ -1,6 +1,6 @@
 {{-- Admin: daftar "Sorotan event sebelumnya" (foto, judul, keterangan singkat). --}}
 @extends('layouts.admin')
-@section('title', 'Sorotan Event - Admin Pulihkan')
+@section('title', 'Sorotan Event - Admin Ermaya')
 
 @section('content')
     <x-admin-header title="Sorotan Event"
@@ -19,7 +19,7 @@
             <div class="rounded-[20px] border border-line bg-white px-6 py-20 text-center">
                 <p class="font-fraunces text-[24px] font-semibold text-primary">Belum ada sorotan event</p>
                 <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-secondary">
-                    Unggah foto kegiatan event sebelumnya agar pengunjung bisa melihat hasil kolaborasi Pulihkan.
+                    Unggah foto kegiatan event sebelumnya agar pengunjung bisa melihat hasil kolaborasi Ermaya.
                 </p>
                 <a href="{{ route('admin.sorotan.create') }}"
                     class="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-b1 px-5 text-[14px] font-semibold text-white transition hover:opacity-90">

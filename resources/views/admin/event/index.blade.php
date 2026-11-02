@@ -4,7 +4,7 @@
     - Tab "Sudah lewat" : arsip, tidak tampil di website
 --}}
 @extends('layouts.admin')
-@section('title', 'Event - Admin Pulihkan')
+@section('title', 'Event - Admin Ermaya')
 
 @section('content')
     <x-admin-header title="Event"

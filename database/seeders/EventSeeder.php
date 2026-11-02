@@ -26,7 +26,7 @@ class EventSeeder extends Seeder
                 'start_time' => '09:00',
                 'end_time' => '12:00',
                 'location' => 'Balai Warga Kemang, Jakarta Selatan',
-                'description' => 'Skrining gratis dan konsultasi singkat bersama fisioterapis Pulihkan untuk warga usia 50 tahun ke atas.',
+                'description' => 'Skrining gratis dan konsultasi singkat bersama fisioterapis Ermaya untuk warga usia 50 tahun ke atas.',
                 'registration_url' => 'https://forms.gle/contoh-cek-kesehatan',
             ],
             [
