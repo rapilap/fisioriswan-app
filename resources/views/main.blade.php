@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Beranda - Fisio Riswan')
-@section('main_class', 'py-0')
+@section('main_class', 'py-20')
 
 @php
 
