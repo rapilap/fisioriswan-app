@@ -230,7 +230,7 @@
     </section>
 
     {{-- 4. Sorotan event sebelumnya --}}
-    <section class="bg-(--bg-secondary) px-6 pt-5 pb-16">
+    <section class="bg-(--bg-secondary) px-6 pt-24 pb-15">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mb-12">
                 <x-pill>
@@ -261,23 +261,24 @@
                     <p class="text-[14px] text-(--text-paragraph)">Belum ada dokumentasi event.</p>
                 @endforelse
             </div>
-        </div>
 
-        {{-- CTA --}}
-        <div
-            class="reveal mt-16 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-14 text-white md:flex-row md:items-center md:justify-between">
-            <div>
-                <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
-                    Ingin berkolaborasi dengan kami?
-                </h2>
-                <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
-                    Ceritakan kebutuhan acara Anda, tim kami akan menyesuaikan bentuk kerja sama yang tepat.
-                </p>
+
+            {{-- CTA --}}
+            <div
+                class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
+                        Ingin berkolaborasi dengan kami?
+                    </h2>
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
+                        Ceritakan kebutuhan acara Anda, tim kami akan menyesuaikan bentuk kerja sama yang tepat.
+                    </p>
+                </div>
+                <a href="{{ $whatsappUrl }}" target="_blank"
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
+                    Hubungi Tim Kemitraan
+                </a>
             </div>
-            <a href="{{ $whatsappUrl }}" target="_blank"
-                class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
-                Hubungi Tim Kemitraan
-            </a>
         </div>
     </section>
 @endsection
