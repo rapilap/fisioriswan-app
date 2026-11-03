@@ -345,9 +345,11 @@
                 render();
             })();
 
-            const styles = getComputedStyle(document.documentElement);
-
-            const colorB1 = styles.getPropertyValue('--color-b1').trim();
+            function getCSSVariable(variable) {
+                return getComputedStyle(document.documentElement)
+                    .getPropertyValue(variable)
+                    .trim();
+            }
 
             document.addEventListener('DOMContentLoaded', function() {
                 const form = document.querySelector('.event-submit-form');
@@ -361,8 +363,10 @@
                         title: 'Apakah kamu yakin?',
                         text: 'Pastikan data event sudah benar sebelum disimpan.',
                         icon: 'question',
+                        background: getCSSVariable('--bg-card'),
+                        color: getCSSVariable('--text-primary'),
                         showCancelButton: true,
-                        confirmButtonColor: colorB1,
+                        confirmButtonColor: getCSSVariable('--color-b1'),
                         cancelButtonColor: '#6b7280',
                         confirmButtonText: 'Ya, simpan!',
                         cancelButtonText: 'Periksa kembali'

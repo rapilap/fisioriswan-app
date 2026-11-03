@@ -46,7 +46,7 @@
 
             @if (session('status'))
                 <div role="status"
-                    class="mx-auto mt-4 flex max-w-160 items-start gap-2.5 rounded-xl border border-line bg-white px-5 py-3 text-[15px] font-medium text-black">
+                    class="mx-auto mt-4 flex max-w-160 items-start gap-2.5 rounded-xl border border-(--border-line) bg-(--bg-card) px-5 py-3 text-[15px] font-medium text-(--text-primary)">
                     <span class="mt-0.5 shrink-0 text-g1">@include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])</span>
                     {{ session('status') }}
                 </div>
@@ -172,24 +172,28 @@
                 });
             })();
 
-            const styles = getComputedStyle(document.documentElement);
-
-            const colorB1 = styles.getPropertyValue('--color-b1').trim();
-
             document.addEventListener('DOMContentLoaded', function() {
                 const form = document.querySelector('.testimoni-submit-form');
 
                 if (!form) return;
+
+                function getCSSVariable(variable) {
+                    return getComputedStyle(document.documentElement)
+                        .getPropertyValue(variable)
+                        .trim();
+                }
 
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
 
                     Swal.fire({
                         title: 'Apakah kamu yakin?',
-                        text: 'Periksa kembali komentar Anda.',
+                        text: 'Periksa kembali komentar Anda. Pastikan komentar Anda sudah sesuai sebelum dikirim.',
                         icon: 'question',
+                        background: getCSSVariable('--bg-card'),
+                        color: getCSSVariable('--text-primary'),
                         showCancelButton: true,
-                        confirmButtonColor: colorB1,
+                        confirmButtonColor: getCSSVariable('--color-b1'),
                         cancelButtonColor: '#6b7280',
                         confirmButtonText: 'Ya, simpan!',
                         cancelButtonText: 'Periksa kembali'
