@@ -64,8 +64,8 @@
                                 @include('components.icon', ['name' => 'pencil', 'class' => 'w-4 h-4'])
                                 Edit
                             </a>
-                            <form method="POST" action="{{ route('admin.sorotan.destroy', $item) }}" class="flex-1"
-                                onsubmit="return confirm(@js('Hapus sorotan “' . $item->title . '”? Foto juga ikut terhapus dan tindakan ini tidak bisa dibatalkan.'))">
+                            <form method="POST" action="{{ route('admin.sorotan.destroy', $item) }}"
+                                class="flex-1 highlight-delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
@@ -82,4 +82,43 @@
             {{ $highlights->links('pagination.circles') }}
         @endif
     </div>
+
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const forms = document.querySelectorAll('.highlight-delete-form');
+
+                function getCSSVariable(variable) {
+                    return getComputedStyle(document.documentElement)
+                        .getPropertyValue(variable)
+                        .trim();
+                }
+
+                forms.forEach(function(form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        Swal.fire({
+                            title: 'Apakah kamu yakin?',
+                            text: 'Sorotan ini akan dihapus dari user dan database.',
+                            icon: 'warning',
+                            background: getCSSVariable('--bg-card'),
+                            color: getCSSVariable('--text-primary'),
+                            showCancelButton: true,
+                            confirmButtonColor: getCSSVariable('--color-danger'),
+                            cancelButtonColor: '#6b7280',
+                            confirmButtonText: 'Ya, Hapus!',
+                            cancelButtonText: 'Periksa kembali'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    @endpush
+
 @endsection

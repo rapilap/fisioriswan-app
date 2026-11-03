@@ -164,7 +164,7 @@
                                 Edit
                             </a>
                             <form method="POST" action="{{ route('admin.event.destroy', $event) }}"
-                                class="flex-1 sm:flex-none" onsubmit="return confirm(@js('Hapus event “' . $event->title . '”? Tindakan ini tidak bisa dibatalkan.'))">
+                                class="flex-1 sm:flex-none event-delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
@@ -181,4 +181,43 @@
             {{ $events->links('pagination.circles') }}
         @endif
     </div>
+
+
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const forms = document.querySelectorAll('.event-delete-form');
+
+                function getCSSVariable(variable) {
+                    return getComputedStyle(document.documentElement)
+                        .getPropertyValue(variable)
+                        .trim();
+                }
+
+                forms.forEach(function(form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        Swal.fire({
+                            title: 'Apakah kamu yakin?',
+                            text: 'Event ini akan dihapus dari user dan database.',
+                            icon: 'warning',
+                            background: getCSSVariable('--bg-card'),
+                            color: getCSSVariable('--text-primary'),
+                            showCancelButton: true,
+                            confirmButtonColor: getCSSVariable('--color-danger'),
+                            cancelButtonColor: '#6b7280',
+                            confirmButtonText: 'Ya, Hapus!',
+                            cancelButtonText: 'Periksa kembali'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+    @endpush
+
 @endsection

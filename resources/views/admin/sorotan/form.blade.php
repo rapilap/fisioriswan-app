@@ -115,7 +115,7 @@
                     {{ $edit ? 'Simpan Perubahan' : 'Simpan Sorotan' }}
                 </button>
                 <a href="{{ route('admin.sorotan.index') }}"
-                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-secondary transition hover:border-b1 hover:text-b1">
+                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-secondary) transition hover:border-b1 hover:text-b1">
                     Batal
                 </a>
             </div>
@@ -201,9 +201,11 @@
                 render();
             })();
 
-            const styles = getComputedStyle(document.documentElement);
-
-            const colorB1 = styles.getPropertyValue('--color-b1').trim();
+            function getCSSVariable(variable) {
+                return getComputedStyle(document.documentElement)
+                    .getPropertyValue(variable)
+                    .trim();
+            }
 
             document.addEventListener('DOMContentLoaded', function() {
                 const form = document.querySelector('.highlight-submit-form');
@@ -217,8 +219,10 @@
                         title: 'Apakah kamu yakin?',
                         text: 'Pastikan data sorotan sudah benar sebelum disimpan.',
                         icon: 'question',
+                        background: getCSSVariable('--bg-card'),
+                        color: getCSSVariable('--text-primary'),
                         showCancelButton: true,
-                        confirmButtonColor: colorB1,
+                        confirmButtonColor: getCSSVariable('--color-b1'),
                         cancelButtonColor: '#6b7280',
                         confirmButtonText: 'Ya, simpan!',
                         cancelButtonText: 'Periksa kembali'

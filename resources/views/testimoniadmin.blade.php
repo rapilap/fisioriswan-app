@@ -11,18 +11,18 @@
 
     @if (session('status'))
         <div role="status"
-            class="mb-6 flex items-center gap-2.5 rounded-xl border border-line bg-white px-5 py-3 text-[14px] font-medium text-primary">
+            class="mb-6 flex items-center gap-2.5 rounded-xl border border-(--border-line) bg-(--bg-card) px-5 py-3 text-[14px] font-medium text-(--text-primary)">
             <span class="text-g1">@include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])</span>
             {{ session('status') }}
         </div>
     @endif
 
     @if ($testimonials->isEmpty())
-        <div class="rounded-[20px] border border-line bg-white px-6 py-20 text-center">
-            <p class="font-fraunces text-[24px] font-semibold text-primary">
+        <div class="rounded-[20px] border border-(--border-line) bg-(--bg-secondary) px-6 py-20 text-center">
+            <p class="font-fraunces text-[24px] font-semibold text-(--text-primary)">
                 {{ $mode === 'pending' ? 'Tidak ada testimoni yang menunggu' : 'Belum ada testimoni yang ditampilkan' }}
             </p>
-            <p class="mt-2 text-[14px] text-secondary">
+            <p class="mt-2 text-[14px] text-(--text-paragraph)">
                 {{ $mode === 'pending'
                     ? 'Ulasan baru dari pelanggan akan muncul di sini untuk Anda tinjau.'
                     : 'Setujui testimoni dari halaman Testimoni Pending agar tampil di beranda.' }}
@@ -115,36 +115,42 @@
 
     @push('scripts')
         <script>
-            document.addEventListener('submit', function(e) {
-                const form = e.target;
+            document.addEventListener('DOMContentLoaded', function() {
+                const forms = document.querySelectorAll(
+                    '.testimoni-delete-admin, .testimoni-deport-admin'
+                );
 
-                if (!form.matches('.testimoni-delete-admin, .testimoni-deport-admin')) {
-                    return;
-                }
+                forms.forEach(function(form) {
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
 
-                e.preventDefault();
+                        function getCSSVariable(variable) {
+                            return getComputedStyle(document.documentElement)
+                                .getPropertyValue(variable)
+                                .trim();
+                        }
 
-                const isDelete = form.classList.contains('testimoni-delete-admin')
+                        const isDelete = form.classList.contains('testimoni-delete-admin')
 
-                const styles = getComputedStyle(document.documentElement);
-                const colorB1 = styles.getPropertyValue('--color-b1').trim();
-                const danger = styles.getPropertyValue('--color-danger').trim();
-
-                Swal.fire({
-                    title: 'Apakah Anda yakin?',
-                    text: isDelete ? 'Data ini akan dihapus dari database.' :
-                        'Data ini akan dikembalikan ke status pending.',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: danger,
-                    cancelButtonColor: '#6b7280',
-                    confirmButtonText: isDelete ? 'Ya, hapus!' : 'Ya, kembalikan!',
-                    cancelButtonText: 'Batalkan',
-                    reverseButton: true,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    }
+                        Swal.fire({
+                            title: 'Apakah Anda yakin?',
+                            text: isDelete ? 'Data ini akan dihapus dari database.' :
+                                'Data ini akan dikembalikan ke status pending.',
+                            icon: 'warning',
+                            background: getCSSVariable('--bg-card'),
+                            color: getCSSVariable('--text-primary'),
+                            showCancelButton: true,
+                            confirmButtonColor: getCSSVariable('--color-danger'),
+                            cancelButtonColor: '#6b7280',
+                            confirmButtonText: isDelete ? 'Ya, hapus!' : 'Ya, kembalikan!',
+                            cancelButtonText: 'Batalkan',
+                            reverseButton: true,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                form.submit();
+                            }
+                        });
+                    });
                 });
             });
         </script>
