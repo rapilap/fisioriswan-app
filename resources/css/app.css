@@ -33,24 +33,49 @@
 .dark {
     color-scheme: dark;
 
-    --bg-primary: #121212;
-    --bg-secondary: #101010;
-    --bg-card: #1e1e1e;
-    --bg-point: #a67c00;
-    --bg-shadow: #20221f;
-    --bg-date: #101010;
+    /* Palet gelap: navy kebiruan (bukan hitam pekat) + aksen emas (identitas tema) dan biru.
+       Teks #e8effa di atas #0d1526 kontrasnya ±15:1; teks paragraf ±8:1 (lolos WCAG AAA/AA). */
+    --bg-primary: #0d1526;
+    --bg-secondary: #0a1120;
+    --bg-card: #14213a;
+    --bg-point: #d4a52a;
+    --bg-shadow: #101a2e;
+    --bg-date: #0a1120;
 
-    --text-primary: #f5f5f5;
-    --text-title: #ffffff;
-    --text-paragraph: #b5c0b7;
-    --text-navselect: var(--bg-point);
-    --text-navunhover: #ede5cc;
+    --text-primary: #e8effa;
+    --text-title: #f5f8ff;
+    --text-paragraph: #aebbd3;
+    --text-navselect: #7db8ff;
+    --text-navunhover: #8da0c2;
     --text-highlight: var(--bg-point);
     --text-button: var(--text-primary);
 
-    --border-line: #3a3a36;
+    --border-line: #2a3b5c;
 
-    --button-hover: #000080;
+    --button-hover: #0d1526;
+
+    /* Skala warna tema versi gelap: b* = biru (tombol/lencana, teks putih tetap terbaca),
+       g* = emas (aksen, ikon, centang, lencana), sisanya latar & garis.
+       Emas #d4a52a di atas latar navy kontrasnya ±8:1. */
+    --color-b1: #3b6fd0;
+    --color-b2: #2c58b0;
+    --color-b3: #5a86d6;
+    --color-b4: #8fb0e6;
+    --color-b5: #c3d6f5;
+
+    --color-g1: #d4a52a;
+    --color-g2: #e0b84a;
+    --color-g3: #ecd08a;
+    --color-g4: #f3e2b8;
+    --color-g5: #2a2410;
+
+    --color-primary: #e8effa;
+    --color-secondary: #aebbd3;
+    --color-pill: #1b2d50;
+    --color-danger: #ff8f94;
+    --color-line: #2a3b5c;
+    --color-photo-from: #172742;
+    --color-photo-to: #1f3560;
 }
 
 @theme {
@@ -136,7 +161,7 @@ html {
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
-    color: var(--color-g1);
+    color: #e5a91a;
 }
 
 .star-rating input:focus-visible + label {
@@ -214,12 +239,12 @@ html {
 
 /* ---------- Efek khusus mode gelap ----------
    Bayangan hitam tidak terlihat di latar gelap, jadi hover kartu memakai cahaya emas
-   (--bg-point di mode gelap), dan warna navy yang menyatu dengan latar diganti emas. */
+   (--bg-point di mode gelap). */
 .dark :is(.hover\:shadow-md, .hover\:shadow-lg):hover {
     border-color: color-mix(in srgb, var(--bg-point) 55%, transparent);
     box-shadow:
-        0 12px 32px -10px color-mix(in srgb, var(--bg-point) 45%, transparent),
-        0 0 0 1px color-mix(in srgb, var(--bg-point) 30%, transparent);
+        0 12px 32px -10px color-mix(in srgb, var(--bg-point) 40%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--bg-point) 28%, transparent);
 }
 
 .dark .hover\:border-b1:hover {
@@ -231,13 +256,22 @@ html {
 }
 
 .dark .hover\:bg-b1:hover {
-    background-color: var(--bg-point);
-    box-shadow: 0 6px 20px -6px
-        color-mix(in srgb, var(--bg-point) 60%, transparent);
+    box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--bg-point) 60%, transparent);
+}
+
+/* Latar emas memakai teks navy gelap (putih di atas emas kontrasnya rendah) */
+.dark .bg-g1,
+.dark .group:hover .group-hover\:bg-g1 {
+    color: #0b1220;
 }
 
 .dark .group:hover .group-hover\:bg-g1 {
-    box-shadow: 0 0 18px color-mix(in srgb, var(--bg-point) 55%, transparent);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--bg-point) 50%, transparent);
+}
+
+/* Bintang rating */
+.dark .star-on {
+    color: #e8b93a;
 }
 
 /* Muncul saat scroll di mode gelap: sedikit kabur lalu menajam, seperti cahaya yang menyala */
@@ -305,7 +339,7 @@ html {
 
 /* ---------- Kartu paket (Beranda & Layanan) ----------
    Mode gelap: kartu punya garis emas tipis yang menyala saat di-hover (lebih terang + cahaya),
-   kartu "populer"/navy diberi gradasi emas-navy dan cahaya yang berdenyut pelan. */
+   kartu "populer"/navy diberi gradasi biru dan cahaya yang berdenyut pelan. */
 .dark .paket-card {
     border: 1px solid color-mix(in srgb, var(--bg-point) 25%, transparent);
     transition:
@@ -326,12 +360,7 @@ html {
 }
 
 .dark .paket-populer {
-    background-image: linear-gradient(
-        150deg,
-        color-mix(in srgb, var(--bg-point) 38%, #000080) 0%,
-        #000080 55%,
-        #00004d 100%
-    );
+    background-image: linear-gradient(150deg, #3b6fd0 0%, #2a52a8 50%, #1a3678 100%);
     border-color: color-mix(in srgb, var(--bg-point) 55%, transparent);
     animation: glow-pulse 3.6s ease-in-out infinite;
 }
