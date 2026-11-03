@@ -14,7 +14,8 @@
 
     <main class="load-in mx-auto min-h-screen w-full max-w-6xl py-10 px-6 lg:px-6">
         @include('sweetalert2::index')
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js"
+            integrity="sha384-nLoOnA/BDh8A/jxqtckg4DumuCGOBYUnNJLZdQz/zfYNp3wcjGSoWTAzgko06G/2" crossorigin="anonymous"></script>
         @yield('content')
         @stack('scripts')
     </main>

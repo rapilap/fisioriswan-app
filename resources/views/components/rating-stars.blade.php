@@ -5,7 +5,7 @@
 
 <div {{ $attributes->class(['flex gap-1']) }} role="img" aria-label="{{ $rating }} dari 5 bintang">
     @for ($i = 1; $i <= 5; $i++)
-        <span class="{{ $i <= $rating ? 'text-g1' : 'text-line' }}">
+        <span class="{{ $i <= $rating ? 'text-g1 star-on' : 'text-line' }}">
             @include('components.icon', ['name' => 'star', 'fill' => 'currentColor', 'stroke' => 1, 'class' => $size])
         </span>
     @endfor
