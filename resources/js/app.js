@@ -56,7 +56,7 @@ document.querySelectorAll("[data-slider]").forEach((slider) => {
         const last = pageCount() - 1;
         dots.forEach((dot, d) => {
             dot.classList.toggle("w-6", d === i);
-            dot.classList.toggle("bg-b1", d === i);
+            dot.classList.toggle("bg-(--color-b1)", d === i);
             dot.classList.toggle("w-2", d !== i);
             dot.classList.toggle("bg-b5", d !== i);
         });

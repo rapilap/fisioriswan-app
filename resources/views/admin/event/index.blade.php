@@ -10,7 +10,7 @@
     <x-admin-header title="Event"
         subtitle="Isi jadwal event hasil kolaborasi. Event yang akan datang otomatis tampil di halaman Event website, lengkap dengan tombol pendaftaran.">
         <a href="{{ route('admin.event.create') }}"
-            class="inline-flex h-11 items-center gap-2 rounded-[10px] bg-b1 px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
+            class="inline-flex h-11 items-center gap-2 rounded-[10px] bg-(--color-b1) px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
             @include('components.icon', ['name' => 'plus', 'class' => 'w-4 h-4'])
             Tambah Event
         </a>
@@ -23,7 +23,7 @@
             <a href="{{ route('admin.event.index', $tab['kunci'] === 'lewat' ? ['tampil' => 'lewat'] : []) }}"
                 @if ($aktif) aria-current="page" @endif
                 class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-[14px] font-semibold transition
-                {{ $aktif ? 'border-b1 bg-b1 text-white' : 'border-line bg-white text-secondary hover:border-b1 hover:text-b1' }}">
+                {{ $aktif ? 'border-b1 bg-(--color-b1) text-white' : 'border-line bg-white text-secondary hover:border-b1 hover:text-(--color-b1)' }}">
                 {{ $tab['label'] }}
                 <span
                     class="rounded-full px-2 py-0.5 text-[12px] leading-none {{ $aktif ? 'bg-white/20' : 'bg-sage-deep' }}">{{ $tab['jumlah'] }}</span>
@@ -58,7 +58,7 @@
                 </p>
                 @if ($tampil === 'mendatang')
                     <a href="{{ route('admin.event.create') }}"
-                        class="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-b1 px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
+                        class="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-(--color-b1) px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
                         @include('components.icon', ['name' => 'plus', 'class' => 'w-4 h-4'])
                         Tambah Event Pertama
                     </a>
@@ -75,7 +75,7 @@
                         class="flex flex-col gap-5 rounded-[20px] border border-(--border-line) bg-(--bg-card) p-6 sm:flex-row sm:items-start">
                         {{-- Tanggal --}}
                         <div
-                            class="flex h-18.5 w-18.5 shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-(--bg-date)' : 'bg-b1' }}">
+                            class="flex h-18.5 w-18.5 shrink-0 flex-col items-center justify-center rounded-xl text-white {{ $lewat ? 'bg-(--bg-date)' : 'bg-(--color-b1)' }}">
                             <span
                                 class="{{ mb_strlen($event->tanggalAngka()) > 2 ? 'text-[18px]' : 'text-[24px]' }} font-bold leading-none">{{ $event->tanggalAngka() }}</span>
                             <span class="mt-1.5 text-[12px] leading-none">{{ $event->bulanSingkat() }}</span>
@@ -96,7 +96,7 @@
                                         setelah digulir</span>
                                 @else
                                     <span
-                                        class="rounded-full bg-pill-green px-2.5 py-1 text-[12px] font-semibold leading-none text-b1">Tampil
+                                        class="rounded-full bg-pill-green px-2.5 py-1 text-[12px] font-semibold leading-none text-(--color-b1)">Tampil
                                         di website</span>
                                 @endif
                             </div>
@@ -132,7 +132,7 @@
                             <div class="mt-3">
                                 @if ($event->registration_url)
                                     <a href="{{ $event->registration_url }}" target="_blank" rel="noopener noreferrer"
-                                        class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-line bg-sage px-3 py-1.5 text-[13px] font-medium text-b1 transition hover:border-b1">
+                                        class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-line bg-sage px-3 py-1.5 text-[13px] font-medium text-(--color-b1) transition hover:border-b1">
                                         @include('components.icon', [
                                             'name' => 'link',
                                             'class' => 'w-3.5 h-3.5 shrink-0',
@@ -159,7 +159,7 @@
                         {{-- Aksi --}}
                         <div class="flex shrink-0 gap-2 sm:flex-col">
                             <a href="{{ route('admin.event.edit', $event) }}"
-                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) px-4 text-[14px] font-semibold text-(--bg-point) transition hover:bg-b1 hover:text-white sm:flex-none">
+                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) px-4 text-[14px] font-semibold text-(--bg-point) transition hover:bg-(--color-b1) hover:text-white sm:flex-none">
                                 @include('components.icon', ['name' => 'pencil', 'class' => 'w-4 h-4'])
                                 Edit
                             </a>

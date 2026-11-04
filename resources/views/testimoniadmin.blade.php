@@ -88,7 +88,7 @@
                                 @csrf
                                 @method('PATCH')
                                 <button type="submit"
-                                    class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-b1 text-[14px] font-semibold text-white transition hover:opacity-90">
+                                    class="flex h-10 w-full cursor-pointer items-center justify-center gap-2 rounded-[10px] bg-(--color-b1) text-[14px] font-semibold text-white transition hover:opacity-90">
                                     @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])
                                     Tampilkan
                                 </button>

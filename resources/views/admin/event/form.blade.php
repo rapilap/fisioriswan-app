@@ -14,7 +14,7 @@
 
 @section('content')
     <a href="{{ route('admin.event.index') }}"
-        class="mb-5 inline-flex items-center gap-2 text-[14px] font-medium text-(--text-paragraph) transition hover:text-b1">
+        class="mb-5 inline-flex items-center gap-2 text-[14px] font-medium text-(--text-paragraph) transition hover:text-(--color-b1)">
         @include('components.icon', ['name' => 'arrow-left', 'class' => 'w-4 h-4'])
         Kembali ke daftar event
     </a>
@@ -172,12 +172,12 @@
 
             <div class="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-6">
                 <button type="submit"
-                    class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-[10px] bg-b1 px-6 text-[14px] font-semibold text-white transition hover:opacity-90">
+                    class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-[10px] bg-(--color-b1) px-6 text-[14px] font-semibold text-white transition hover:opacity-90">
                     @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])
                     {{ $edit ? 'Simpan Perubahan' : 'Simpan Event' }}
                 </button>
                 <a href="{{ route('admin.event.index') }}"
-                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-paragraph) transition hover:border-b1 hover:text-b1">
+                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-paragraph) transition hover:border-b1 hover:text-(--color-b1)">
                     Batal
                 </a>
             </div>
@@ -189,7 +189,8 @@
             </p>
             <div class="rounded-[20px] bg-(--bg-shadow) p-4">
                 <article class="flex gap-4 rounded-2xl border border-(--border-line) bg-(--bg-primary) p-5">
-                    <div class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-b1 text-white">
+                    <div
+                        class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-(--color-b1) text-white">
                         <span id="pv-hari" class="text-[22px] font-bold leading-none">--</span>
                         <span id="pv-bulan" class="mt-1.5 text-[11px] leading-none">---</span>
                     </div>

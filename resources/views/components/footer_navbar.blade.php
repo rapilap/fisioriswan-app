@@ -1,11 +1,11 @@
 <footer
-    class="bg-b1 pt-20 pb-10 px-[max(1.5rem,calc((100%-72rem)/2))] overflow-x-hidden text-white text-[14px] flex flex-col">
+    class="bg-(--color-b1) pt-20 pb-10 px-[max(1.5rem,calc((100%-72rem)/2))] overflow-x-hidden text-white text-[14px] flex flex-col">
     <div class="w-full flex flex-col items-start justify-start gap-5 lg:flex-row lg:justify-between">
         <div class="flex flex-col justify-start gap-5 items-start w-full lg:w-[50%]">
             <div class="flex flex-col items-start justify-start gap-3">
                 {{-- Logo --}}
                 <a href="{{ route('beranda') }}" class="flex flex-row items-start justify-start gap-2">
-                    <div class="flex items-start justify-start gap-5 bg-b1 text-white py-2 pr-2 rounded-md">
+                    <div class="flex items-start justify-start gap-5 bg-(--color-b1) text-white py-2 pr-2 rounded-md">
                         @include('components.icon', ['name' => 'home', 'class' => 'w-[1em] h-[1em]'])
                     </div>
                     <h1 class="font-bold text-[20px] text-white font-fraunces">
@@ -22,7 +22,7 @@
                 {{-- Social Media --}}
                 <div class="flex flex-row items-center justify-center gap-4.5">
                     <a href="https://www.instagram.com/telkomindonesia/" target="_blank"
-                        class=" border border-white rounded-full p-2 hover:bg-white hover:text-b1 transition-all duration-300">
+                        class=" border border-white rounded-full p-2 hover:bg-white hover:text-(--color-b1) transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 1024 1024">
                             <path d="M0 0h1024v1024H0z" fill="none" />
                             <path fill="currentColor"

@@ -51,7 +51,7 @@
 
             {{-- CTA --}}
             <div
-                class="reveal mt-16 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-14 text-white md:flex-row md:items-center md:justify-between">
+                class="reveal mt-16 flex flex-col gap-6 rounded-3xl bg-(--color-b1) px-14 py-14 text-white md:flex-row md:items-center md:justify-between">
                 <div>
                     <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
                         Pernah terapi bersama kami?</h2>
@@ -61,7 +61,7 @@
                     </p>
                 </div>
                 <a href="{{ route('inputTestimoni') }}"
-                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-(--color-g1) px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
                     Berikan Ulasan Anda di sini!
                 </a>
             </div>
