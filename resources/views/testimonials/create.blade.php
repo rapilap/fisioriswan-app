@@ -37,7 +37,7 @@
                 <p
                     class="mx-auto mt-1 flex max-w-120 items-start gap-3 rounded-[10px] border border-b2 bg-[#dcdde6] px-3 py-2.5 text-left text-[16px] leading-relaxed text-black!">
                     <span
-                        class="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-b1 text-[11px] font-bold leading-none text-white"
+                        class="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-(--color-b1) text-[11px] font-bold leading-none text-white"
                         aria-hidden="true">!</span>
                     <span><strong>Perhatian:</strong> Sesuai pengalaman Anda, mohon isi testimoni dengan bahasa yang
                         baik.</span>
@@ -139,12 +139,12 @@
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-5">
                     <button type="submit"
-                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg bg-b1 px-4 text-[16px] text-white transition hover:opacity-90">
+                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg bg-(--color-b1) px-4 text-[16px] text-white transition hover:opacity-90">
                         @include('components.icon', ['name' => 'send', 'class' => 'w-4 h-4'])
                         Kirim Testimoni
                     </button>
                     <button type="reset"
-                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg border border-b1 bg-white px-4 text-[16px] text-b1 transition hover:bg-b5">
+                        class="inline-flex h-9.5 cursor-pointer items-center gap-2.5 rounded-lg border border-b1 bg-white px-4 text-[16px] text-(--color-b1) transition hover:bg-b5">
                         @include('components.icon', ['name' => 'rotate-cw', 'class' => 'w-4 h-4'])
                         Reset
                     </button>

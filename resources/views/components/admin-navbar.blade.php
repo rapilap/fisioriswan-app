@@ -14,7 +14,7 @@
         class="flex items-center justify-between gap-3 w-full py-3 px-4 sm:px-6 lg:grow lg:py-4 lg:px-[max(1.5rem,calc((100%-72rem)/2))]">
         {{-- Logo --}}
         <a href="{{ route('admin.testimoni.index') }}" class="flex items-center gap-2.5">
-            <span class="flex p-2 items-center justify-center rounded-lg bg-b1 text-white">
+            <span class="flex p-2 items-center justify-center rounded-lg bg-(--color-b1) text-white">
                 @include('components.icon', ['name' => 'home', 'class' => 'w-[1em] h-[1em]'])
             </span>
             <span class="font-fraunces text-[20px] font-bold leading-none text-(--text-primary)">Ermaya Physio</span>
@@ -52,7 +52,7 @@
 
             {{-- Sign out --}}
             <form action="{{ route('admin.logout') }}" method="POST"
-                class="inline-flex items-center rounded-full bg-b1 px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer">
+                class="inline-flex items-center rounded-full bg-(--color-b1) px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer">
                 @csrf
                 <button type="submit" class="cursor-pointer">
 
@@ -93,7 +93,7 @@
         <div class="mt-4 flex flex-col gap-3 border-t border-line/50 pt-4">
 
             <form action="{{ route('admin.logout') }}" method="POST"
-                class="inline-flex items-center rounded-full bg-b1 px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer w-full text-center">
+                class="inline-flex items-center rounded-full bg-(--color-b1) px-5 py-3 text-[14px] font-semibold uppercase leading-none text-white transition hover:opacity-90 cursor-pointer w-full text-center">
                 @csrf
                 <button type="submit" class="cursor-pointer w-full">
 

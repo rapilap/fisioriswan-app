@@ -6,7 +6,7 @@
     <x-admin-header title="Sorotan Event"
         subtitle="Dokumentasi event yang sudah berlangsung. Foto, judul, dan keterangan singkat tampil di bagian “Sorotan event sebelumnya” pada halaman Event.">
         <a href="{{ route('admin.sorotan.create') }}"
-            class="inline-flex h-11 items-center gap-2 rounded-[10px] bg-b1 px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
+            class="inline-flex h-11 items-center gap-2 rounded-[10px] bg-(--color-b1) px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
             @include('components.icon', ['name' => 'plus', 'class' => 'w-4 h-4'])
             Tambah Sorotan
         </a>
@@ -22,7 +22,7 @@
                     Unggah foto kegiatan event sebelumnya agar pengunjung bisa melihat hasil kolaborasi Ermaya.
                 </p>
                 <a href="{{ route('admin.sorotan.create') }}"
-                    class="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-b1 px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
+                    class="mt-6 inline-flex h-11 items-center gap-2 rounded-[10px] bg-(--color-b1) px-5 text-[14px] font-semibold text-white transition hover:opacity-90">
                     @include('components.icon', ['name' => 'plus', 'class' => 'w-4 h-4'])
                     Tambah Sorotan Pertama
                 </a>

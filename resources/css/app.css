@@ -30,6 +30,18 @@
     --button-hover: #f5f5f5;
 
     --icon-wa: #25d366;
+
+    --color-b1: #000080;
+    --color-b2: #333399;
+    --color-b3: #6666b3;
+    --color-b4: #9999cc;
+    --color-b5: #cccce6;
+
+    --color-g1: #a67c00;
+    --color-g2: #b89633;
+    --color-g3: #cab066;
+    --color-g4: #dbcb99;
+    --color-g5: #ede5cc;
 }
 
 .dark {
@@ -89,18 +101,6 @@
     --font-fraunces: "Fraunces", serif;
 
     --color-login: #000080;
-
-    --color-b1: #000080;
-    --color-b2: #333399;
-    --color-b3: #6666b3;
-    --color-b4: #9999cc;
-    --color-b5: #cccce6;
-
-    --color-g1: #a67c00;
-    --color-g2: #b89633;
-    --color-g3: #cab066;
-    --color-g4: #dbcb99;
-    --color-g5: #ede5cc;
 
     --color-primary: #1e271f;
     --color-secondary: #55625a;

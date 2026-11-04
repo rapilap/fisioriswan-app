@@ -15,7 +15,7 @@
 
 @section('content')
     <a href="{{ route('admin.sorotan.index') }}"
-        class="mb-5 inline-flex items-center gap-2 text-[14px] font-medium text-secondary transition hover:text-b1">
+        class="mb-5 inline-flex items-center gap-2 text-[14px] font-medium text-secondary transition hover:text-(--color-b1)">
         @include('components.icon', ['name' => 'arrow-left', 'class' => 'w-4 h-4'])
         Kembali ke daftar sorotan
     </a>
@@ -60,7 +60,8 @@
 
                         <div id="foto-kosong"
                             class="flex flex-col items-center gap-2 px-6 text-secondary {{ $fotoSaatIni ? 'hidden' : '' }}">
-                            <span class="flex size-12 items-center justify-center rounded-full bg-white text-b1 shadow-sm">
+                            <span
+                                class="flex size-12 items-center justify-center rounded-full bg-white text-(--color-b1) shadow-sm">
                                 @include('components.icon', ['name' => 'upload', 'class' => 'w-5 h-5'])
                             </span>
                             <span class="text-[15px] font-semibold text-primary">Klik untuk memilih foto</span>
@@ -69,7 +70,7 @@
 
                         @if ($fotoSaatIni)
                             <span id="foto-ganti"
-                                class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[12px] font-semibold text-b1 shadow-sm backdrop-blur transition group-hover:bg-b1 group-hover:text-white">
+                                class="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[12px] font-semibold text-(--color-b1) shadow-sm backdrop-blur transition group-hover:bg-(--color-b1) group-hover:text-white">
                                 @include('components.icon', ['name' => 'upload', 'class' => 'w-3.5 h-3.5'])
                                 Ganti foto
                             </span>
@@ -110,12 +111,12 @@
 
             <div class="mt-8 flex flex-wrap items-center gap-3 border-t border-line pt-6">
                 <button type="submit"
-                    class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-[10px] bg-b1 px-6 text-[14px] font-semibold text-white transition hover:opacity-90">
+                    class="inline-flex h-11 cursor-pointer items-center gap-2 rounded-[10px] bg-(--color-b1) px-6 text-[14px] font-semibold text-white transition hover:opacity-90">
                     @include('components.icon', ['name' => 'check', 'class' => 'w-4 h-4'])
                     {{ $edit ? 'Simpan Perubahan' : 'Simpan Sorotan' }}
                 </button>
                 <a href="{{ route('admin.sorotan.index') }}"
-                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-secondary) transition hover:border-b1 hover:text-b1">
+                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-secondary) transition hover:border-b1 hover:text-(--color-b1)">
                     Batal
                 </a>
             </div>

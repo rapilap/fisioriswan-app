@@ -196,11 +196,11 @@
                 </p>
                 <div class="mt-10 flex flex-wrap gap-3">
                     <a href="{{ $whatsappUrlNonPack }}" target="_blank"
-                        class="inline-flex items-center gap-2 rounded-full bg-b1 px-7 py-4 text-[15px] font-semibold text-white transition hover:opacity-90">
+                        class="inline-flex items-center gap-2 rounded-full bg-(--color-b1) px-7 py-4 text-[15px] font-semibold text-white transition hover:opacity-90">
                         Pesan via WhatsApp
                     </a>
                     <a href="#paket"
-                        class="inline-flex items-center rounded-full border border-line bg-white px-7 py-4 text-[15px] font-semibold text-b1 transition hover:bg-b5">
+                        class="inline-flex items-center rounded-full border border-line bg-white px-7 py-4 text-[15px] font-semibold text-(--color-b1) transition hover:bg-b5">
                         Lihat paket
                     </a>
                 </div>
@@ -291,7 +291,7 @@
                 @foreach ($kondisi as $item)
                     <div class="reveal group flex h-100 flex-col rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:shadow-lg"
                         style="--reveal-delay: {{ ($loop->index % 3) * 60 }}ms">
-                        <x-pill-icon class="shrink-0 transition group-hover:bg-g1 group-hover:text-white">
+                        <x-pill-icon class="shrink-0 transition group-hover:bg-(--color-g1) group-hover:text-white">
                             @include('components.icon', ['name' => $item['icon'], 'class' => 'w-5 h-5'])
                         </x-pill-icon>
                         <h3
@@ -371,7 +371,7 @@
                     @php $populer = $item['populer']; @endphp
                     <article data-slide style="--reveal-delay: {{ $loop->index * 90 }}ms"
                         class="reveal paket-card snap-start shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)] flex flex-col rounded-2xl p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl gap-5
-                        {{ $populer ? 'paket-populer bg-b1 text-white' : 'bg-(--bg-card) text-(--text-primary)' }}">
+                        {{ $populer ? 'paket-populer bg-(--color-b1) text-white' : 'bg-(--bg-card) text-(--text-primary)' }}">
                         @if ($populer)
                             <span
                                 class="mb-3 w-fit rounded-full bg-white/15 px-3 py-1.5 text-[12px] leading-none font-semibold text-white">
@@ -430,7 +430,7 @@
 
                         <a href="{{ $whatsappUrl }}" target="_blank"
                             class="mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition
-                            {{ $populer ? 'mt-auto bg-g1 text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-b1 hover:text-white' }}">
+                            {{ $populer ? 'mt-auto bg-(--color-g1) text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-(--color-b1) hover:text-white' }}">
                             {{ $item['harga'] ? 'Pesan Sekarang' : 'Hubungi Kami' }}
                         </a>
                     </article>
@@ -480,7 +480,7 @@
 
             {{-- CTA --}}
             <div
-                class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
+                class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-(--color-b1) px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
                 <div>
                     <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
 
@@ -491,7 +491,7 @@
                     </p>
                 </div>
                 <a href="{{ $whatsappUrlNonPack }}" target="_blank"
-                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-(--color-g1) px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
                     Pesan Sekarang
                 </a>
             </div>

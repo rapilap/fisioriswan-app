@@ -5,7 +5,7 @@
     <nav role="navigation" aria-label="Paginasi" class="mt-12 flex items-center justify-center gap-2">
         @unless ($paginator->onFirstPage())
             <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="Halaman sebelumnya"
-                class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-b1">
+                class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-(--color-b1)">
                 @include('components.icon', ['name' => 'chevron-left', 'class' => 'w-4 h-4'])
             </a>
         @endunless
@@ -18,10 +18,11 @@
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <span aria-current="page" class="{{ $bulat }} border-b1 bg-b1 text-white">{{ $page }}</span>
+                        <span aria-current="page"
+                            class="{{ $bulat }} border-b1 bg-(--color-b1) text-white">{{ $page }}</span>
                     @else
                         <a href="{{ $url }}" aria-label="Ke halaman {{ $page }}"
-                            class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-b1">{{ $page }}</a>
+                            class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-(--color-b1)">{{ $page }}</a>
                     @endif
                 @endforeach
             @endif
@@ -29,7 +30,7 @@
 
         @if ($paginator->hasMorePages())
             <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="Halaman berikutnya"
-                class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-b1">
+                class="{{ $bulat }} border-line text-secondary hover:border-b1 hover:text-(--color-b1)">
                 @include('components.icon', ['name' => 'chevron-right', 'class' => 'w-4 h-4'])
             </a>
         @endif

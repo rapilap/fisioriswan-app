@@ -1,7 +1,7 @@
 <nav class="relative z-50 w-full bg-(--bg-primary) text-(--text-primary) flex flex-col drop-shadow-md">
     {{-- Top --}}
     <div
-        class="hidden lg:flex bg-b1 text-white font-normal text-[13px] flex-row items-center justify-between py-3 px-[max(1.5rem,calc((100%-72rem)/2))] h-fit w-full">
+        class="hidden lg:flex bg-(--color-b1) text-white font-normal text-[13px] flex-row items-center justify-between py-3 px-[max(1.5rem,calc((100%-72rem)/2))] h-fit w-full">
         <div class="flex items-start justify-center gap-4.5">
             <div class="flex items-center justify-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024">
@@ -46,7 +46,7 @@
         class="flex items-center justify-between gap-3 w-full py-3 px-4 sm:px-6 lg:grow lg:py-2 lg:px-[max(1.5rem,calc((100%-72rem)/2))]">
         {{-- Logo --}}
         <a href="{{ route('beranda') }}" class="flex flex-row items-center justify-center gap-2.5">
-            <div class="flex items-center justify-center gap-5 bg-b1 text-white p-2 rounded-md">
+            <div class="flex items-center justify-center gap-5 bg-(--color-b1) text-white p-2 rounded-md">
                 @include('components.icon', ['name' => 'home', 'class' => 'w-[1em] h-[1em]'])
             </div>
             <h1 class="font-bold text-[20px] font-fraunces">
@@ -81,7 +81,7 @@
         <div class="hidden lg:flex items-center gap-4">
             @if (Route::is('testimoni'))
                 <a href="{{ route('inputTestimoni') }}"
-                    class="inline-flex items-center gap-2 rounded-3xl bg-b1 px-4 py-2 text-white transition hover:opacity-85 font-normal text-[13px]">
+                    class="inline-flex items-center gap-2 rounded-3xl bg-(--color-b1) px-4 py-2 text-white transition hover:opacity-85 font-normal text-[13px]">
                     Berikan Ulasan Anda di sini!
                 </a>
             @else
@@ -100,7 +100,7 @@
                 @endphp
 
                 <a href="{{ $whatsappUrl }}" target="_blank"
-                    class="inline-flex items-center gap-2 rounded-3xl bg-b1 px-4 py-2 text-white transition hover:opacity-90">
+                    class="inline-flex items-center gap-2 rounded-3xl bg-(--color-b1) px-4 py-2 text-white transition hover:opacity-90">
                     <span class="font-normal text-[13px]">Booking Via</span>
                     <div class="text-(--icon-wa) flex items-center justify-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@
 
         <div class="mt-4 flex flex-col gap-3 border-t border-line/50 pt-4">
             <a href="{{ $mobileWhatsappUrl }}" target="_blank" rel="noopener noreferrer"
-                class="inline-flex w-full items-center justify-center gap-2 rounded-3xl bg-b1 px-4 py-3 text-white transition hover:opacity-90">
+                class="inline-flex w-full items-center justify-center gap-2 rounded-3xl bg-(--color-b1) px-4 py-3 text-white transition hover:opacity-90">
                 <span class="text-sm">Booking Via</span>
                 <span class="flex items-center gap-1 text-[#25D366]">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"

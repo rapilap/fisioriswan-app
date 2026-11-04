@@ -124,7 +124,7 @@
                                 class="flex shrink-0 gap-5.5 rounded-2xl border border-(--border-line) bg-(--bg-card) p-7 transition duration-300 hover:shadow-md">
                                 {{-- Event beberapa hari: lencana menampilkan rentang, mis. "21–23" / "OKT" --}}
                                 <div
-                                    class="shrink-0 flex h-18.5 w-18.5 flex-col items-center justify-center rounded-xl bg-b1 text-white">
+                                    class="shrink-0 flex h-18.5 w-18.5 flex-col items-center justify-center rounded-xl bg-(--color-b1) text-white">
                                     <span
                                         class="{{ mb_strlen($event['tanggal']) > 2 ? 'text-[18px]' : 'text-[24px]' }} leading-none font-bold">{{ $event['tanggal'] }}</span>
                                     <span class="mt-1.5 text-[12px] leading-none">{{ $event['bulan'] }}</span>
@@ -165,7 +165,7 @@
                                     {{-- Link diisi admin; tanpa link, tombol tidak tampil --}}
                                     @if (!empty($event['link']))
                                         <a href="{{ $event['link'] }}" target="_blank" rel="noopener noreferrer"
-                                            class="mt-3 inline-flex items-center rounded-full border border-line px-4.5 py-2.5 text-[14px] font-semibold text-(--text-button) transition hover:border-b1 hover:bg-b1 hover:text-white">
+                                            class="mt-3 inline-flex items-center rounded-full border border-line px-4.5 py-2.5 text-[14px] font-semibold text-(--text-button) transition hover:border-b1 hover:bg-(--color-b1) hover:text-white">
                                             Daftar Sekarang
                                         </a>
                                     @endif
@@ -177,7 +177,7 @@
                     @if (count($events) > 3)
                         <p data-scroll-hint
                             class="mt-5 flex items-center justify-center gap-2 text-[13px] font-medium text-secondary transition-opacity duration-300">
-                            <span class="animate-bounce text-b1">@include('components.icon', ['name' => 'chevron-down', 'class' => 'w-4 h-4'])</span>
+                            <span class="animate-bounce text-(--color-b1)">@include('components.icon', ['name' => 'chevron-down', 'class' => 'w-4 h-4'])</span>
                             Gulir untuk melihat {{ count($events) - 3 }} event lainnya
                         </p>
                     @endif
@@ -213,7 +213,7 @@
                     @endforeach
                 </ul>
                 <a href="{{ $whatsappUrl }}" target="_blank"
-                    class="mt-8 inline-flex items-center rounded-full bg-g1 px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
+                    class="mt-8 inline-flex items-center rounded-full bg-(--color-g1) px-7 py-4 text-[15px] font-semibold text-white transition hover:bg-g2">
                     Ajukan Kolaborasi
                 </a>
             </div>
@@ -265,7 +265,7 @@
 
             {{-- CTA --}}
             <div
-                class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-b1 px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
+                class="reveal mt-14 flex flex-col gap-6 rounded-3xl bg-(--color-b1) px-14 py-12 text-white md:flex-row md:items-center md:justify-between">
                 <div>
                     <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
                         Ingin berkolaborasi dengan kami?
@@ -275,7 +275,7 @@
                     </p>
                 </div>
                 <a href="{{ $whatsappUrl }}" target="_blank"
-                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-g1 px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
+                    class="inline-flex shrink-0 items-center justify-center rounded-full bg-(--color-g1) px-6 py-3 text-xs lg:text-[14px] font-semibold text-white transition hover:bg-g2">
                     Hubungi Tim Kemitraan
                 </a>
             </div>
