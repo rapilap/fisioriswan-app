@@ -28,6 +28,8 @@
     --border-line: #dcd8cf;
 
     --button-hover: #f5f5f5;
+
+    --icon-wa: #25d366;
 }
 
 .dark {
@@ -54,6 +56,8 @@
 
     --button-hover: #0d1526;
 
+    --icon-wa: #dcf8c6;
+
     /* Skala warna tema versi gelap: b* = biru (tombol/lencana, teks putih tetap terbaca),
        g* = emas (aksen, ikon, centang, lencana), sisanya latar & garis.
        Emas #d4a52a di atas latar navy kontrasnya ±8:1. */
@@ -72,7 +76,6 @@
     --color-primary: #e8effa;
     --color-secondary: #aebbd3;
     --color-pill: #1b2d50;
-    --color-danger: #ff8f94;
     --color-line: #2a3b5c;
     --color-photo-from: #172742;
     --color-photo-to: #1f3560;
@@ -84,6 +87,8 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --font-fraunces: "Fraunces", serif;
+
+    --color-login: #000080;
 
     --color-b1: #000080;
     --color-b2: #333399;
@@ -256,7 +261,8 @@ html {
 }
 
 .dark .hover\:bg-b1:hover {
-    box-shadow: 0 6px 20px -6px color-mix(in srgb, var(--bg-point) 60%, transparent);
+    box-shadow: 0 6px 20px -6px
+        color-mix(in srgb, var(--bg-point) 60%, transparent);
 }
 
 /* Latar emas memakai teks navy gelap (putih di atas emas kontrasnya rendah) */
@@ -360,7 +366,12 @@ html {
 }
 
 .dark .paket-populer {
-    background-image: linear-gradient(150deg, #3b6fd0 0%, #2a52a8 50%, #1a3678 100%);
+    background-image: linear-gradient(
+        150deg,
+        #3b6fd0 0%,
+        #2a52a8 50%,
+        #1a3678 100%
+    );
     border-color: color-mix(in srgb, var(--bg-point) 55%, transparent);
     animation: glow-pulse 3.6s ease-in-out infinite;
 }

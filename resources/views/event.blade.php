@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Event & Kolaborasi - Fisio Riswan')
+@section('title', 'Event & Kolaborasi - Ermaya Physio')
 @section('main_class', 'py-0')
 
 @php
@@ -72,7 +72,7 @@
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
+    <section class="bg-(--bg-primary) px-6 pt-20 pb-16">
         <div class="mx-auto max-w-6xl">
             <div class="load-in mb-6">
                 @include('components.breadcrumb')
@@ -104,7 +104,7 @@
     </section>
 
     {{-- 2. Event mendatang --}}
-    <section class="bg-(--bg-secondary) px-6 py-22">
+    <section class="bg-(--bg-secondary) px-6 py-16">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mb-12">
                 <x-pill>
@@ -189,7 +189,7 @@
     </section>
 
     {{-- 3. Kolaborasi --}}
-    <section class="bg-(--bg-primary) px-6 py-22">
+    <section class="bg-(--bg-primary) px-6 py-16">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div class="reveal">
                 <x-pill>
@@ -230,7 +230,7 @@
     </section>
 
     {{-- 4. Sorotan event sebelumnya --}}
-    <section class="bg-(--bg-secondary) px-6 pt-24 pb-15">
+    <section class="bg-(--bg-secondary) px-6 pt-16 pb-20">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mb-12">
                 <x-pill>
@@ -270,7 +270,7 @@
                     <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
                         Ingin berkolaborasi dengan kami?
                     </h2>
-                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-gray-300">
                         Ceritakan kebutuhan acara Anda, tim kami akan menyesuaikan bentuk kerja sama yang tepat.
                     </p>
                 </div>

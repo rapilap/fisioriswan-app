@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'Testimoni - Fisio Riswan')
+@section('title', 'Testimoni - Ermaya Physio')
 @section('main_class', 'py-0')
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
+    <section class="bg-(--bg-primary) px-6 pt-20 pb-16">
         <div class="mx-auto max-w-6xl">
             <div class="load-in mb-6">
                 @include('components.breadcrumb')
@@ -21,7 +21,7 @@
     </section>
 
     {{-- 2. Daftar testimoni --}}
-    <section class="bg-(--bg-secondary) px-6 pt-5 pb-16">
+    <section class="bg-(--bg-secondary) px-6 pt-16 pb-20">
         <div class="mx-auto max-w-6xl">
             <div class="reveal text-center">
                 <x-pill>Testimoni</x-pill>
@@ -55,7 +55,7 @@
                 <div>
                     <h2 class="font-fraunces text-3xl lg:text-[38px] font-semibold leading-[1.15]">
                         Pernah terapi bersama kami?</h2>
-                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-secondary)">
                         Buat ulasan Anda agar dapat membantu meyakinkan pasien lain untuk memilih layanan fisioterapi
                         Ermaya.
                     </p>

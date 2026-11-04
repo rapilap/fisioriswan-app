@@ -12,10 +12,10 @@
     class="load-in h-screen lg:min-h-screen bg-white lg:bg-gray-100 px-0 flex items-center justify-center lg:px-4 scrollbar-none">
 
     <main class="w-full max-w-xl h-full lg:h-100 bg-white lg:shadow-lg flex flex-col lg:flex-row lg:rounded-2xl">
-        <div class="flex-1 min-h-0 w-full bg-b1 rounded-br-[3rem] lg:rounded-2xl text-white p-6">
+        <div class="flex-1 min-h-0 w-full bg-(--color-login) rounded-br-[3rem] lg:rounded-2xl text-white p-6">
             <div class="flex h-full flex-col items-start justify-center gap-3">
                 <div class="flex justify-center items-center gap-3">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-b1">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-(--color-login)">
                         @include('components.icon', ['name' => 'home', 'class' => 'w-[18px] h-[18px]'])
                     </span>
 
@@ -91,7 +91,7 @@
                     </div>
 
                     <button type="submit"
-                        class="w-full rounded-lg bg-b1 px-4 py-3
+                        class="w-full rounded-lg bg-(--color-login) px-4 py-3
                 font-semibold text-white transition hover:bg-b2 cursor-pointer">
                         SIGN IN
                     </button>
