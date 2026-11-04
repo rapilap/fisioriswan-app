@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Beranda - Fisio Riswan')
+@section('title', 'Beranda - Ermaya Physio')
 @section('main_class', 'py-20')
 
 @php
@@ -184,7 +184,7 @@
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-primary) px-6">
+    <section class="bg-(--bg-primary) px-6 pb-16">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div class="load-in">
                 <h1 class="font-fraunces font-semibold text-(--text-primary) text-[48px] leading-[1.1] max-w-120">
@@ -271,7 +271,7 @@
     </section>
 
     {{-- 3. Kondisi yang ditangani --}}
-    <section class="bg-(--bg-primary) px-6 py-30">
+    <section class="bg-(--bg-primary) px-6 py-16">
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-150 text-center">
                 <x-pill>
@@ -321,7 +321,7 @@
     </section>
 
     {{-- 4. Langkah pemesanan --}}
-    <section class="bg-(--bg-secondary) px-6 pt-21 pb-15">
+    <section class="bg-(--bg-secondary) px-6 py-16">
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
             <div class="reveal">
                 <x-pill>
@@ -353,7 +353,7 @@
     </section>
 
     {{-- 5. Paket (slider) --}}
-    <section id="paket" class="scroll-mt-28 bg-(--bg-secondary) px-6 pt-30 pb-23" data-slider>
+    <section id="paket" class="scroll-mt-28 bg-(--bg-secondary) px-6 py-16" data-slider>
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-135 text-center">
                 <x-pill>
@@ -442,7 +442,7 @@
     </section>
 
     {{-- 6. Testimoni (slider) --}}
-    <section class="bg-(--bg-primary) px-6 pt-24 pb-15" data-slider>
+    <section class="bg-(--bg-primary) px-6 pt-16" data-slider>
         <div class="mx-auto max-w-6xl">
             <div class="reveal mx-auto max-w-150 text-center">
                 <x-pill>
@@ -486,7 +486,7 @@
 
                         Siap memulai pemulihan Anda?
                     </h2>
-                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-(--text-navunhover)">
+                    <p class="mt-3 max-w-150 text-[16px] leading-relaxed text-gray-300">
                         Konsultasikan kebutuhan terapi Anda sekarang, gratis tanpa komitmen.
                     </p>
                 </div>

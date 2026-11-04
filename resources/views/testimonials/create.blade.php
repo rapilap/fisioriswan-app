@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Input Testimoni - Fisio Riswan')
+@section('title', 'Input Testimoni - Ermaya Physio')
 @section('main_class', 'py-0')
 
 @php
@@ -10,7 +10,7 @@
 
 @section('content')
     {{-- 1. Hero --}}
-    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
+    <section class="bg-(--bg-primary) px-6 pt-20 pb-16">
         <div class="mx-auto max-w-6xl">
             <div class="load-in mb-6">
                 @include('components.breadcrumb')
@@ -27,7 +27,7 @@
     </section>
 
     {{-- 2. Formulir --}}
-    <section class="bg-(--bg-primary) px-6 pt-3 pb-25">
+    <section class="bg-(--bg-primary) px-6 pt-3 pb-20">
         <div class="mx-auto max-w-304">
             <div class="reveal text-center">
                 <x-pill>Formulir Testimoni</x-pill>
@@ -35,7 +35,7 @@
                     Pasien!</h2>
 
                 <p
-                    class="mx-auto mt-1 flex max-w-120 items-start gap-3 rounded-[10px] border border-b2 bg-[#dcdde6] px-3 py-2.5 text-left text-[16px] leading-relaxed text-primary">
+                    class="mx-auto mt-1 flex max-w-120 items-start gap-3 rounded-[10px] border border-b2 bg-[#dcdde6] px-3 py-2.5 text-left text-[16px] leading-relaxed text-black!">
                     <span
                         class="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-b1 text-[11px] font-bold leading-none text-white"
                         aria-hidden="true">!</span>

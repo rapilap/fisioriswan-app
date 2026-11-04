@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Testimoni - Fisio Riswan')
+@section('title', 'Testimoni - Ermaya Physio')
 @section('main_class', 'py-0')
 
 @section('content')
-    <section class="bg-(--bg-primary) px-6 pt-18 pb-22">
+    <section class="bg-(--bg-primary) px-6 pt-20 pb-16">
         <div class="mx-auto max-w-6xl load-in w-full h-fit bg-cover bg-center relative" style="--load-delay: 100ms">
             {{-- Section 1 --}}
             <div class="load-in mb-6">
@@ -23,7 +23,7 @@
     </section>
 
     {{-- Section 2 --}}
-    <section class="bg-(--bg-secondary) px-6 py-22">
+    <section class="bg-(--bg-secondary) px-6 py-16">
         <div class="mx-auto max-w-6xl">
             <div class="load-in w-full h-auto bg-cover bg-center relative py-8 sm:py-10 flex flex-col items-center justify-center gap-3"
                 style="--load-delay: 200ms">
@@ -123,7 +123,7 @@
         </div>
     </section>
 
-    <section class="bg-(--bg-primary) px-6 py-22">
+    <section class="bg-(--bg-primary) px-6 pt-16 pb-20">
         {{-- Section 3  --}}
         <div class="mx-auto max-w-6xl">
             <div class="load-in w-full h-auto bg-cover bg-center relative py-8 sm:py-10 flex flex-col items-center justify-center gap-3"

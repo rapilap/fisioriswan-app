@@ -87,7 +87,7 @@
                             class="text-danger">*</span></label>
                     <input id="title" name="title" type="text" maxlength="120" required
                         value="{{ old('title', $highlight->title) }}" placeholder="Contoh: Fun Run Jakarta 2026"
-                        class="{{ $input }} {{ $border('title') }}">
+                        class="{{ $input }} {{ $border('title') }} text-black">
                     @error('title')
                         <p class="mt-1.5 text-[13px] text-danger">{{ $message }}</p>
                     @enderror
@@ -101,7 +101,7 @@
                     </div>
                     <textarea id="description" name="description" rows="3" maxlength="200" required
                         placeholder="Contoh: Pendampingan 300+ pelari"
-                        class="w-full resize-y rounded-[10px] border bg-sage px-3.5 py-2.5 text-[15px] leading-relaxed text-primary placeholder:text-[#a3aaa5] focus:border-b1 focus:outline-none focus:ring-2 focus:ring-b1/15 {{ $border('description') }}">{{ old('description', $highlight->description) }}</textarea>
+                        class="w-full resize-y rounded-[10px] border bg-sage px-3.5 py-2.5 text-[15px] leading-relaxed text-black placeholder:text-[#a3aaa5] focus:border-b1 focus:outline-none focus:ring-2 focus:ring-b1/15 {{ $border('description') }}">{{ old('description', $highlight->description) }}</textarea>
                     @error('description')
                         <p class="mt-1.5 text-[13px] text-danger">{{ $message }}</p>
                     @enderror

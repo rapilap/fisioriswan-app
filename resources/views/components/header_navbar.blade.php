@@ -102,7 +102,7 @@
                 <a href="{{ $whatsappUrl }}" target="_blank"
                     class="inline-flex items-center gap-2 rounded-3xl bg-b1 px-4 py-2 text-white transition hover:opacity-90">
                     <span class="font-normal text-[13px]">Booking Via</span>
-                    <div class="text-[#25D366] flex items-center justify-center gap-1">
+                    <div class="text-(--icon-wa) flex items-center justify-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                             <path d="M0 0h24v24H0z" fill="none" />
                             <path fill="currentColor"
