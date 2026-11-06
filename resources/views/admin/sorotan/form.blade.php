@@ -7,7 +7,7 @@
     $fotoSaatIni = $edit ? asset($highlight->imagePath()) : null;
 
     $input =
-        'h-11 w-full rounded-[10px] border bg-sage px-3.5 text-[15px] text-primary placeholder:text-[#a3aaa5] focus:border-b1 focus:outline-none focus:ring-2 focus:ring-b1/15';
+        'h-11 w-full rounded-[10px] border bg-sage px-3.5 text-[15px] text-black placeholder:text-[#a3aaa5] focus:border-b1 focus:outline-none focus:ring-2 focus:ring-b1/15';
     $border = fn(string $name) => $errors->has($name) ? 'border-danger' : 'border-line';
 @endphp
 
@@ -116,7 +116,7 @@
                     {{ $edit ? 'Simpan Perubahan' : 'Simpan Sorotan' }}
                 </button>
                 <a href="{{ route('admin.sorotan.index') }}"
-                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-secondary) transition hover:border-b1 hover:text-(--color-b1)">
+                    class="inline-flex h-11 items-center rounded-[10px] border border-(--border-line) px-6 text-[14px] font-semibold text-(--text-secondary) transition hover:border-(--color-b1) hover:text-(--color-b1)">
                     Batal
                 </a>
             </div>

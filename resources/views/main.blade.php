@@ -207,15 +207,15 @@
                 {{-- TODO: sesuaikan angka statistik dengan data asli --}}
                 <div class="mt-11 flex flex-wrap gap-x-10 gap-y-4">
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">500+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">500+</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Pasien dilayani</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">1.000+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">1.000+</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Sesi terapi</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">4.9/5</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">4.9/5</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Rating pasien</p>
                     </div>
                 </div>
@@ -430,7 +430,7 @@
 
                         <a href="{{ $whatsappUrl }}" target="_blank"
                             class="mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition
-                            {{ $populer ? 'mt-auto bg-(--color-g1) text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-(--color-b1) hover:text-white' }}">
+                            {{ $populer ? 'mt-auto bg-(--color-g1) text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-(--color-b1) hover:bg-(--color-b1) hover:text-white' }}">
                             {{ $item['harga'] ? 'Pesan Sekarang' : 'Hubungi Kami' }}
                         </a>
                     </article>
@@ -476,7 +476,9 @@
                 @endforelse
             </div>
 
-            @include('components.slider-nav')
+            @if (!empty($testimoni) && count($testimoni) > 3)
+                @include('components.slider-nav')
+            @endif
 
             {{-- CTA --}}
             <div
