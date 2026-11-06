@@ -39,7 +39,7 @@
                         :fullname="$item->fullname" :city="$item->city" :image="$item->image" :testimonial="$item->testimonial" :rating="$item->rating" />
                 @empty
                     <p
-                        class="col-span-full rounded-[20px] border border-line bg-white px-6 py-16 text-center text-[15px] text-(--text-paragraph)">
+                        class="col-span-full rounded-[20px] bg-(--bg-secondary) px-6 py-16 text-center text-[15px] text-(--text-paragraph)">
                         Belum ada testimoni yang tersedia.
                     </p>
                 @endforelse
