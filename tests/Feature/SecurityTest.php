@@ -16,7 +16,7 @@ class SecurityTest extends TestCase
     public function test_upload_testimoni_menolak_file_bukan_gambar(): void
     {
         Storage::fake('public');
-        $data = ['fullname' => 'Ahmad', 'city' => 'Kota Bandung', 'rating' => 5, 'testimonial' => 'Pelayanan sangat baik.'];
+        $data = ['fullname' => 'Ahmad', 'city' => 'Kota Bandung', 'package' => 'kunjungan-tunggal', 'rating' => 5, 'testimonial' => 'Pelayanan sangat baik.'];
 
         // File asli (bukan UploadedFile::fake, yang menebak tipe dari nama file) agar isinya benar-benar diperiksa.
         $path = tempnam(sys_get_temp_dir(), 'up');
@@ -38,7 +38,7 @@ class SecurityTest extends TestCase
     public function test_testimoni_publik_selalu_masuk_pending(): void
     {
         $this->post(route('testimoni.store'), [
-            'fullname' => 'Ahmad', 'city' => 'Kota Bandung', 'rating' => 5,
+            'fullname' => 'Ahmad', 'city' => 'Kota Bandung', 'package' => 'kunjungan-tunggal', 'rating' => 5,
             'testimonial' => 'Pelayanan sangat baik.', 'status' => 'approved',
         ])->assertRedirect();
 

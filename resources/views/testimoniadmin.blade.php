@@ -66,6 +66,9 @@
                         <div class="min-w-0">
                             <p class="truncate text-[14px] font-semibold text-(--text-primary)">{{ $item->fullname }}</p>
                             <p class="truncate text-[13px] text-(--text-paragraph)">{{ $item->city }}</p>
+                            @if ($item->package)
+                                <p class="truncate text-[12px] font-medium text-g1">{{ config('testimonial.packages.'.$item->package.'.nama', $item->package) }}</p>
+                            @endif
                         </div>
                     </div>
 

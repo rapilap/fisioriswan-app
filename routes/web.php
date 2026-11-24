@@ -7,6 +7,7 @@ use App\Http\Controllers\EventHighlightAdminController;
 use App\Http\Controllers\TestimonialAdminController;
 use App\Http\Controllers\TestimonialController;
 use App\Models\Testimonial;
+use App\Support\ClinicStats;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
@@ -29,7 +30,11 @@ $beranda = function () {
             ->all()
         : null;
 
-    return view('main', compact('testimoni'));
+    $stats = Schema::hasTable('testimonials') && Schema::hasColumn('testimonials', 'package')
+        ? ClinicStats::get()
+        : ['patients' => config('testimonial.stats_base.patients'), 'sessions' => config('testimonial.stats_base.sessions'), 'rating' => config('testimonial.stats_base.rating')];
+
+    return view('main', compact('testimoni', 'stats'));
 };
 
 Route::get('/', $beranda)->name('beranda');
