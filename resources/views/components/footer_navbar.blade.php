@@ -59,7 +59,7 @@
             </h1>
             <div class="flex flex-col items-start justify-start gap-2 lg:gap-5">
                 <span class="text-white">
-                    0812381203
+                    {{ '0' . substr(config('services.whatsapp.number'), 2) }}
                 </span>
                 <span class="text-white">
                     ermayaphysio@hayoo.com

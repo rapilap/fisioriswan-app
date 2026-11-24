@@ -177,7 +177,7 @@
                     {{ $edit ? 'Simpan Perubahan' : 'Simpan Event' }}
                 </button>
                 <a href="{{ route('admin.event.index') }}"
-                    class="inline-flex h-11 items-center rounded-[10px] border border-line px-6 text-[14px] font-semibold text-(--text-paragraph) transition hover:border-b1 hover:text-(--color-b1)">
+                    class="inline-flex h-11 items-center rounded-[10px] border border-(--border-line) px-6 text-[14px] font-semibold text-(--text-paragraph) transition hover:border-(--color-b1) hover:text-(--color-b1)">
                     Batal
                 </a>
             </div>

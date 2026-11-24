@@ -26,7 +26,7 @@
                 @php $aktif = request()->routeIs($item['match'] ?? $item['route']); @endphp
                 <a href="{{ route($item['route']) }}" @if ($aktif) aria-current="page" @endif
                     class="pb-0.5 text-[13px] font-medium transition-colors
-                    {{ $aktif ? 'border-b-2 bg-(--bg-card) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:bg-(--bg-card) hover:text-(--text-navselect)' }}">
+                    {{ $aktif ? 'border-b-2 border-(--color-g1) text-(--text-navselect) font-semibold' : 'text-(--text-navunhover) hover:text-(--text-navselect)' }}">
                     {{ $item['label'] }}
                 </a>
             @endforeach

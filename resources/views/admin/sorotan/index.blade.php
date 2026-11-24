@@ -16,9 +16,9 @@
         <x-admin-status />
 
         @if ($highlights->isEmpty())
-            <div class="rounded-[20px] border border-line bg-white px-6 py-20 text-center">
-                <p class="font-fraunces text-[24px] font-semibold text-primary">Belum ada sorotan event</p>
-                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-secondary">
+            <div class="rounded-[20px] border border-(--border-line) bg-(--bg-secondary) px-6 py-20 text-center">
+                <p class="font-fraunces text-[24px] font-semibold text-(--text-primary)">Belum ada sorotan event</p>
+                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-(--text-paragraph)">
                     Unggah foto kegiatan event sebelumnya agar pengunjung bisa melihat hasil kolaborasi Ermaya.
                 </p>
                 <a href="{{ route('admin.sorotan.create') }}"

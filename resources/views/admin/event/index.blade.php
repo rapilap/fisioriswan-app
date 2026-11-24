@@ -47,11 +47,11 @@
         @endif
 
         @if ($events->isEmpty())
-            <div class="rounded-[20px] border border-line bg-white px-6 py-20 text-center">
-                <p class="font-fraunces text-[24px] font-semibold text-primary">
+            <div class="rounded-[20px] border border-(--border-line) bg-(--bg-secondary) px-6 py-20 text-center">
+                <p class="font-fraunces text-[24px] font-semibold text-(--text-primary)">
                     {{ $tampil === 'lewat' ? 'Belum ada event yang sudah lewat' : 'Belum ada event yang akan datang' }}
                 </p>
-                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-secondary">
+                <p class="mx-auto mt-2 max-w-105 text-[14px] leading-relaxed text-(--text-paragraph)">
                     {{ $tampil === 'lewat'
                         ? 'Event yang tanggalnya sudah lewat akan berpindah ke sini secara otomatis.'
                         : 'Tambahkan event hasil kolaborasi agar pengunjung bisa langsung mendaftar lewat halaman Event.' }}
@@ -159,7 +159,7 @@
                         {{-- Aksi --}}
                         <div class="flex shrink-0 gap-2 sm:flex-col">
                             <a href="{{ route('admin.event.edit', $event) }}"
-                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) px-4 text-[14px] font-semibold text-(--bg-point) transition hover:bg-(--color-b1) hover:text-white sm:flex-none">
+                                class="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-[10px] border border-(--bg-point) px-4 text-[14px] font-semibold text-(--bg-point) transition hover:bg-(--bg-point) hover:text-white sm:flex-none">
                                 @include('components.icon', ['name' => 'pencil', 'class' => 'w-4 h-4'])
                                 Edit
                             </a>

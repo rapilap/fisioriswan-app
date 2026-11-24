@@ -429,7 +429,7 @@
 
                         <a href="{{ $whatsappUrl }}" target="_blank"
                             class="mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[14px] font-semibold transition
-                            {{ $populer ? 'mt-auto bg-(--color-g1) text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-b1 hover:bg-(--color-b1) hover:text-white' }}">
+                            {{ $populer ? 'mt-auto bg-(--color-g1) text-white hover:bg-g2' : 'mt-auto border border-line text-(--text-button) hover:border-(--color-b1) hover:bg-(--color-b1) hover:text-white' }}">
                             {{ $item['harga'] ? 'Pesan Sekarang' : 'Hubungi Kami' }}
                         </a>
                     </article>
@@ -475,7 +475,9 @@
                 @endforelse
             </div>
 
-            @include('components.slider-nav')
+            @if (!empty($testimoni) && count($testimoni) > 3)
+                @include('components.slider-nav')
+            @endif
 
             {{-- CTA --}}
             <div
