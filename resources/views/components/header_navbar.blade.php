@@ -30,7 +30,7 @@
 
         <div class="flex items-center justify-center gap-4.5">
             <div class="flex flex-row items-center justify-center gap-4.5">
-                <a href="https://www.instagram.com/telkomindonesia/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/fisioawan?jplx=MWY5NXk4cHZ2ZzhsYg==" target="_blank" rel="noopener noreferrer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 1024 1024">
                         <path d="M0 0h1024v1024H0z" fill="none" />
                         <path fill="currentColor"
