@@ -65,7 +65,7 @@
                     ermayaphysio@hayoo.com
                 </span>
                 <span class="text-white">
-                    Jl. Jalan dengan Sepatu Rodaku No. 1, Kota Bandung
+                    Jl. Cicukang Barat, Katapang, Kabupaten Bandung
                 </span>
             </div>
         </div>
