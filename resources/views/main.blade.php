@@ -204,18 +204,17 @@
                         Lihat paket
                     </a>
                 </div>
-                {{-- TODO: sesuaikan angka statistik dengan data asli --}}
                 <div class="mt-11 flex flex-wrap gap-x-10 gap-y-4">
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">500+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ number_format($stats['patients'], 0, ',', '.') }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Pasien dilayani</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">1.000+</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ number_format($stats['sessions'], 0, ',', '.') }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Sesi terapi</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--color-b1)">4.9/5</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ \App\Support\ClinicStats::formatRating($stats['rating']) }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Rating pasien</p>
                     </div>
                 </div>

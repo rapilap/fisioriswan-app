@@ -96,6 +96,29 @@
                     </div>
 
                     <div>
+                        <label for="package" class="block text-[16px] text-(--text-primary)">Paket yang Diambil*</label>
+                        <div class="relative mt-1.5">
+                            <select id="package" name="package" required
+                                class="{{ $field }} {{ $border('package') }} appearance-none pr-8 {{ old('package') ? '' : 'text-[#b7b9b5]' }}">
+                                <option value="" disabled @selected(!old('package'))>Pilih Paket</option>
+                                @foreach ($packages as $kunci => $paket)
+                                    <option value="{{ $kunci }}" class="text-(--text-primary)"
+                                        @selected(old('package') === $kunci)>{{ $paket['nama'] }}</option>
+                                @endforeach
+                            </select>
+                            <span class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-secondary">
+                                @include('components.icon', [
+                                    'name' => 'chevron-down',
+                                    'class' => 'w-4 h-4',
+                                ])
+                            </span>
+                        </div>
+                        @error('package')
+                            <p class="mt-1 text-[13px] text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
                         <label for="image" class="block text-[16px] text-(--text-primary)">Foto</label>
                         <input id="image" name="image" type="file" accept="image/*"
                             class="mt-1.5 h-8 w-full rounded border bg-(--bg-secondary) text-[14px] text-secondary file:mr-3 file:h-full file:cursor-pointer file:border-0 file:bg-pill file:px-3 file:text-[13px] file:font-medium file:text-g1 {{ $border('image') }}">

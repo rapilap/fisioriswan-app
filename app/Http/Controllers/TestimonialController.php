@@ -28,6 +28,7 @@ class TestimonialController extends Controller
     {
         return view('testimonials.create', [
             'cities' => config('testimonial.cities'),
+            'packages' => config('testimonial.packages'),
         ]);
     }
 
@@ -44,6 +45,7 @@ class TestimonialController extends Controller
         $data = $request->validate([
             'fullname' => ['required', 'string', 'max:100'],
             'city' => ['required', Rule::in(config('testimonial.cities'))],
+            'package' => ['required', Rule::in(array_keys(config('testimonial.packages')))],
             'rating' => ['required', 'integer', 'between:1,5'],
             'testimonial' => ['required', 'string', 'min:10', 'max:1000'],
             // Maks. 5 MB; format foto umum. Isi file diperiksa, dan SVG (bisa berisi skrip) ditolak.
@@ -56,6 +58,8 @@ class TestimonialController extends Controller
             'fullname.max' => 'Nama lengkap maksimal 100 karakter.',
             'city.required' => 'Silakan pilih kota domisili.',
             'city.in' => 'Kota domisili tidak valid.',
+            'package.required' => 'Silakan pilih paket yang Anda ambil.',
+            'package.in' => 'Paket tidak valid.',
             'testimonial.required' => 'Testimoni wajib diisi.',
             'testimonial.min' => 'Testimoni minimal 10 karakter.',
             'testimonial.max' => 'Testimoni maksimal 1000 karakter.',
@@ -68,6 +72,7 @@ class TestimonialController extends Controller
         Testimonial::create([
             'fullname' => $data['fullname'],
             'city' => $data['city'],
+            'package' => $data['package'],
             'testimonial' => $data['testimonial'],
             'rating' => $data['rating'],
             'image' => $request->file('image')?->store('testimonials', 'public'),

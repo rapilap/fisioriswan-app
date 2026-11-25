@@ -21,7 +21,7 @@
 
                 {{-- Social Media --}}
                 <div class="flex flex-row items-center justify-center gap-4.5">
-                    <a href="https://www.instagram.com/telkomindonesia/" target="_blank"
+                    <a href="https://www.instagram.com/fisioawan?bqrl=MWY5NXk4cHZ2ZzhsYg==" target="_blank"
                         class=" border border-white rounded-full p-2 hover:bg-white hover:text-(--color-b1) transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 1024 1024">
                             <path d="M0 0h1024v1024H0z" fill="none" />

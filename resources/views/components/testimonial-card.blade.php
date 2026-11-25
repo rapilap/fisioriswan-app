@@ -1,4 +1,4 @@
-@props(['fullname' => 'User', 'city' => '', 'image' => null, 'testimonial' => null, 'rating' => 5])
+@props(['fullname' => 'User', 'city' => '', 'image' => null, 'testimonial' => null, 'rating' => 4.8, 'package' => null])
 
 <article
     {{ $attributes->class(['flex w-full flex-col rounded-[20px] border border-(--border-line) bg-(--bg-card) p-7']) }}>
@@ -33,6 +33,9 @@
         <div class="min-w-0">
             <h3 class="truncate text-[14px] font-semibold text-(--text-primary)">{{ $fullname }}</h3>
             <p class="truncate text-[13px] text-(--text-paragraph)">{{ $city }}</p>
+            @if ($package)
+                <p class="truncate text-[12px] font-medium text-g1">{{ $package }}</p>
+            @endif
         </div>
     </div>
 </article>
