@@ -91,7 +91,7 @@
 
                 {{-- Letakkan foto di public/images/event/hero.jpg --}}
                 @include('components.beranda-foto', [
-                    'src' => 'images/event/hero.jpg',
+                    'src' => 'images/event/5.jpeg',
                     'alt' => 'Tim fisioterapi Ermaya di sebuah acara',
                     'caption' => 'Tim fisioterapi di sebuah acara',
                     'icon' => 'users',
@@ -220,7 +220,7 @@
 
             {{-- Letakkan foto di public/images/event/kolaborasi.jpg --}}
             @include('components.beranda-foto', [
-                'src' => 'images/event/kolaborasi.jpg',
+                'src' => 'images/event/4.jpeg',
                 'alt' => 'Tim Ermaya di lokasi event',
                 'caption' => 'Tim di lokasi event',
                 'icon' => 'users',

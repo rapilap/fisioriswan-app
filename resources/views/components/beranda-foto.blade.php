@@ -2,7 +2,7 @@
      Opsi: icon, caption, class (ukuran), radius, iconClass,
            load => true (animasi saat halaman dimuat), delay => ms, reveal => false --}}
 @php
-    $anim = ($load ?? false) ? 'load-in' : (($reveal ?? true) ? 'reveal' : '');
+    $anim = $load ?? false ? 'load-in' : ($reveal ?? true ? 'reveal' : '');
 @endphp
 <div class="{{ $anim }} relative overflow-hidden {{ $radius ?? 'rounded-3xl' }} border border-line bg-linear-to-br from-photo-from to-photo-to {{ $class ?? '' }}"
     title="Letakkan foto di public/{{ $src }}"

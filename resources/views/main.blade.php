@@ -206,15 +206,18 @@
                 </div>
                 <div class="mt-11 flex flex-wrap gap-x-10 gap-y-4">
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ number_format($stats['patients'], 0, ',', '.') }}</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">
+                            {{ number_format($stats['patients'], 0, ',', '.') }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Pasien dilayani</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ number_format($stats['sessions'], 0, ',', '.') }}</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">
+                            {{ number_format($stats['sessions'], 0, ',', '.') }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Sesi terapi</p>
                     </div>
                     <div>
-                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">{{ \App\Support\ClinicStats::formatRating($stats['rating']) }}</p>
+                        <p class="font-fraunces font-semibold text-[30px] leading-none text-(--text-highlight)">
+                            {{ \App\Support\ClinicStats::formatRating($stats['rating']) }}</p>
                         <p class="mt-1.5 text-[13px] text-(--text-paragraph)">Rating pasien</p>
                     </div>
                 </div>
@@ -222,7 +225,7 @@
 
             {{-- Letakkan foto di public/images/beranda/hero.jpg --}}
             @include('components.beranda-foto', [
-                'src' => 'images/beranda/hero.jpg',
+                'src' => 'images/beranda/1.jpeg',
                 'alt' => 'Fisioterapis Ermaya sedang menangani pasien di rumah',
                 'caption' => 'Fisioterapis Ermaya di rumah pasien',
                 'icon' => 'heart',
@@ -238,7 +241,7 @@
         <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             {{-- Letakkan foto di public/images/beranda/klinik.jpg --}}
             @include('components.beranda-foto', [
-                'src' => 'images/beranda/klinik.jpg',
+                'src' => 'images/beranda/7.jpeg',
                 'alt' => 'Pasien beristirahat dengan nyaman di rumah',
                 'caption' => 'Pasien beristirahat dengan nyaman di rumah',
                 'icon' => 'users',
