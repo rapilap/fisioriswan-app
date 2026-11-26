@@ -52,6 +52,8 @@ Route::post('/testimoni', [TestimonialController::class, 'store'])
     ->name('testimoni.store');
 
 // Admin
+Route::redirect('/admin', '/admin/login');
+
 Route::get('/admin/login', [
     AdminAuthController::class,
     'showLogin',
